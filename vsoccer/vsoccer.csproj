@@ -53,10 +53,19 @@
     <Compile Include="gestoralumnos.Designer.cs">
       <DependentUpon>gestoralumnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="iniciodesesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="iniciodesesion.Designer.cs">
+      <DependentUpon>iniciodesesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="gestoralumnos.resx">
       <DependentUpon>gestoralumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iniciodesesion.resx">
+      <DependentUpon>iniciodesesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
