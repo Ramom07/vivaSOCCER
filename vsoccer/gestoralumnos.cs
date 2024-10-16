@@ -14,9 +14,8 @@ namespace vsoccer
     {
         public gestoralumnos()
         {
-            InitializeComponent();
-
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            InitializeComponent();
 
             panelOpciones.Dock = DockStyle.Top;
 
@@ -74,7 +73,10 @@ namespace vsoccer
                 WindowState = FormWindowState.Minimized;
         }
 
+        private void chtCalificaciones_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
+
