@@ -38,9 +38,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnVercontraseña = new System.Windows.Forms.Button();
             this.txtContraseña = new vsoccer.RJTextBox();
             this.txtUsuario = new vsoccer.RJTextBox();
-            this.btnVercontraseña = new System.Windows.Forms.Button();
             this.panellogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -87,7 +87,7 @@
             // 
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(400, 555);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(425, 554);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(193, 37);
@@ -98,14 +98,13 @@
             // 
             // lnkOlvide
             // 
-            this.lnkOlvide.AutoSize = true;
             this.lnkOlvide.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkOlvide.ForeColor = System.Drawing.Color.LawnGreen;
             this.lnkOlvide.LinkColor = System.Drawing.Color.Lime;
             this.lnkOlvide.Location = new System.Drawing.Point(421, 509);
             this.lnkOlvide.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnkOlvide.Name = "lnkOlvide";
-            this.lnkOlvide.Size = new System.Drawing.Size(147, 20);
+            this.lnkOlvide.Size = new System.Drawing.Size(353, 28);
             this.lnkOlvide.TabIndex = 5;
             this.lnkOlvide.TabStop = true;
             this.lnkOlvide.Text = "Olvidé Contraseña";
@@ -152,6 +151,18 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // btnVercontraseña
+            // 
+            this.btnVercontraseña.FlatAppearance.BorderSize = 0;
+            this.btnVercontraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVercontraseña.ForeColor = System.Drawing.Color.Transparent;
+            this.btnVercontraseña.Image = ((System.Drawing.Image)(resources.GetObject("btnVercontraseña.Image")));
+            this.btnVercontraseña.Location = new System.Drawing.Point(742, 460);
+            this.btnVercontraseña.Name = "btnVercontraseña";
+            this.btnVercontraseña.Size = new System.Drawing.Size(49, 29);
+            this.btnVercontraseña.TabIndex = 14;
+            this.btnVercontraseña.UseVisualStyleBackColor = true;
+            // 
             // txtContraseña
             // 
             this.txtContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
@@ -185,18 +196,6 @@
             this.txtUsuario.TabIndex = 12;
             this.txtUsuario.Texts = "";
             this.txtUsuario.UnderlineStyle = true;
-            // 
-            // btnVercontraseña
-            // 
-            this.btnVercontraseña.FlatAppearance.BorderSize = 0;
-            this.btnVercontraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVercontraseña.ForeColor = System.Drawing.Color.Transparent;
-            this.btnVercontraseña.Image = ((System.Drawing.Image)(resources.GetObject("btnVercontraseña.Image")));
-            this.btnVercontraseña.Location = new System.Drawing.Point(730, 460);
-            this.btnVercontraseña.Name = "btnVercontraseña";
-            this.btnVercontraseña.Size = new System.Drawing.Size(45, 25);
-            this.btnVercontraseña.TabIndex = 14;
-            this.btnVercontraseña.UseVisualStyleBackColor = true;
             // 
             // iniciodesesion
             // 

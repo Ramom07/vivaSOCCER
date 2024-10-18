@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestoralumnos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.paneltitulo = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMax = new System.Windows.Forms.Button();
@@ -75,8 +75,9 @@
             this.paneltitulo.Controls.Add(this.lblTitulo);
             this.paneltitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneltitulo.Location = new System.Drawing.Point(0, 0);
+            this.paneltitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.paneltitulo.Name = "paneltitulo";
-            this.paneltitulo.Size = new System.Drawing.Size(1443, 119);
+            this.paneltitulo.Size = new System.Drawing.Size(1924, 146);
             this.paneltitulo.TabIndex = 0;
             // 
             // btnCerrar
@@ -87,10 +88,10 @@
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(3)))));
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1403, 2);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(1871, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(38, 45);
+            this.btnCerrar.Size = new System.Drawing.Size(51, 55);
             this.btnCerrar.TabIndex = 5;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -103,10 +104,10 @@
             this.btnMax.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
             this.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMax.Image = ((System.Drawing.Image)(resources.GetObject("btnMax.Image")));
-            this.btnMax.Location = new System.Drawing.Point(1366, 2);
-            this.btnMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMax.Location = new System.Drawing.Point(1821, 2);
+            this.btnMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMax.Name = "btnMax";
-            this.btnMax.Size = new System.Drawing.Size(38, 45);
+            this.btnMax.Size = new System.Drawing.Size(51, 55);
             this.btnMax.TabIndex = 4;
             this.btnMax.UseVisualStyleBackColor = true;
             this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
@@ -119,10 +120,10 @@
             this.btnMin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
             this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMin.Image = ((System.Drawing.Image)(resources.GetObject("btnMin.Image")));
-            this.btnMin.Location = new System.Drawing.Point(1328, 2);
-            this.btnMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMin.Location = new System.Drawing.Point(1771, 2);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(38, 45);
+            this.btnMin.Size = new System.Drawing.Size(51, 55);
             this.btnMin.TabIndex = 3;
             this.btnMin.UseVisualStyleBackColor = true;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
@@ -131,10 +132,10 @@
             // 
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(17, 11);
-            this.logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logo.Location = new System.Drawing.Point(23, 14);
+            this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(140, 106);
+            this.logo.Size = new System.Drawing.Size(187, 130);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 1;
             this.logo.TabStop = false;
@@ -144,7 +145,8 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(462, 36);
+            this.lblTitulo.Location = new System.Drawing.Point(616, 44);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(726, 80);
             this.lblTitulo.TabIndex = 0;
@@ -157,14 +159,14 @@
             this.dgDatosAlumnos.BackgroundColor = System.Drawing.Color.MediumOrchid;
             this.dgDatosAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgDatosAlumnos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgDatosAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgDatosAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgDatosAlumnos.ColumnHeadersHeight = 38;
             this.dgDatosAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgDatosAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -176,27 +178,28 @@
             this.Column6});
             this.dgDatosAlumnos.EnableHeadersVisualStyles = false;
             this.dgDatosAlumnos.GridColor = System.Drawing.Color.DarkViolet;
-            this.dgDatosAlumnos.Location = new System.Drawing.Point(46, 353);
+            this.dgDatosAlumnos.Location = new System.Drawing.Point(61, 434);
+            this.dgDatosAlumnos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgDatosAlumnos.Name = "dgDatosAlumnos";
             this.dgDatosAlumnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Violet;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Plum;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgDatosAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Violet;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgDatosAlumnos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgDatosAlumnos.RowHeadersVisible = false;
             this.dgDatosAlumnos.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkOrchid;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Plum;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgDatosAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DarkOrchid;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Plum;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dgDatosAlumnos.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgDatosAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDatosAlumnos.Size = new System.Drawing.Size(790, 395);
+            this.dgDatosAlumnos.Size = new System.Drawing.Size(1053, 486);
             this.dgDatosAlumnos.TabIndex = 2;
             this.dgDatosAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatosAlumnos_CellContentClick);
             // 
@@ -247,20 +250,21 @@
             this.chtCalificaciones.BackColor = System.Drawing.Color.MediumOrchid;
             this.chtCalificaciones.BorderlineColor = System.Drawing.Color.Orchid;
             this.chtCalificaciones.BorderlineWidth = 0;
-            chartArea1.Name = "ChartArea1";
-            this.chtCalificaciones.ChartAreas.Add(chartArea1);
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chtCalificaciones.Legends.Add(legend1);
-            this.chtCalificaciones.Location = new System.Drawing.Point(976, 353);
+            chartArea3.Name = "ChartArea1";
+            this.chtCalificaciones.ChartAreas.Add(chartArea3);
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chtCalificaciones.Legends.Add(legend3);
+            this.chtCalificaciones.Location = new System.Drawing.Point(1301, 434);
+            this.chtCalificaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chtCalificaciones.Name = "chtCalificaciones";
             this.chtCalificaciones.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chtCalificaciones.Series.Add(series1);
-            this.chtCalificaciones.Size = new System.Drawing.Size(389, 395);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chtCalificaciones.Series.Add(series3);
+            this.chtCalificaciones.Size = new System.Drawing.Size(519, 486);
             this.chtCalificaciones.TabIndex = 3;
             this.chtCalificaciones.Text = "chart1";
             this.chtCalificaciones.Click += new System.EventHandler(this.chtCalificaciones_Click);
@@ -275,9 +279,10 @@
             this.panelOpciones.Controls.Add(this.btnEliminar);
             this.panelOpciones.Controls.Add(this.btnEditar);
             this.panelOpciones.Controls.Add(this.btnCuenta);
-            this.panelOpciones.Location = new System.Drawing.Point(0, 117);
+            this.panelOpciones.Location = new System.Drawing.Point(0, 144);
+            this.panelOpciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.Size = new System.Drawing.Size(1443, 127);
+            this.panelOpciones.Size = new System.Drawing.Size(1924, 156);
             this.panelOpciones.TabIndex = 4;
             // 
             // btnAgregar
@@ -288,10 +293,10 @@
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(362, 26);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Location = new System.Drawing.Point(431, 32);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(191, 73);
+            this.btnAgregar.Size = new System.Drawing.Size(255, 90);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "    Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -304,10 +309,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(974, 26);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Location = new System.Drawing.Point(1247, 32);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(191, 73);
+            this.btnEliminar.Size = new System.Drawing.Size(255, 90);
             this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "     Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -320,10 +325,10 @@
             this.btnEditar.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(670, 26);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Location = new System.Drawing.Point(841, 32);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(191, 73);
+            this.btnEditar.Size = new System.Drawing.Size(255, 90);
             this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "    Editar ";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -335,10 +340,10 @@
             this.btnCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuenta.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCuenta.Image = ((System.Drawing.Image)(resources.GetObject("btnCuenta.Image")));
-            this.btnCuenta.Location = new System.Drawing.Point(1373, 9);
-            this.btnCuenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCuenta.Location = new System.Drawing.Point(1821, 16);
+            this.btnCuenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCuenta.Name = "btnCuenta";
-            this.btnCuenta.Size = new System.Drawing.Size(70, 86);
+            this.btnCuenta.Size = new System.Drawing.Size(93, 106);
             this.btnCuenta.TabIndex = 2;
             this.btnCuenta.Text = " Cuenta";
             this.btnCuenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -356,10 +361,10 @@
             "MENOR Martes y Jueves",
             "MAYOR Lunes y Miercoles",
             "MAYOR Martes y Jueves"});
-            this.cbCategorias.Location = new System.Drawing.Point(46, 296);
-            this.cbCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCategorias.Location = new System.Drawing.Point(61, 364);
+            this.cbCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCategorias.Name = "cbCategorias";
-            this.cbCategorias.Size = new System.Drawing.Size(209, 28);
+            this.cbCategorias.Size = new System.Drawing.Size(277, 28);
             this.cbCategorias.TabIndex = 5;
             this.cbCategorias.Text = "CATEGORIAS";
             // 
@@ -372,10 +377,10 @@
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(277, 292);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImprimir.Location = new System.Drawing.Point(369, 359);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(44, 36);
+            this.btnImprimir.Size = new System.Drawing.Size(59, 44);
             this.btnImprimir.TabIndex = 3;
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
@@ -388,19 +393,19 @@
             this.btnCerrarsesion.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarsesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarsesion.Image")));
             this.btnCerrarsesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarsesion.Location = new System.Drawing.Point(1385, 771);
-            this.btnCerrarsesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrarsesion.Location = new System.Drawing.Point(1847, 949);
+            this.btnCerrarsesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCerrarsesion.Name = "btnCerrarsesion";
-            this.btnCerrarsesion.Size = new System.Drawing.Size(51, 56);
+            this.btnCerrarsesion.Size = new System.Drawing.Size(68, 69);
             this.btnCerrarsesion.TabIndex = 6;
             this.btnCerrarsesion.UseVisualStyleBackColor = true;
             // 
             // gestoralumnos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumOrchid;
-            this.ClientSize = new System.Drawing.Size(1443, 839);
+            this.ClientSize = new System.Drawing.Size(1924, 1033);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCerrarsesion);
             this.Controls.Add(this.cbCategorias);
@@ -410,6 +415,7 @@
             this.Controls.Add(this.paneltitulo);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "gestoralumnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
