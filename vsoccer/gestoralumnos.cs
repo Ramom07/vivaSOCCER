@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace vsoccer
 {
@@ -36,8 +38,14 @@ namespace vsoccer
 
             btnCuenta.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             btnCerrarsesion.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+            /*
+            MySqlConnection conexionBD = conexion.conex();
 
+            if (conexionBD != null)
+            {
 
+            }
+            */
 
         }
 
