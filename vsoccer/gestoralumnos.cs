@@ -77,6 +77,20 @@ namespace vsoccer
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            // Crear y mostrar el formulario frmAlumnos
+            frmAlumnos formAlumnos = new frmAlumnos();
+            formAlumnos.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            // Crear y mostrar el formulario frmAlumnos
+            frmEditar formEditar = new frmEditar();
+            formEditar.Show();
+        }
     }
 }
 
