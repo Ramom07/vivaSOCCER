@@ -16,7 +16,7 @@ namespace vsoccer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new gestoralumnos());
+            Application.Run(new iniciodesesion());
         }
     }
 }
