@@ -53,21 +53,24 @@ namespace vsoccer
             {
                 return bprderSize;
             }
-            set 
+            set
             {
-                bprderSize=value;
+                bprderSize = value;
                 this.Invalidate();
             }
         }
         [Category("RJ Code Advance ")]
         public bool UnderlineStyle
         {
-            get 
-            { 
-            
-            return underlineStyle;}
+            get
+            {
 
-            set { underlineStyle = value;
+                return underlineStyle;
+            }
+
+            set
+            {
+                underlineStyle = value;
                 this.Invalidate();
             }
         }
@@ -75,7 +78,7 @@ namespace vsoccer
         public bool PasswordChar
         {
             get { return textBox1.UseSystemPasswordChar; }
-            set { textBox1.UseSystemPasswordChar = value;  }
+            set { textBox1.UseSystemPasswordChar = value; }
         }
         [Category("RJ Code Advance ")]
 
@@ -119,16 +122,16 @@ namespace vsoccer
                     UpdateControlHeight();
             }
         }
-        [Category ("RJ Code Advance " )]
+        [Category("RJ Code Advance ")]
         public string Texts
         {
             get
             {
-            return textBox1.Text;
+                return textBox1.Text;
             }
-            set 
+            set
             {
-            textBox1.Text = value;
+                textBox1.Text = value;
             }
 
 
@@ -136,7 +139,7 @@ namespace vsoccer
         }
 
         //override 
-        protected override void  OnPaint(PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
@@ -156,9 +159,9 @@ namespace vsoccer
 
         }
 
-        protected override void  OnResize (EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
-            base.OnResize (e);
+            base.OnResize(e);
             if (this.DesignMode)
                 UpdateControlHeight();
             UpdateControlHeight();
@@ -169,10 +172,10 @@ namespace vsoccer
             base.OnLoad(e);
             UpdateControlHeight();
         }
-        
+
         private void UpdateControlHeight()
         {
-            if (textBox1.Multiline == false )
+            if (textBox1.Multiline == false)
             {
                 int txtHeight = TextRenderer.MeasureText("Text", this.Font).Height + 1;
                 textBox1.Multiline = true;
@@ -184,6 +187,25 @@ namespace vsoccer
 
 
         }
+        private void VerificarControles()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is RJTextBox)
+                {
+                    RJTextBox rjTextBox = (RJTextBox)control;
+                    MessageBox.Show(
+                        $"Control RJTextBox encontrado:\n" +
+                        $"Nombre: {rjTextBox.Name}\n" +
+                        $"Texto actual: {rjTextBox.Texts}\n" +
+                        $"Es contraseña: {rjTextBox.PasswordChar}",
+                        "Información del Control",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
+
 

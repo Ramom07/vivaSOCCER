@@ -15,90 +15,166 @@ namespace vsoccer
     public partial class iniciodesesion : Form
     {
         private bool passwordVisible = false;
-        private int intentosRestantes = 3; // Contador de intentos
+        private int intentosRestantes = 3;
 
+        // Credenciales correctas como constantes de clase
+        private const string USUARIO_CORRECTO = "prueba@gmail.com";
+        private const string CONTRASENA_CORRECTA = "Vivasoccer24!";
 
-
-        [STAThread]
         [DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
 
         public iniciodesesion()
         {
             InitializeComponent();
+            ConfigurarFormulario();
+          //  VerificarControles(); // Agregamos verificación inicial de controles
+        }
 
-            // Habilitar compatibilidad con pantallas de alta resolución
+        private void ConfigurarFormulario()
+        {
             if (Environment.OSVersion.Version.Major >= 6)
             {
                 SetProcessDPIAware();
             }
 
-            // Asegurar el escalado adecuado
             this.AutoScaleMode = AutoScaleMode.Dpi;
-
-            // Configurar el RJTextBox de contraseña
-            txtContrasena.PasswordChar = true;
-
+            txtContrasena.PasswordChar = true; // Usando la propiedad PasswordChar del RJTextBox
         }
 
-
-       
-
-       
-
-      
-
-
+        //verificar si estan los campos
+        /*
+        private void VerificarControles()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is RJTextBox)
+                {
+                    RJTextBox rjTextBox = (RJTextBox)control;
+                    MessageBox.Show(
+                        $"Control RJTextBox encontrado:\n" +
+                        $"Nombre: {rjTextBox.Name}\n" +
+                        $"Texto actual: {rjTextBox.Texts}\n" +
+                        $"Es contraseña: {rjTextBox.PasswordChar}",
+                        "Información del Control",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+        }*/
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            string email = txtUsuario.Text; // Asumiendo que tienes un TextBox llamado txtUsuario
-            string password = txtContrasena.Text;
+            // Obtener y limpiar las credenciales ingresadas usando la propiedad Texts
+            string emailIngresado = txtUsuario.Texts?.Trim() ?? "";
+            string passwordIngresado = txtContrasena.Texts?.Trim() ?? "";
 
-          
-            // Validar email y contraseña
-            if (!ValidarEmail(email) || !ValidarContrasena(password))
+            // Diagnóstico: Mostrar longitud de los campos
+           /* MessageBox.Show(
+                $"Diagnóstico:\n" +
+                $"Longitud del email: {emailIngresado.Length}\n" +
+                $"Longitud de la contraseña: {passwordIngresado.Length}\n" +
+                $"Email ingresado: '{emailIngresado}'\n" +
+                $"¿Email está vacío?: {string.IsNullOrEmpty(emailIngresado)}\n" +
+                $"¿Contraseña está vacía?: {string.IsNullOrEmpty(passwordIngresado)}",
+                "Información de diagnóstico",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+           */
+
+            // Validar que los campos no estén vacíos
+            if (string.IsNullOrEmpty(emailIngresado) || string.IsNullOrEmpty(passwordIngresado))
             {
-                intentosRestantes--;
-
-                if (intentosRestantes > 0)
-                {
-                    MessageBox.Show(
-                        $"Usuario y/o Contraseña incorrectos\n\nLe quedan {intentosRestantes} intentos",
-                        "Error de inicio de sesión",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    // Limpiar el campo de contraseña
-                    txtContrasena.Texts = "";
-                    txtContrasena.Focus();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Ha excedido el número máximo de intentos.\nLa aplicación se cerrará.",
-                        "Acceso bloqueado",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    // Cerrar la aplicación
-                    Application.Exit();
-                }
+                MostrarError("Por favor, complete todos los campos.");
                 return;
             }
 
-            // Si las validaciones son exitosas
-            gestoralumnos gestorAlumnosForm = new gestoralumnos();
-            gestorAlumnosForm.Show();
-            this.Hide();
+            // Validar el formato del email
+            if (!ValidarEmail(emailIngresado))
+            {
+                MostrarError("El formato del correo electrónico no es válido.");
+                return;
+            }
+
+            // Validar el formato de la contraseña
+            if (!ValidarContrasena(passwordIngresado))
+            {
+                MostrarError("La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial.");
+                return;
+            }
+
+            // Verificar las credenciales
+            if (emailIngresado == USUARIO_CORRECTO && passwordIngresado == CONTRASENA_CORRECTA)
+            {
+                InicioSesionExitoso();
+            }
+            else
+            {
+                ManejarIntentoFallido();
+            }
         }
+
+        private void InicioSesionExitoso()
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¡Inicio de sesión exitoso!\n\nPresione Aceptar para continuar",
+                "Bienvenido",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                gestoralumnos gestorAlumnosForm = new gestoralumnos();
+                gestorAlumnosForm.Show();
+                this.Hide();
+            }
+        }
+
+        private void ManejarIntentoFallido()
+        {
+            intentosRestantes--;
+
+            if (intentosRestantes > 0)
+            {
+                MostrarError($"Usuario y/o Contraseña incorrectos\n\nLe quedan {intentosRestantes} intentos");
+                txtContrasena.Texts = ""; // Usando la propiedad Texts para limpiar
+                txtContrasena.Focus();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Ha excedido el número máximo de intentos.\nLa aplicación se cerrará.",
+                    "Acceso bloqueado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                Application.Exit();
+            }
+        }
+
+        private void MostrarError(string mensaje)
+        {
+            MessageBox.Show(
+                mensaje,
+                "Error de inicio de sesión",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+
         private bool ValidarEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
                 return false;
 
-            string pattern = @"^[^@\s]+@gmail\.com$";
-            return Regex.IsMatch(email, pattern);
+            try
+            {
+                // Patrón de validación de email más preciso
+                string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+                return Regex.IsMatch(email, pattern);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private bool ValidarContrasena(string password)
@@ -117,12 +193,10 @@ namespace vsoccer
         private void btnVercontraseña_Click(object sender, EventArgs e)
         {
             passwordVisible = !passwordVisible;
-            txtContrasena.PasswordChar = !passwordVisible;
+            txtContrasena.PasswordChar = !passwordVisible; // Usando la propiedad PasswordChar del RJTextBox
 
-            // Cambiar el texto del botón
             Button btnVerContrasena = (Button)sender;
             btnVerContrasena.Text = passwordVisible ? "Ocultar Contraseña" : "Ver Contraseña";
         }
     }
-    
 }
