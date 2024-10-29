@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace vsoccer
 {
@@ -16,6 +17,7 @@ namespace vsoccer
         {
             this.AutoScaleMode = AutoScaleMode.Dpi;
             InitializeComponent();
+            cargarTabla(null);
 
             panelOpciones.Dock = DockStyle.Top;
 
@@ -44,6 +46,13 @@ namespace vsoccer
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cargarTabla(string dato)
+        {
+            List<Alumno> lista = new List<Alumno>();
+            CtrlAlumnos ctrlAlumnos = new CtrlAlumnos();
+            dgDatosAlumnos.DataSource = ctrlAlumnos.consulta(dato);
         }
 
         private void gestoralumnos_Load(object sender, EventArgs e)

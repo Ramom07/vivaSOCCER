@@ -9,10 +9,10 @@ using MySql.Data.MySqlClient;
 
 namespace vsoccer
 {
-    internal class conexion
+     class conexion
     {
         //Método para abrir conexión
-        public static MySqlConnection conex()
+        public MySqlConnection conex()
         {
             //declaración de cadena para servidor
             string servidor = "server = localhost; database=vsoccer; Uid = root; pwd=pokechon";
@@ -22,6 +22,7 @@ namespace vsoccer
             try
             {
                 //devolución de conexión creada
+                
                 return conexionBD;
             }
             catch (Exception e)
