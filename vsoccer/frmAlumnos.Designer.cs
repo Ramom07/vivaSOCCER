@@ -116,7 +116,7 @@
             this.rjTextBox3.BorderSize = 2;
             this.rjTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox3.Location = new System.Drawing.Point(897, 117);
+            this.rjTextBox3.Location = new System.Drawing.Point(897, 123);
             this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox3.Name = "rjTextBox3";
             this.rjTextBox3.Padding = new System.Windows.Forms.Padding(9);
@@ -134,7 +134,7 @@
             this.rjTextBox2.BorderSize = 2;
             this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox2.Location = new System.Drawing.Point(475, 117);
+            this.rjTextBox2.Location = new System.Drawing.Point(475, 123);
             this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox2.Name = "rjTextBox2";
             this.rjTextBox2.Padding = new System.Windows.Forms.Padding(9);
@@ -152,7 +152,7 @@
             this.rjTextBox1.BorderSize = 2;
             this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(43, 117);
+            this.rjTextBox1.Location = new System.Drawing.Point(43, 123);
             this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox1.Name = "rjTextBox1";
             this.rjTextBox1.Padding = new System.Windows.Forms.Padding(9);
@@ -192,7 +192,7 @@
             this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
             this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
             this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAlumn.Location = new System.Drawing.Point(978, 526);
+            this.btnAddAlumn.Location = new System.Drawing.Point(967, 526);
             this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAddAlumn.Name = "btnAddAlumn";
             this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
@@ -214,7 +214,6 @@
             // 
             // btnAddTutorRegister
             // 
-            this.btnAddTutorRegister.AutoEllipsis = true;
             this.btnAddTutorRegister.AutoSize = true;
             this.btnAddTutorRegister.FlatAppearance.BorderSize = 0;
             this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -299,7 +298,7 @@
             // dtpFechaNaciRegister
             // 
             this.dtpFechaNaciRegister.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNaciRegister.Location = new System.Drawing.Point(128, 310);
+            this.dtpFechaNaciRegister.Location = new System.Drawing.Point(128, 316);
             this.dtpFechaNaciRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
             this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 22);
@@ -364,7 +363,7 @@
             this.checkBoxFemaleRegister.AutoSize = true;
             this.checkBoxFemaleRegister.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxFemaleRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFemaleRegister.Location = new System.Drawing.Point(678, 297);
+            this.checkBoxFemaleRegister.Location = new System.Drawing.Point(678, 305);
             this.checkBoxFemaleRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.checkBoxFemaleRegister.Name = "checkBoxFemaleRegister";
             this.checkBoxFemaleRegister.Size = new System.Drawing.Size(83, 22);
@@ -377,7 +376,7 @@
             this.checkBoxMenRegister.AutoSize = true;
             this.checkBoxMenRegister.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxMenRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMenRegister.Location = new System.Drawing.Point(678, 329);
+            this.checkBoxMenRegister.Location = new System.Drawing.Point(678, 337);
             this.checkBoxMenRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.checkBoxMenRegister.Name = "checkBoxMenRegister";
             this.checkBoxMenRegister.Size = new System.Drawing.Size(97, 22);

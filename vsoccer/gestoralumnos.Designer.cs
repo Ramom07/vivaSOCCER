@@ -52,13 +52,13 @@
             this.cbCategorias = new System.Windows.Forms.ComboBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCerrarsesion = new System.Windows.Forms.Button();
-            this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaNacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tutorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alumnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.paneltitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatosAlumnos)).BeginInit();
@@ -334,7 +334,7 @@
             this.cbCategorias.Name = "cbCategorias";
             this.cbCategorias.Size = new System.Drawing.Size(277, 28);
             this.cbCategorias.TabIndex = 5;
-            this.cbCategorias.Text = "CATEGORIAS";
+            this.cbCategorias.Text = "CATEGORÍAS";
             // 
             // btnImprimir
             // 
@@ -367,10 +367,6 @@
             this.btnCerrarsesion.Size = new System.Drawing.Size(68, 69);
             this.btnCerrarsesion.TabIndex = 6;
             this.btnCerrarsesion.UseVisualStyleBackColor = true;
-            // 
-            // alumnoBindingSource
-            // 
-            this.alumnoBindingSource.DataSource = typeof(vsoccer.Alumno);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -419,6 +415,10 @@
             this.telefonoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
             this.telefonoDataGridViewTextBoxColumn.Width = 109;
+            // 
+            // alumnoBindingSource
+            // 
+            this.alumnoBindingSource.DataSource = typeof(vsoccer.Alumno);
             // 
             // gestoralumnos
             // 

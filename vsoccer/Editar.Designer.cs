@@ -30,11 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar));
             this.gb_Info_Alumno = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.rjTextBox3 = new vsoccer.RJTextBox();
             this.rjTextBox2 = new vsoccer.RJTextBox();
             this.rjTextBox1 = new vsoccer.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbHorario = new System.Windows.Forms.ComboBox();
+            this.btnAddAlumn = new System.Windows.Forms.Button();
+            this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
+            this.btnAddTutorRegister = new System.Windows.Forms.Button();
+            this.btnCancelRegister = new System.Windows.Forms.Button();
+            this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.lblname = new System.Windows.Forms.Label();
             this.lbldatebrith = new System.Windows.Forms.Label();
             this.cbSelecTutoRegister = new System.Windows.Forms.ComboBox();
@@ -45,18 +53,10 @@
             this.lblapellidomat = new System.Windows.Forms.Label();
             this.checkBoxFemaleRegister = new System.Windows.Forms.CheckBox();
             this.checkBoxMenRegister = new System.Windows.Forms.CheckBox();
-            this.btnAddAlumn = new System.Windows.Forms.Button();
-            this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
-            this.btnAddTutorRegister = new System.Windows.Forms.Button();
-            this.btnCancelRegister = new System.Windows.Forms.Button();
-            this.btnSaveAlumRegister = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gb_Info_Alumno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddImageAlum)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddImageAlum)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_Info_Alumno
@@ -94,6 +94,42 @@
             this.gb_Info_Alumno.TabStop = false;
             this.gb_Info_Alumno.Text = "INFORMACION DEL ALUMNO";
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.DarkMagenta;
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.pictureBox2);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1284, 94);
+            this.panel4.TabIndex = 72;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(348, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(529, 57);
+            this.label9.TabIndex = 40;
+            this.label9.Text = "EDITAR INFORMACIÓN";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(130, 78);
+            this.pictureBox2.TabIndex = 39;
+            this.pictureBox2.TabStop = false;
+            // 
             // rjTextBox3
             // 
             this.rjTextBox3.AutoSize = true;
@@ -102,7 +138,7 @@
             this.rjTextBox3.BorderSize = 2;
             this.rjTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox3.Location = new System.Drawing.Point(897, 138);
+            this.rjTextBox3.Location = new System.Drawing.Point(897, 145);
             this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox3.Name = "rjTextBox3";
             this.rjTextBox3.Padding = new System.Windows.Forms.Padding(9);
@@ -120,7 +156,7 @@
             this.rjTextBox2.BorderSize = 2;
             this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox2.Location = new System.Drawing.Point(475, 138);
+            this.rjTextBox2.Location = new System.Drawing.Point(475, 145);
             this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox2.Name = "rjTextBox2";
             this.rjTextBox2.Padding = new System.Windows.Forms.Padding(9);
@@ -138,7 +174,7 @@
             this.rjTextBox1.BorderSize = 2;
             this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(43, 138);
+            this.rjTextBox1.Location = new System.Drawing.Point(43, 145);
             this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox1.Name = "rjTextBox1";
             this.rjTextBox1.Padding = new System.Windows.Forms.Padding(9);
@@ -170,130 +206,6 @@
             this.cbHorario.Size = new System.Drawing.Size(270, 24);
             this.cbHorario.TabIndex = 67;
             // 
-            // lblname
-            // 
-            this.lblname.AutoSize = true;
-            this.lblname.BackColor = System.Drawing.Color.Transparent;
-            this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.ForeColor = System.Drawing.Color.White;
-            this.lblname.Location = new System.Drawing.Point(139, 110);
-            this.lblname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(103, 22);
-            this.lblname.TabIndex = 52;
-            this.lblname.Text = "Nombre(s)";
-            // 
-            // lbldatebrith
-            // 
-            this.lbldatebrith.AutoSize = true;
-            this.lbldatebrith.BackColor = System.Drawing.Color.Transparent;
-            this.lbldatebrith.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldatebrith.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.lbldatebrith.Location = new System.Drawing.Point(124, 307);
-            this.lbldatebrith.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbldatebrith.Name = "lbldatebrith";
-            this.lbldatebrith.Size = new System.Drawing.Size(236, 22);
-            this.lbldatebrith.TabIndex = 55;
-            this.lbldatebrith.Text = "FECHA DE NACIMIENTO";
-            // 
-            // cbSelecTutoRegister
-            // 
-            this.cbSelecTutoRegister.FormattingEnabled = true;
-            this.cbSelecTutoRegister.Location = new System.Drawing.Point(41, 461);
-            this.cbSelecTutoRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
-            this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 24);
-            this.cbSelecTutoRegister.TabIndex = 59;
-            // 
-            // dtpFechaNaciRegister
-            // 
-            this.dtpFechaNaciRegister.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNaciRegister.Location = new System.Drawing.Point(128, 331);
-            this.dtpFechaNaciRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
-            this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 22);
-            this.dtpFechaNaciRegister.TabIndex = 61;
-            // 
-            // lblAddfhater
-            // 
-            this.lblAddfhater.AutoEllipsis = true;
-            this.lblAddfhater.AutoSize = true;
-            this.lblAddfhater.BackColor = System.Drawing.Color.Transparent;
-            this.lblAddfhater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddfhater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.lblAddfhater.Location = new System.Drawing.Point(269, 461);
-            this.lblAddfhater.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAddfhater.Name = "lblAddfhater";
-            this.lblAddfhater.Size = new System.Drawing.Size(79, 22);
-            this.lblAddfhater.TabIndex = 60;
-            this.lblAddfhater.Text = "TUTOR";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.label2.Location = new System.Drawing.Point(674, 294);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 22);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "SEXO";
-            // 
-            // lblapellidoma
-            // 
-            this.lblapellidoma.AutoEllipsis = true;
-            this.lblapellidoma.AutoSize = true;
-            this.lblapellidoma.BackColor = System.Drawing.Color.Transparent;
-            this.lblapellidoma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblapellidoma.ForeColor = System.Drawing.Color.White;
-            this.lblapellidoma.Location = new System.Drawing.Point(960, 110);
-            this.lblapellidoma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblapellidoma.Name = "lblapellidoma";
-            this.lblapellidoma.Size = new System.Drawing.Size(167, 22);
-            this.lblapellidoma.TabIndex = 53;
-            this.lblapellidoma.Text = "Segundo Apellido";
-            // 
-            // lblapellidomat
-            // 
-            this.lblapellidomat.AutoSize = true;
-            this.lblapellidomat.BackColor = System.Drawing.Color.Transparent;
-            this.lblapellidomat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblapellidomat.ForeColor = System.Drawing.Color.White;
-            this.lblapellidomat.Location = new System.Drawing.Point(559, 110);
-            this.lblapellidomat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblapellidomat.Name = "lblapellidomat";
-            this.lblapellidomat.Size = new System.Drawing.Size(146, 22);
-            this.lblapellidomat.TabIndex = 54;
-            this.lblapellidomat.Text = "Primer Apellido";
-            // 
-            // checkBoxFemaleRegister
-            // 
-            this.checkBoxFemaleRegister.AutoSize = true;
-            this.checkBoxFemaleRegister.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxFemaleRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFemaleRegister.Location = new System.Drawing.Point(678, 318);
-            this.checkBoxFemaleRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.checkBoxFemaleRegister.Name = "checkBoxFemaleRegister";
-            this.checkBoxFemaleRegister.Size = new System.Drawing.Size(83, 22);
-            this.checkBoxFemaleRegister.TabIndex = 57;
-            this.checkBoxFemaleRegister.Text = "MUJER";
-            this.checkBoxFemaleRegister.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxMenRegister
-            // 
-            this.checkBoxMenRegister.AutoSize = true;
-            this.checkBoxMenRegister.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxMenRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMenRegister.Location = new System.Drawing.Point(678, 350);
-            this.checkBoxMenRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.checkBoxMenRegister.Name = "checkBoxMenRegister";
-            this.checkBoxMenRegister.Size = new System.Drawing.Size(97, 22);
-            this.checkBoxMenRegister.TabIndex = 58;
-            this.checkBoxMenRegister.Text = "HOMBRE";
-            this.checkBoxMenRegister.UseVisualStyleBackColor = false;
-            // 
             // btnAddAlumn
             // 
             this.btnAddAlumn.AutoSize = true;
@@ -302,7 +214,7 @@
             this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
             this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
             this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAlumn.Location = new System.Drawing.Point(978, 547);
+            this.btnAddAlumn.Location = new System.Drawing.Point(967, 547);
             this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAddAlumn.Name = "btnAddAlumn";
             this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
@@ -370,41 +282,129 @@
             this.btnSaveAlumRegister.Text = "    GUARDAR";
             this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // lblname
             // 
-            this.panel4.BackColor = System.Drawing.Color.DarkMagenta;
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1284, 94);
-            this.panel4.TabIndex = 72;
+            this.lblname.AutoSize = true;
+            this.lblname.BackColor = System.Drawing.Color.Transparent;
+            this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblname.ForeColor = System.Drawing.Color.White;
+            this.lblname.Location = new System.Drawing.Point(139, 110);
+            this.lblname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblname.Name = "lblname";
+            this.lblname.Size = new System.Drawing.Size(103, 22);
+            this.lblname.TabIndex = 52;
+            this.lblname.Text = "Nombre(s)";
             // 
-            // label9
+            // lbldatebrith
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(379, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(529, 57);
-            this.label9.TabIndex = 40;
-            this.label9.Text = "EDITAR INFORMACION";
+            this.lbldatebrith.AutoSize = true;
+            this.lbldatebrith.BackColor = System.Drawing.Color.Transparent;
+            this.lbldatebrith.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldatebrith.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
+            this.lbldatebrith.Location = new System.Drawing.Point(124, 307);
+            this.lbldatebrith.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbldatebrith.Name = "lbldatebrith";
+            this.lbldatebrith.Size = new System.Drawing.Size(236, 22);
+            this.lbldatebrith.TabIndex = 55;
+            this.lbldatebrith.Text = "FECHA DE NACIMIENTO";
             // 
-            // pictureBox2
+            // cbSelecTutoRegister
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 78);
-            this.pictureBox2.TabIndex = 39;
-            this.pictureBox2.TabStop = false;
+            this.cbSelecTutoRegister.FormattingEnabled = true;
+            this.cbSelecTutoRegister.Location = new System.Drawing.Point(41, 461);
+            this.cbSelecTutoRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
+            this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 24);
+            this.cbSelecTutoRegister.TabIndex = 59;
+            // 
+            // dtpFechaNaciRegister
+            // 
+            this.dtpFechaNaciRegister.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNaciRegister.Location = new System.Drawing.Point(128, 339);
+            this.dtpFechaNaciRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
+            this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 22);
+            this.dtpFechaNaciRegister.TabIndex = 61;
+            // 
+            // lblAddfhater
+            // 
+            this.lblAddfhater.AutoEllipsis = true;
+            this.lblAddfhater.AutoSize = true;
+            this.lblAddfhater.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddfhater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddfhater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
+            this.lblAddfhater.Location = new System.Drawing.Point(269, 461);
+            this.lblAddfhater.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddfhater.Name = "lblAddfhater";
+            this.lblAddfhater.Size = new System.Drawing.Size(79, 22);
+            this.lblAddfhater.TabIndex = 60;
+            this.lblAddfhater.Text = "TUTOR";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
+            this.label2.Location = new System.Drawing.Point(674, 294);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 22);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "SEXO";
+            // 
+            // lblapellidoma
+            // 
+            this.lblapellidoma.AutoEllipsis = true;
+            this.lblapellidoma.AutoSize = true;
+            this.lblapellidoma.BackColor = System.Drawing.Color.Transparent;
+            this.lblapellidoma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapellidoma.ForeColor = System.Drawing.Color.White;
+            this.lblapellidoma.Location = new System.Drawing.Point(960, 110);
+            this.lblapellidoma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblapellidoma.Name = "lblapellidoma";
+            this.lblapellidoma.Size = new System.Drawing.Size(167, 22);
+            this.lblapellidoma.TabIndex = 53;
+            this.lblapellidoma.Text = "Segundo Apellido";
+            // 
+            // lblapellidomat
+            // 
+            this.lblapellidomat.AutoSize = true;
+            this.lblapellidomat.BackColor = System.Drawing.Color.Transparent;
+            this.lblapellidomat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapellidomat.ForeColor = System.Drawing.Color.White;
+            this.lblapellidomat.Location = new System.Drawing.Point(552, 110);
+            this.lblapellidomat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblapellidomat.Name = "lblapellidomat";
+            this.lblapellidomat.Size = new System.Drawing.Size(146, 22);
+            this.lblapellidomat.TabIndex = 54;
+            this.lblapellidomat.Text = "Primer Apellido";
+            // 
+            // checkBoxFemaleRegister
+            // 
+            this.checkBoxFemaleRegister.AutoSize = true;
+            this.checkBoxFemaleRegister.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxFemaleRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxFemaleRegister.Location = new System.Drawing.Point(678, 328);
+            this.checkBoxFemaleRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.checkBoxFemaleRegister.Name = "checkBoxFemaleRegister";
+            this.checkBoxFemaleRegister.Size = new System.Drawing.Size(83, 22);
+            this.checkBoxFemaleRegister.TabIndex = 57;
+            this.checkBoxFemaleRegister.Text = "MUJER";
+            this.checkBoxFemaleRegister.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxMenRegister
+            // 
+            this.checkBoxMenRegister.AutoSize = true;
+            this.checkBoxMenRegister.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxMenRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxMenRegister.Location = new System.Drawing.Point(678, 360);
+            this.checkBoxMenRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.checkBoxMenRegister.Name = "checkBoxMenRegister";
+            this.checkBoxMenRegister.Size = new System.Drawing.Size(97, 22);
+            this.checkBoxMenRegister.TabIndex = 58;
+            this.checkBoxMenRegister.Text = "HOMBRE";
+            this.checkBoxMenRegister.UseVisualStyleBackColor = false;
             // 
             // Editar
             // 
@@ -416,10 +416,10 @@
             this.Text = "Editar";
             this.gb_Info_Alumno.ResumeLayout(false);
             this.gb_Info_Alumno.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddImageAlum)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddImageAlum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
