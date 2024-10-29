@@ -88,7 +88,7 @@ namespace vsoccer
         private void btnEditar_Click(object sender, EventArgs e)
         {
             // Crear y mostrar el formulario frmAlumnos
-            frmEditar formEditar = new frmEditar();
+            Editar formEditar = new Editar();
             formEditar.Show();
         }
     }

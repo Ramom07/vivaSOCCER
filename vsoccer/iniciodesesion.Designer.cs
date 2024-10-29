@@ -36,11 +36,11 @@
             this.lnkOlvide = new System.Windows.Forms.LinkLabel();
             this.panellogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtContrasena = new vsoccer.RJTextBox();
+            this.txtUsuario = new vsoccer.RJTextBox();
+            this.btnVercontrasena = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnVercontraseña = new System.Windows.Forms.Button();
-            this.txtContraseña = new vsoccer.RJTextBox();
-            this.txtUsuario = new vsoccer.RJTextBox();
             this.panellogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -129,6 +129,53 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // txtContrasena
+            // 
+            this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
+            this.txtContrasena.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtContrasena.BorderSize = 2;
+            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena.ForeColor = System.Drawing.Color.White;
+            this.txtContrasena.Location = new System.Drawing.Point(474, 439);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Padding = new System.Windows.Forms.Padding(7);
+            this.txtContrasena.PasswordChar = true;
+            this.txtContrasena.Size = new System.Drawing.Size(250, 40);
+            this.txtContrasena.TabIndex = 13;
+            this.txtContrasena.Texts = "";
+            this.txtContrasena.UnderlineStyle = true;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
+            this.txtUsuario.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtUsuario.BorderSize = 2;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.White;
+            this.txtUsuario.Location = new System.Drawing.Point(474, 330);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Padding = new System.Windows.Forms.Padding(7);
+            this.txtUsuario.PasswordChar = false;
+            this.txtUsuario.Size = new System.Drawing.Size(250, 40);
+            this.txtUsuario.TabIndex = 12;
+            this.txtUsuario.Texts = "";
+            this.txtUsuario.UnderlineStyle = true;
+            // 
+            // btnVercontrasena
+            // 
+            this.btnVercontrasena.FlatAppearance.BorderSize = 0;
+            this.btnVercontrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVercontrasena.ForeColor = System.Drawing.Color.Transparent;
+            this.btnVercontrasena.Image = ((System.Drawing.Image)(resources.GetObject("btnVercontrasena.Image")));
+            this.btnVercontrasena.Location = new System.Drawing.Point(742, 460);
+            this.btnVercontrasena.Name = "btnVercontrasena";
+            this.btnVercontrasena.Size = new System.Drawing.Size(49, 29);
+            this.btnVercontrasena.TabIndex = 14;
+            this.btnVercontrasena.UseVisualStyleBackColor = true;
+            this.btnVercontrasena.Click += new System.EventHandler(this.btnVercontraseña_Click);
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -151,52 +198,6 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
-            // btnVercontraseña
-            // 
-            this.btnVercontraseña.FlatAppearance.BorderSize = 0;
-            this.btnVercontraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVercontraseña.ForeColor = System.Drawing.Color.Transparent;
-            this.btnVercontraseña.Image = ((System.Drawing.Image)(resources.GetObject("btnVercontraseña.Image")));
-            this.btnVercontraseña.Location = new System.Drawing.Point(742, 460);
-            this.btnVercontraseña.Name = "btnVercontraseña";
-            this.btnVercontraseña.Size = new System.Drawing.Size(49, 29);
-            this.btnVercontraseña.TabIndex = 14;
-            this.btnVercontraseña.UseVisualStyleBackColor = true;
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
-            this.txtContraseña.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtContraseña.BorderSize = 2;
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.ForeColor = System.Drawing.Color.White;
-            this.txtContraseña.Location = new System.Drawing.Point(474, 439);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Padding = new System.Windows.Forms.Padding(7);
-            this.txtContraseña.PasswordChar = false;
-            this.txtContraseña.Size = new System.Drawing.Size(250, 40);
-            this.txtContraseña.TabIndex = 13;
-            this.txtContraseña.Texts = "";
-            this.txtContraseña.UnderlineStyle = true;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
-            this.txtUsuario.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtUsuario.BorderSize = 2;
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtUsuario.Location = new System.Drawing.Point(474, 330);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Padding = new System.Windows.Forms.Padding(7);
-            this.txtUsuario.PasswordChar = false;
-            this.txtUsuario.Size = new System.Drawing.Size(250, 40);
-            this.txtUsuario.TabIndex = 12;
-            this.txtUsuario.Texts = "";
-            this.txtUsuario.UnderlineStyle = true;
-            // 
             // iniciodesesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,8 +205,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(987, 726);
-            this.Controls.Add(this.btnVercontraseña);
-            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.btnVercontrasena);
+            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.panellogo);
             this.Controls.Add(this.pictureBox3);
@@ -241,7 +242,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panellogo;
         private RJTextBox txtUsuario;
-        private RJTextBox txtContraseña;
-        private System.Windows.Forms.Button btnVercontraseña;
+        private RJTextBox txtContrasena;
+        private System.Windows.Forms.Button btnVercontrasena;
     }
 }

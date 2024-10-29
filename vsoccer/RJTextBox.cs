@@ -27,6 +27,10 @@ namespace vsoccer
         //propiedades
 
         [Category("RJ Code Advance ")]
+
+
+
+
         public Color BorderColor
         {
             get

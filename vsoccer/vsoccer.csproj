@@ -100,17 +100,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="conexion.cs" />
+    <Compile Include="Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar.Designer.cs">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAlumnos.Designer.cs">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEditar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEditar.Designer.cs">
-      <DependentUpon>frmEditar.cs</DependentUpon>
     </Compile>
     <Compile Include="gestoralumnos.cs">
       <SubType>Form</SubType>
@@ -132,11 +132,11 @@
     <Compile Include="RJTextBox.Designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Editar.resx">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnos.resx">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditar.resx">
-      <DependentUpon>frmEditar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestoralumnos.resx">
       <DependentUpon>gestoralumnos.cs</DependentUpon>
