@@ -52,7 +52,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDescripcion.Location = new System.Drawing.Point(306, 215);
+            this.lblDescripcion.Location = new System.Drawing.Point(288, 215);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(417, 36);
@@ -64,7 +64,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUsuario.Location = new System.Drawing.Point(354, 341);
+            this.lblUsuario.Location = new System.Drawing.Point(320, 369);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(67, 18);
@@ -76,7 +76,7 @@
             this.lblContrasena.AutoSize = true;
             this.lblContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContrasena.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblContrasena.Location = new System.Drawing.Point(354, 445);
+            this.lblContrasena.Location = new System.Drawing.Point(320, 473);
             this.lblContrasena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContrasena.Name = "lblContrasena";
             this.lblContrasena.Size = new System.Drawing.Size(95, 18);
@@ -87,7 +87,7 @@
             // 
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(425, 554);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(391, 582);
             this.btnIniciarSesion.Margin = new System.Windows.Forms.Padding(4);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(193, 37);
@@ -101,7 +101,7 @@
             this.lnkOlvide.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkOlvide.ForeColor = System.Drawing.Color.LawnGreen;
             this.lnkOlvide.LinkColor = System.Drawing.Color.Lime;
-            this.lnkOlvide.Location = new System.Drawing.Point(421, 509);
+            this.lnkOlvide.Location = new System.Drawing.Point(387, 537);
             this.lnkOlvide.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnkOlvide.Name = "lnkOlvide";
             this.lnkOlvide.Size = new System.Drawing.Size(353, 28);
@@ -122,7 +122,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::vsoccer.Properties.Resources.image_removebg_preview__7___2_;
-            this.pictureBox1.Location = new System.Drawing.Point(384, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(366, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(257, 173);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -136,7 +136,7 @@
             this.txtContrasena.BorderSize = 2;
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.ForeColor = System.Drawing.Color.White;
-            this.txtContrasena.Location = new System.Drawing.Point(474, 439);
+            this.txtContrasena.Location = new System.Drawing.Point(440, 467);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Padding = new System.Windows.Forms.Padding(7);
@@ -153,7 +153,7 @@
             this.txtUsuario.BorderSize = 2;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtUsuario.Location = new System.Drawing.Point(474, 330);
+            this.txtUsuario.Location = new System.Drawing.Point(440, 358);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Padding = new System.Windows.Forms.Padding(7);
@@ -169,7 +169,7 @@
             this.btnVercontrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVercontrasena.ForeColor = System.Drawing.Color.Transparent;
             this.btnVercontrasena.Image = ((System.Drawing.Image)(resources.GetObject("btnVercontrasena.Image")));
-            this.btnVercontrasena.Location = new System.Drawing.Point(742, 460);
+            this.btnVercontrasena.Location = new System.Drawing.Point(708, 488);
             this.btnVercontrasena.Name = "btnVercontrasena";
             this.btnVercontrasena.Size = new System.Drawing.Size(49, 29);
             this.btnVercontrasena.TabIndex = 14;
@@ -179,7 +179,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(303, 424);
+            this.pictureBox3.Location = new System.Drawing.Point(269, 452);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 51);
             this.pictureBox3.TabIndex = 10;
@@ -191,7 +191,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(296, 321);
+            this.pictureBox2.Location = new System.Drawing.Point(262, 349);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 55);
