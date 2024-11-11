@@ -1,5 +1,6 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using MySql.Data.MySqlClient;
 using System;
 
 using System.Collections.Generic;
@@ -117,6 +118,91 @@ namespace vsoccer
                 fuenteDeVideo.SignalToStop();
                 fuenteDeVideo.WaitForStop();
             }
+        }
+
+        private void txtNombre_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSelecTutoRegister_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveAlumRegister_Click(object sender, EventArgs e)
+        {
+            // Tomar datos del formulario
+            string nombre = txtNombre.Text;
+            string apellido1 = txtApellido1.Text;
+            string apellido2 = txtApellido2.Text;
+            DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
+
+            // Validar los campos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
+
+            //Tomar direccion de la foto
+            string filePath = GuardarImagen();
+
+            //Registrar datos en BD
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                //Conexion a base de datos
+
+                using (var connection = newMySqlConnection(/*BD*/))
+                {
+                    connection.Open();
+                    string query = "insert into usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto)" +
+                        "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@rol", 5);
+                        command.Parameters.AddWithValue("@nombre", nombre);
+                        command.Parameters.AddWithValue("@apellido1", apellido1);
+                        command.Parameters.AddWithValue("@apellido2", apellido2);
+                        command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                        command.Parameters.AddWithValue("@foto", filePath);
+
+                        command.ExecuteNonQuery();
+
+                    }
+                }
+                MessageBox.Show("Alumno registrado exitosamente.");
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar.");
+            }
+
+
+
+
         }
     }
 }
