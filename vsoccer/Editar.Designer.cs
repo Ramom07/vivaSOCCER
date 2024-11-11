@@ -32,17 +32,11 @@
             this.gb_Info_Alumno = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.rjTextBox3 = new vsoccer.RJTextBox();
             this.rjTextBox2 = new vsoccer.RJTextBox();
             this.rjTextBox1 = new vsoccer.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbHorario = new System.Windows.Forms.ComboBox();
-            this.btnAddAlumn = new System.Windows.Forms.Button();
-            this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
-            this.btnAddTutorRegister = new System.Windows.Forms.Button();
-            this.btnCancelRegister = new System.Windows.Forms.Button();
-            this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.lblname = new System.Windows.Forms.Label();
             this.lbldatebrith = new System.Windows.Forms.Label();
             this.cbSelecTutoRegister = new System.Windows.Forms.ComboBox();
@@ -53,6 +47,12 @@
             this.lblapellidomat = new System.Windows.Forms.Label();
             this.checkBoxFemaleRegister = new System.Windows.Forms.CheckBox();
             this.checkBoxMenRegister = new System.Windows.Forms.CheckBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnAddAlumn = new System.Windows.Forms.Button();
+            this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
+            this.btnAddTutorRegister = new System.Windows.Forms.Button();
+            this.btnCancelRegister = new System.Windows.Forms.Button();
+            this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.gb_Info_Alumno.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -118,32 +118,20 @@
             this.label9.TabIndex = 40;
             this.label9.Text = "EDITAR INFORMACIÓN";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 78);
-            this.pictureBox2.TabIndex = 39;
-            this.pictureBox2.TabStop = false;
-            // 
             // rjTextBox3
             // 
             this.rjTextBox3.AutoSize = true;
             this.rjTextBox3.BackColor = System.Drawing.SystemColors.Window;
             this.rjTextBox3.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.rjTextBox3.BorderSize = 2;
-            this.rjTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox3.ForeColor = System.Drawing.Color.DimGray;
             this.rjTextBox3.Location = new System.Drawing.Point(897, 145);
             this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox3.Name = "rjTextBox3";
             this.rjTextBox3.Padding = new System.Windows.Forms.Padding(9);
             this.rjTextBox3.PasswordChar = false;
-            this.rjTextBox3.Size = new System.Drawing.Size(342, 39);
+            this.rjTextBox3.Size = new System.Drawing.Size(342, 46);
             this.rjTextBox3.TabIndex = 71;
             this.rjTextBox3.Texts = "";
             this.rjTextBox3.UnderlineStyle = false;
@@ -154,14 +142,14 @@
             this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
             this.rjTextBox2.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.rjTextBox2.BorderSize = 2;
-            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox2.ForeColor = System.Drawing.Color.DimGray;
             this.rjTextBox2.Location = new System.Drawing.Point(475, 145);
             this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox2.Name = "rjTextBox2";
             this.rjTextBox2.Padding = new System.Windows.Forms.Padding(9);
             this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.Size = new System.Drawing.Size(350, 39);
+            this.rjTextBox2.Size = new System.Drawing.Size(350, 46);
             this.rjTextBox2.TabIndex = 70;
             this.rjTextBox2.Texts = "";
             this.rjTextBox2.UnderlineStyle = false;
@@ -172,14 +160,14 @@
             this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
             this.rjTextBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
             this.rjTextBox1.Location = new System.Drawing.Point(43, 145);
             this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rjTextBox1.Name = "rjTextBox1";
             this.rjTextBox1.Padding = new System.Windows.Forms.Padding(9);
             this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.Size = new System.Drawing.Size(312, 39);
+            this.rjTextBox1.Size = new System.Drawing.Size(312, 46);
             this.rjTextBox1.TabIndex = 69;
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlineStyle = false;
@@ -199,88 +187,13 @@
             // 
             // cbHorario
             // 
+            this.cbHorario.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHorario.FormattingEnabled = true;
             this.cbHorario.Location = new System.Drawing.Point(553, 465);
             this.cbHorario.Margin = new System.Windows.Forms.Padding(5);
             this.cbHorario.Name = "cbHorario";
-            this.cbHorario.Size = new System.Drawing.Size(270, 24);
+            this.cbHorario.Size = new System.Drawing.Size(270, 39);
             this.cbHorario.TabIndex = 67;
-            // 
-            // btnAddAlumn
-            // 
-            this.btnAddAlumn.AutoSize = true;
-            this.btnAddAlumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAlumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
-            this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
-            this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAlumn.Location = new System.Drawing.Point(967, 547);
-            this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnAddAlumn.Name = "btnAddAlumn";
-            this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
-            this.btnAddAlumn.TabIndex = 66;
-            this.btnAddAlumn.Text = "   FOTO";
-            this.btnAddAlumn.UseVisualStyleBackColor = true;
-            // 
-            // PictureBoxAddImageAlum
-            // 
-            this.PictureBoxAddImageAlum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxAddImageAlum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PictureBoxAddImageAlum.Location = new System.Drawing.Point(911, 251);
-            this.PictureBoxAddImageAlum.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.PictureBoxAddImageAlum.Name = "PictureBoxAddImageAlum";
-            this.PictureBoxAddImageAlum.Size = new System.Drawing.Size(298, 286);
-            this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxAddImageAlum.TabIndex = 65;
-            this.PictureBoxAddImageAlum.TabStop = false;
-            // 
-            // btnAddTutorRegister
-            // 
-            this.btnAddTutorRegister.AutoSize = true;
-            this.btnAddTutorRegister.FlatAppearance.BorderSize = 0;
-            this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
-            this.btnAddTutorRegister.Location = new System.Drawing.Point(377, 450);
-            this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnAddTutorRegister.Name = "btnAddTutorRegister";
-            this.btnAddTutorRegister.Size = new System.Drawing.Size(36, 45);
-            this.btnAddTutorRegister.TabIndex = 64;
-            this.btnAddTutorRegister.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelRegister
-            // 
-            this.btnCancelRegister.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnCancelRegister.AutoSize = true;
-            this.btnCancelRegister.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelRegister.ForeColor = System.Drawing.Color.White;
-            this.btnCancelRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelRegister.Image")));
-            this.btnCancelRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelRegister.Location = new System.Drawing.Point(678, 602);
-            this.btnCancelRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnCancelRegister.Name = "btnCancelRegister";
-            this.btnCancelRegister.Size = new System.Drawing.Size(214, 49);
-            this.btnCancelRegister.TabIndex = 63;
-            this.btnCancelRegister.Text = "      CANCELAR";
-            this.btnCancelRegister.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveAlumRegister
-            // 
-            this.btnSaveAlumRegister.AutoSize = true;
-            this.btnSaveAlumRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveAlumRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAlumRegister.ForeColor = System.Drawing.Color.White;
-            this.btnSaveAlumRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAlumRegister.Image")));
-            this.btnSaveAlumRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveAlumRegister.Location = new System.Drawing.Point(411, 602);
-            this.btnSaveAlumRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnSaveAlumRegister.Name = "btnSaveAlumRegister";
-            this.btnSaveAlumRegister.Size = new System.Drawing.Size(213, 49);
-            this.btnSaveAlumRegister.TabIndex = 62;
-            this.btnSaveAlumRegister.Text = "    GUARDAR";
-            this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
             // 
             // lblname
             // 
@@ -310,20 +223,22 @@
             // 
             // cbSelecTutoRegister
             // 
+            this.cbSelecTutoRegister.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSelecTutoRegister.FormattingEnabled = true;
             this.cbSelecTutoRegister.Location = new System.Drawing.Point(41, 461);
             this.cbSelecTutoRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
-            this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 24);
+            this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 39);
             this.cbSelecTutoRegister.TabIndex = 59;
             // 
             // dtpFechaNaciRegister
             // 
+            this.dtpFechaNaciRegister.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaNaciRegister.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNaciRegister.Location = new System.Drawing.Point(128, 339);
             this.dtpFechaNaciRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
-            this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 22);
+            this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 42);
             this.dtpFechaNaciRegister.TabIndex = 61;
             // 
             // lblAddfhater
@@ -333,7 +248,7 @@
             this.lblAddfhater.BackColor = System.Drawing.Color.Transparent;
             this.lblAddfhater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddfhater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.lblAddfhater.Location = new System.Drawing.Point(269, 461);
+            this.lblAddfhater.Location = new System.Drawing.Point(269, 471);
             this.lblAddfhater.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddfhater.Name = "lblAddfhater";
             this.lblAddfhater.Size = new System.Drawing.Size(79, 22);
@@ -384,11 +299,11 @@
             // 
             this.checkBoxFemaleRegister.AutoSize = true;
             this.checkBoxFemaleRegister.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxFemaleRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxFemaleRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxFemaleRegister.Location = new System.Drawing.Point(678, 328);
             this.checkBoxFemaleRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.checkBoxFemaleRegister.Name = "checkBoxFemaleRegister";
-            this.checkBoxFemaleRegister.Size = new System.Drawing.Size(83, 22);
+            this.checkBoxFemaleRegister.Size = new System.Drawing.Size(102, 29);
             this.checkBoxFemaleRegister.TabIndex = 57;
             this.checkBoxFemaleRegister.Text = "MUJER";
             this.checkBoxFemaleRegister.UseVisualStyleBackColor = false;
@@ -397,14 +312,102 @@
             // 
             this.checkBoxMenRegister.AutoSize = true;
             this.checkBoxMenRegister.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxMenRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxMenRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMenRegister.Location = new System.Drawing.Point(678, 360);
             this.checkBoxMenRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.checkBoxMenRegister.Name = "checkBoxMenRegister";
-            this.checkBoxMenRegister.Size = new System.Drawing.Size(97, 22);
+            this.checkBoxMenRegister.Size = new System.Drawing.Size(120, 29);
             this.checkBoxMenRegister.TabIndex = 58;
             this.checkBoxMenRegister.Text = "HOMBRE";
             this.checkBoxMenRegister.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(130, 78);
+            this.pictureBox2.TabIndex = 39;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnAddAlumn
+            // 
+            this.btnAddAlumn.AutoSize = true;
+            this.btnAddAlumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAlumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
+            this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
+            this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAlumn.Location = new System.Drawing.Point(967, 547);
+            this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnAddAlumn.Name = "btnAddAlumn";
+            this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
+            this.btnAddAlumn.TabIndex = 66;
+            this.btnAddAlumn.Text = "   FOTO";
+            this.btnAddAlumn.UseVisualStyleBackColor = true;
+            // 
+            // PictureBoxAddImageAlum
+            // 
+            this.PictureBoxAddImageAlum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBoxAddImageAlum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PictureBoxAddImageAlum.Location = new System.Drawing.Point(911, 251);
+            this.PictureBoxAddImageAlum.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.PictureBoxAddImageAlum.Name = "PictureBoxAddImageAlum";
+            this.PictureBoxAddImageAlum.Size = new System.Drawing.Size(298, 286);
+            this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxAddImageAlum.TabIndex = 65;
+            this.PictureBoxAddImageAlum.TabStop = false;
+            // 
+            // btnAddTutorRegister
+            // 
+            this.btnAddTutorRegister.AutoSize = true;
+            this.btnAddTutorRegister.FlatAppearance.BorderSize = 0;
+            this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
+            this.btnAddTutorRegister.Location = new System.Drawing.Point(353, 461);
+            this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnAddTutorRegister.Name = "btnAddTutorRegister";
+            this.btnAddTutorRegister.Size = new System.Drawing.Size(36, 45);
+            this.btnAddTutorRegister.TabIndex = 64;
+            this.btnAddTutorRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelRegister
+            // 
+            this.btnCancelRegister.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnCancelRegister.AutoSize = true;
+            this.btnCancelRegister.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelRegister.ForeColor = System.Drawing.Color.White;
+            this.btnCancelRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelRegister.Image")));
+            this.btnCancelRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelRegister.Location = new System.Drawing.Point(678, 602);
+            this.btnCancelRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnCancelRegister.Name = "btnCancelRegister";
+            this.btnCancelRegister.Size = new System.Drawing.Size(214, 49);
+            this.btnCancelRegister.TabIndex = 63;
+            this.btnCancelRegister.Text = "      CANCELAR";
+            this.btnCancelRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveAlumRegister
+            // 
+            this.btnSaveAlumRegister.AutoSize = true;
+            this.btnSaveAlumRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAlumRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAlumRegister.ForeColor = System.Drawing.Color.White;
+            this.btnSaveAlumRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAlumRegister.Image")));
+            this.btnSaveAlumRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAlumRegister.Location = new System.Drawing.Point(411, 602);
+            this.btnSaveAlumRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnSaveAlumRegister.Name = "btnSaveAlumRegister";
+            this.btnSaveAlumRegister.Size = new System.Drawing.Size(213, 49);
+            this.btnSaveAlumRegister.TabIndex = 62;
+            this.btnSaveAlumRegister.Text = "    GUARDAR";
+            this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
             // 
             // Editar
             // 
@@ -413,6 +416,7 @@
             this.ClientSize = new System.Drawing.Size(1279, 742);
             this.Controls.Add(this.gb_Info_Alumno);
             this.Name = "Editar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Editar";
             this.gb_Info_Alumno.ResumeLayout(false);
             this.gb_Info_Alumno.PerformLayout();
