@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -9,30 +10,49 @@ using MySql.Data.MySqlClient;
 
 namespace vsoccer
 {
-     class conexion
+     class Conexion
     {
-        //Método para abrir conexión
-        public MySqlConnection conex()
-        {
-            //declaración de cadena para servidor
-            string servidor = "server = localhost; database=vsoccer; Uid = root; pwd=pokechon";
+        private MySqlConnection conexionBD;
+       
+            //Constructor para inicializar cadena para servidor
+            public Conexion()
+            {
+                string servidor = "server = localhost; database=vsoccer; Uid = root; pwd=pokechon";
+                conexionBD = new MySqlConnection(servidor);
+            }
 
-            //Creación de instancia de la clase MySqlConnection
-            MySqlConnection conexionBD = new MySqlConnection(servidor);
+        //Método para abrir la conexión
+        public MySqlConnection AbrirConexion()
+        {
             try
             {
-                //devolución de conexión creada
-                
+                if (conexionBD.State == System.Data.ConnectionState.Closed) conexionBD.Open();
                 return conexionBD;
             }
             catch (Exception e)
             {
-                // si ocurre excepción muestra mensaje
-                MessageBox.Show(e.Message+e.StackTrace);
+                MessageBox.Show("Error al abrir la conexion: " + e.Message + "\n" + e.StackTrace);
                 return null;
             }
-
-            
         }
+
+        //Método para cerrar conexión
+        public void CerrarConexion()
+        {
+            try
+            {
+                if (conexionBD.State == System.Data.ConnectionState.Open)
+                    conexionBD.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al cerrar la conexion: " + e.Message + "\n" + e.StackTrace);
+            }
+        }
+            
+
+           
+            
+        
     }
 }

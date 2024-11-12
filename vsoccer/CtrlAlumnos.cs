@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace vsoccer
 {
-     class CtrlAlumnos : conexion
+     class CtrlAlumnos : Conexion
     {
         public List<Object> consulta(string dato)
         {
@@ -48,7 +48,7 @@ namespace vsoccer
 
             try
             {
-                MySqlConnection conexionBD = base.conex();
+                MySqlConnection conexionBD = base.Conex();
                 conexionBD.Open();
                 MySqlCommand comando = new MySqlCommand(sql, conexionBD);
                 reader = comando.ExecuteReader();

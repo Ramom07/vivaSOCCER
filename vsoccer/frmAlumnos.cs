@@ -2,7 +2,6 @@
 using AForge.Video.DirectShow;
 using MySql.Data.MySqlClient;
 using System;
-
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,7 +88,7 @@ namespace vsoccer
             }
         }
 
-        private void GuardarImagen()
+        private string GuardarImagen()
         {
             // Crear la ruta de la carpeta FotosAlumnos dentro del proyecto
             string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FotosAlumnos");
@@ -105,9 +104,18 @@ namespace vsoccer
             string filePath = Path.Combine(folderPath, fileName);
 
             // Guardar la imagen del PictureBox en la carpeta
-            PictureBoxAddImageAlum.Image.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            if (PictureBoxAddImageAlum.Image != null)
+            {
+                PictureBoxAddImageAlum.Image.Save(filePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+                MessageBox.Show($"Imagen guardada en: {filePath}");
+                return filePath;
+            }
+            else
+            {
+                MessageBox.Show("No se capturó ninguna imagen.");
+                return null;
+            }
 
-            MessageBox.Show($"Imagen guardada en: {filePath}");
         }
 
         private void frmAlumnos_FormClosing(object sender, FormClosingEventArgs e)
@@ -173,27 +181,50 @@ namespace vsoccer
             if (!string.IsNullOrEmpty(filePath))
             {
                 //Conexion a base de datos
+                Conexion conexion = new Conexion();
 
-                using (var connection = newMySqlConnection(/*BD*/))
+                using (var connection = conexion.AbrirConexion())
                 {
-                    connection.Open();
-                    string query = "insert into usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto)" +
-                        "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
-
-                    using (var command = new MySqlCommand(query, connection))
+                    if (connection != null)
                     {
-                        command.Parameters.AddWithValue("@rol", 5);
-                        command.Parameters.AddWithValue("@nombre", nombre);
-                        command.Parameters.AddWithValue("@apellido1", apellido1);
-                        command.Parameters.AddWithValue("@apellido2", apellido2);
-                        command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
-                        command.Parameters.AddWithValue("@foto", filePath);
+                        string query = "insert into usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto)" +
+                            "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
 
-                        command.ExecuteNonQuery();
+                        using (var command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@rol", 5);
+                            command.Parameters.AddWithValue("@nombre", nombre);
+                            command.Parameters.AddWithValue("@apellido1", apellido1);
+                            command.Parameters.AddWithValue("@apellido2", apellido2);
+                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                            command.Parameters.AddWithValue("@foto", filePath);
+                            command.ExecuteNonQuery();
 
+                            try
+                            {
+                                command.ExecuteNonQuery();
+                                MessageBox.Show("Alumno registrado exitosamente.");
+                            }
+
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error al registrar el alumno: " + ex.Message);
+                            }
+
+
+
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("No se pudo abrir conexion a Base de Datos");
+                    }
+
                 }
-                MessageBox.Show("Alumno registrado exitosamente.");
+
+                //Cerrar la conexion
+                conexion.CerrarConexion();
+                
             }
             else
             {
