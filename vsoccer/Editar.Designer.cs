@@ -38,7 +38,7 @@
             this.txtNombre = new vsoccer.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbHorario = new System.Windows.Forms.ComboBox();
-            this.btnAddAlumn = new System.Windows.Forms.Button();
+            this.btnFoto = new System.Windows.Forms.Button();
             this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
             this.btnAddTutorRegister = new System.Windows.Forms.Button();
             this.btnCancelRegister = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@
             this.gb_Info_Alumno.Controls.Add(this.txtNombre);
             this.gb_Info_Alumno.Controls.Add(this.label1);
             this.gb_Info_Alumno.Controls.Add(this.cbHorario);
-            this.gb_Info_Alumno.Controls.Add(this.btnAddAlumn);
+            this.gb_Info_Alumno.Controls.Add(this.btnFoto);
             this.gb_Info_Alumno.Controls.Add(this.PictureBoxAddImageAlum);
             this.gb_Info_Alumno.Controls.Add(this.btnAddTutorRegister);
             this.gb_Info_Alumno.Controls.Add(this.btnCancelRegister);
@@ -211,22 +211,22 @@
             this.cbHorario.TabIndex = 67;
             this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
             // 
-            // btnAddAlumn
+            // btnFoto
             // 
-            this.btnAddAlumn.AutoSize = true;
-            this.btnAddAlumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAlumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
-            this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
-            this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAlumn.Location = new System.Drawing.Point(967, 547);
-            this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnAddAlumn.Name = "btnAddAlumn";
-            this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
-            this.btnAddAlumn.TabIndex = 66;
-            this.btnAddAlumn.Text = "   FOTO";
-            this.btnAddAlumn.UseVisualStyleBackColor = true;
-            this.btnAddAlumn.Click += new System.EventHandler(this.btnAddAlumn_Click);
+            this.btnFoto.AutoSize = true;
+            this.btnFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFoto.ForeColor = System.Drawing.Color.White;
+            this.btnFoto.Image = ((System.Drawing.Image)(resources.GetObject("btnFoto.Image")));
+            this.btnFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFoto.Location = new System.Drawing.Point(967, 547);
+            this.btnFoto.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnFoto.Name = "btnFoto";
+            this.btnFoto.Size = new System.Drawing.Size(188, 52);
+            this.btnFoto.TabIndex = 66;
+            this.btnFoto.Text = "   FOTO";
+            this.btnFoto.UseVisualStyleBackColor = true;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // PictureBoxAddImageAlum
             // 
@@ -446,7 +446,7 @@
         private RJTextBox txtNombre;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox cbHorario;
-        public System.Windows.Forms.Button btnAddAlumn;
+        public System.Windows.Forms.Button btnFoto;
         public System.Windows.Forms.PictureBox PictureBoxAddImageAlum;
         public System.Windows.Forms.Button btnAddTutorRegister;
         public System.Windows.Forms.Button btnCancelRegister;
