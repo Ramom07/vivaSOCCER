@@ -72,9 +72,9 @@
             this.rjTextBox1 = new vsoccer.RJTextBox();
             this.rjTextBox2 = new vsoccer.RJTextBox();
             this.rjTextBox3 = new vsoccer.RJTextBox();
-            this.txtApellido2 = new vsoccer.RJTextBox();
-            this.txtApellido1 = new vsoccer.RJTextBox();
-            this.txtNombre = new vsoccer.RJTextBox();
+            //this.txtApellido2 = new vsoccer.RJTextBox();
+            //this.txtApellido1 = new vsoccer.RJTextBox();
+            //this.txtNombre = new vsoccer.RJTextBox();
             this.gb_Info_Alumno.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -127,11 +127,13 @@
             // 
             // txtApellido2
             // 
+            /*
             this.txtApellido2.AutoSize = true;
             this.txtApellido2.BackColor = System.Drawing.SystemColors.Window;
             this.txtApellido2.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txtApellido2.BorderSize = 2;
             this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.txtApellido2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido2.ForeColor = System.Drawing.Color.DimGray;
             this.txtApellido2.Location = new System.Drawing.Point(673, 100);
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -143,6 +145,27 @@
             this.txtApellido2.Texts = "";
             this.txtApellido2.UnderlineStyle = false;
             this.txtApellido2.Load += new System.EventHandler(this.txtApellido2_Load);
+            */
+            // 
+            // txtSegundoapellido
+            // 
+            
+            this.txtApellido2.AutoSize = true;
+            this.txtApellido2.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellido2.BorderSize = 2;
+            this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido2.ForeColor = System.Drawing.Color.DimGray;
+            this.txtApellido2.Location = new System.Drawing.Point(897, 123);
+            this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtApellido2.Name = "txtSegundoapellido";
+            this.txtApellido2.Padding = new System.Windows.Forms.Padding(9);
+            this.txtApellido2.PasswordChar = false;
+            this.txtApellido2.Size = new System.Drawing.Size(342, 46);
+            this.txtApellido2.TabIndex = 71;
+            this.txtApellido2.Texts = "";
+            this.txtApellido2.UnderlineStyle = false;
+            
             // 
             // txtApellido1
             // 
@@ -814,24 +837,7 @@
             this.rjTextBox3.Texts = "";
             this.rjTextBox3.UnderlineStyle = false;
             // 
-            // txtSegundoapellido
-            // 
-            this.txtApellido2.AutoSize = true;
-            this.txtApellido2.BackColor = System.Drawing.SystemColors.Window;
-            this.txtApellido2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtApellido2.BorderSize = 2;
-            this.txtApellido2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido2.ForeColor = System.Drawing.Color.DimGray;
-            this.txtApellido2.Location = new System.Drawing.Point(897, 123);
-            this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtApellido2.Name = "txtSegundoapellido";
-            this.txtApellido2.Padding = new System.Windows.Forms.Padding(9);
-            this.txtApellido2.PasswordChar = false;
-            this.txtApellido2.Size = new System.Drawing.Size(342, 46);
-            this.txtApellido2.TabIndex = 71;
-            this.txtApellido2.Texts = "";
-            this.txtApellido2.UnderlineStyle = false;
-            // 
+            
             // txtPrimerapellido
             // 
             this.txtApellido1.AutoSize = true;
