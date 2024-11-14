@@ -30,7 +30,8 @@ namespace vsoccer
 
             // Escalado adecuado para alta definición
             this.AutoScaleMode = AutoScaleMode.Dpi;
-
+            // Ocultar el GroupBox al iniciar el formulario
+            gpRegistrartutor.Visible = false;
 
         }
 
@@ -233,6 +234,23 @@ namespace vsoccer
 
 
 
+
+        }
+
+        private void btnAgregartutor_Click(object sender, EventArgs e)
+        {
+            // Si el GroupBox está oculto, lo mostramos y expandimos el formulario
+            if (!gpRegistrartutor.Visible)
+            {
+                gpRegistrartutor.Visible = true;
+
+                // Expandir el formulario para que se ajuste al nuevo tamaño del GroupBox
+                this.Height += gpRegistrartutor.Height + 20; // Ajuste adicional para espacio
+            }
+        }
+
+        private void gpRegistrartutor_Enter(object sender, EventArgs e)
+        {
 
         }
     }
