@@ -47,8 +47,63 @@ namespace vsoccer
             {
                 Console.WriteLine(dispositivo.Name);
             }
+
+            CargarTutores();
         }
 
+        //Metodo para cargar tutores en su combobox
+        private void CargarTutores()
+        {
+            // Limpiar el ComboBox antes de llenarlo
+            cbSelecTutoRegister.Items.Clear();
+
+            // Conexión a la base de datos
+            Conexion conexion = new Conexion();
+            using (var connection = conexion.AbrirConexion())
+            {
+                if (connection != null)
+                {
+                    string query = "SELECT u.nombre, u.apellido1, u.apellido2, t.idtutor " +
+                                   "FROM usuarios u " +
+                                   "INNER JOIN tutores t ON u.id = t.idusuario " +
+                                   "WHERE u.rol = 3"; // Rol 3 es el de tutor
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Concatenar nombre completo
+                                string nombreCompleto = reader["nombre"].ToString() + " " + reader["apellido1"].ToString() + " " + reader["apellido2"].ToString();
+                                int idTutor = Convert.ToInt32(reader["idtutor"]);
+
+                                // Agregar el tutor al ComboBox (almacenando el idTutor como Tag)
+                                cbSelecTutoRegister.Items.Add(new ComboBoxItem { Text = nombreCompleto, Tag = idTutor });
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
+                }
+            }
+            conexion.CerrarConexion();
+        }
+
+        // Clase auxiliar para almacenar el nombre del tutor y su id
+        public class ComboBoxItem
+        {
+            public string Text { get; set; }
+            public int Tag { get; set; }
+
+            // Sobrescribir el método ToString() para que devuelva el nombre completo del tutor
+            public override string ToString()
+            {
+                return Text;  // Retorna el nombre completo que queremos mostrar
+            }
+        }
         private void gb_Info_Alumno_Enter(object sender, EventArgs e)
         {
 
@@ -194,13 +249,29 @@ namespace vsoccer
 
         }
 
-        private void btnSaveAlumRegister_Click(object sender, EventArgs e)
+        /*private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
             // Tomar datos del formulario
             string nombre = txtNombre.Text;
             string apellido1 = txtApellido1.Text;
             string apellido2 = txtApellido2.Text;
             DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
+            string categoriaSeleccionada = cbHorario.SelectedItem?.ToString();
+
+            // Validar los campos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == null || string.IsNullOrEmpty(categoriaSeleccionada))
+            {
+                MessageBox.Show("Por favor, complete todos los campos, incluyendo la categoría.");
+                return;
+            }
+
+            // Obtener el ID de la categoría basado en la selección
+            int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);
+            if (idCategoria == -1)
+            {
+                MessageBox.Show("Error al obtener la categoría seleccionada.");
+                return;
+            }
 
             // Validar los campos
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == null)
@@ -234,6 +305,7 @@ namespace vsoccer
                             command.Parameters.AddWithValue("@apellido2", apellido2);
                             command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
                             command.Parameters.AddWithValue("@foto", filePath);
+                            command.Parameters.AddWithValue("@categoria", idCategoria);
                             command.ExecuteNonQuery();
 
                             try
@@ -270,6 +342,113 @@ namespace vsoccer
 
 
 
+        }
+        */
+
+        private void btnSaveAlumRegister_Click(object sender, EventArgs e)
+        {
+            // Tomar datos del formulario
+            string nombre = txtNombre.Text.Trim();
+            string apellido1 = txtApellido1.Text.Trim();
+            string apellido2 = txtApellido2.Text.Trim();
+            DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
+
+            // Verificar que los campos de texto no estén vacíos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == DateTime.MinValue)
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                return;
+            }
+
+            // Verificar que se haya seleccionado un tutor
+            if (cbSelecTutoRegister.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un tutor.");
+                return;
+            }
+
+            // Tomar direccion de la foto
+            string filePath = GuardarImagen();
+
+            // Registrar datos en BD
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                // Conexion a base de datos
+                Conexion conexion = new Conexion();
+                using (var connection = conexion.AbrirConexion())
+                {
+                    if (connection != null)
+                    {
+                        string queryUsuario = "INSERT INTO usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
+                                              "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
+
+                        using (var command = new MySqlCommand(queryUsuario, connection))
+                        {
+                            command.Parameters.AddWithValue("@rol", 5);
+                            command.Parameters.AddWithValue("@nombre", nombre.ToUpper());
+                            command.Parameters.AddWithValue("@apellido1", apellido1.ToUpper());
+                            command.Parameters.AddWithValue("@apellido2", apellido2.ToUpper());
+                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                            command.Parameters.AddWithValue("@foto", filePath);
+
+                            command.ExecuteNonQuery();
+
+                            // Obtener el id del usuario recién insertado
+                            long idUsuario = command.LastInsertedId;  // Usamos long ya que MySQL puede devolver valores grandes
+
+                            // Ahora insertamos en la tabla alumno_tutor
+                            string queryAlumnoTutor = "INSERT INTO alumno_tutor (numcontrol, idtutor) " +
+                                                      "VALUES (@numcontrol, @idtutor)";
+
+                            using (var commandTutor = new MySqlCommand(queryAlumnoTutor, connection))
+                            {
+                                commandTutor.Parameters.AddWithValue("@numcontrol", idUsuario);
+                                commandTutor.Parameters.AddWithValue("@idtutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
+                                commandTutor.ExecuteNonQuery();
+                            }
+
+                            MessageBox.Show("Alumno registrado exitosamente.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
+                    }
+                }
+
+                // Cerrar la conexión
+                conexion.CerrarConexion();
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar la imagen.");
+            }
+        }
+
+
+
+
+
+
+        // Método para obtener el ID de la categoría basado en la selección
+        private int ObtenerIdCategoria(string categoriaSeleccionada)
+        {
+            // Diccionario para mapear los nombres de horarios a los IDs de categoría
+            var categoriaMap = new Dictionary<string, int>
+    {
+        {"MINI 1 - Lunes y Miércoles 4PM - 5PM", 1},
+        {"MINI 2 - Martes y Jueves 3PM - 4PM", 6},
+        {"MENOR 1 - Lunes y Miércoles 3PM - 4PM", 2},
+        {"MENOR 2 - Martes y Jueves 4PM - 5PM", 7},
+        {"MAYOR A - Lunes y Miércoles 5PM - 6PM", 3},
+        {"MAYOR B - Martes y Jueves 6PM - 7PM", 8},
+        {"JUVENIL A - Lunes y Miércoles 6PM - 7:30PM", 4},
+        {"JUVENIL B - Martes y Jueves 4PM - 5:30PM", 9},
+        {"PRO - Martes y Jueves 5:30PM - 7PM", 5}
+    };
+
+            // Retornar el ID correspondiente o -1 si no se encuentra
+            return categoriaMap.ContainsKey(categoriaSeleccionada) ? categoriaMap[categoriaSeleccionada] : -1;
         }
 
         private void btnAgregartutor_Click(object sender, EventArgs e)
