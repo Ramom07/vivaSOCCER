@@ -345,20 +345,27 @@ namespace vsoccer
         }
         */
 
+        /*
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
             // Tomar datos del formulario
-            string nombre = txtNombre.Text.Trim();
-            string apellido1 = txtApellido1.Text.Trim();
-            string apellido2 = txtApellido2.Text.Trim();
+            string nombre = txtNom.Text;
+            string apellido1 = txtAp1.Text;
+            string apellido2 = txtAp2.Text;
             DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
+            string fechaNacimientoSQL = fechaNacimiento.ToString("yyyy-MM-dd");
 
-            // Verificar que los campos de texto no estén vacíos
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == DateTime.MinValue)
+            Console.WriteLine("Nombre: " + nombre);
+            Console.WriteLine("Apellido1: " + apellido1);
+            Console.WriteLine("Fecha de Nacimiento: " + fechaNacimientoSQL);
+
+            //Verificar que los campos de texto no estén vacíos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.");
                 return;
             }
+            
 
             // Verificar que se haya seleccionado un tutor
             if (cbSelecTutoRegister.SelectedIndex == -1)
@@ -388,7 +395,7 @@ namespace vsoccer
                             command.Parameters.AddWithValue("@nombre", nombre.ToUpper());
                             command.Parameters.AddWithValue("@apellido1", apellido1.ToUpper());
                             command.Parameters.AddWithValue("@apellido2", apellido2.ToUpper());
-                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimientoSQL);
                             command.Parameters.AddWithValue("@foto", filePath);
 
                             command.ExecuteNonQuery();
@@ -405,6 +412,122 @@ namespace vsoccer
                                 commandTutor.Parameters.AddWithValue("@numcontrol", idUsuario);
                                 commandTutor.Parameters.AddWithValue("@idtutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
                                 commandTutor.ExecuteNonQuery();
+                            }
+
+                            MessageBox.Show("Alumno registrado exitosamente.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
+                    }
+                }
+
+                // Cerrar la conexión
+                conexion.CerrarConexion();
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar la imagen.");
+            }
+        }
+        */
+
+        private void btnSaveAlumRegister_Click(object sender, EventArgs e)
+        {
+            // Tomar datos del formulario
+            string nombre = txtNom.Text;
+            string apellido1 = txtAp1.Text;
+            string apellido2 = txtAp2.Text;
+            DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
+            string fechaNacimientoSQL = fechaNacimiento.ToString("yyyy-MM-dd");
+
+            Console.WriteLine("Nombre: " + nombre);
+            Console.WriteLine("Apellido1: " + apellido1);
+            Console.WriteLine("Fecha de Nacimiento: " + fechaNacimientoSQL);
+
+            //Verificar que los campos de texto no estén vacíos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                return;
+            }
+
+            // Verificar que se haya seleccionado un tutor
+            if (cbSelecTutoRegister.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un tutor.");
+                return;
+            }
+
+            // Verificar que se haya seleccionado un horario
+            if (cbHorario.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un horario.");
+                return;
+            }
+
+            // Tomar direccion de la foto
+            string filePath = GuardarImagen();
+
+            // Registrar datos en BD
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                // Conexion a base de datos
+                Conexion conexion = new Conexion();
+                using (var connection = conexion.AbrirConexion())
+                {
+                    if (connection != null)
+                    {
+                        string queryUsuario = "INSERT INTO usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
+                                              "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
+
+                        using (var command = new MySqlCommand(queryUsuario, connection))
+                        {
+                            command.Parameters.AddWithValue("@rol", 5);
+                            command.Parameters.AddWithValue("@nombre", nombre.ToUpper());
+                            command.Parameters.AddWithValue("@apellido1", apellido1.ToUpper());
+                            command.Parameters.AddWithValue("@apellido2", apellido2.ToUpper());
+                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimientoSQL);
+                            command.Parameters.AddWithValue("@foto", filePath);
+
+                            command.ExecuteNonQuery();
+
+                            // Obtener el último numcontrol de la tabla alumnos
+                            string queryLastAlumno = "SELECT numcontrol FROM alumnos ORDER BY numcontrol DESC LIMIT 1";
+
+                            long numcontrol = 0;
+                            using (var commandLastAlumno = new MySqlCommand(queryLastAlumno, connection))
+                            {
+                                var result = commandLastAlumno.ExecuteScalar();
+                                if (result != null)
+                                {
+                                    numcontrol = Convert.ToInt64(result);
+                                }
+                            }
+
+                            // Obtener la categoría seleccionada del ComboBox
+                            string categoriaSeleccionada = cbHorario.SelectedItem.ToString();
+                            int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);                 
+                            // Ahora insertamos en la tabla alumno_tutor usando el último numcontrol
+                            string queryAlumnoTutor = "INSERT INTO alumno_tutor (numcontrol, idtutor) " +
+                                                      "VALUES (@numcontrol, @idtutor)";
+
+                            using (var commandTutor = new MySqlCommand(queryAlumnoTutor, connection))
+                            {
+                                commandTutor.Parameters.AddWithValue("@numcontrol", numcontrol);
+                                commandTutor.Parameters.AddWithValue("@idtutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
+                                commandTutor.ExecuteNonQuery();
+                            }
+
+                            // Actualizar la categoría en la tabla alumnos
+                            string queryUpdateCategoria = "UPDATE alumnos SET categoria = @idcategoria WHERE numcontrol = @numcontrol";
+
+                            using (var commandUpdateCategoria = new MySqlCommand(queryUpdateCategoria, connection))
+                            {
+                                commandUpdateCategoria.Parameters.AddWithValue("@idcategoria", idCategoria);
+                                commandUpdateCategoria.Parameters.AddWithValue("@numcontrol", numcontrol);
+                                commandUpdateCategoria.ExecuteNonQuery();
                             }
 
                             MessageBox.Show("Alumno registrado exitosamente.");
