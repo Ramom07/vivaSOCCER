@@ -32,11 +32,17 @@
             this.gb_Info_Alumno = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.rjTextBox3 = new vsoccer.RJTextBox();
-            this.rjTextBox2 = new vsoccer.RJTextBox();
-            this.rjTextBox1 = new vsoccer.RJTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txtApellido2 = new vsoccer.RJTextBox();
+            this.txtApellido1 = new vsoccer.RJTextBox();
+            this.txtNombre = new vsoccer.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbHorario = new System.Windows.Forms.ComboBox();
+            this.btnAddAlumn = new System.Windows.Forms.Button();
+            this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
+            this.btnAddTutorRegister = new System.Windows.Forms.Button();
+            this.btnCancelRegister = new System.Windows.Forms.Button();
+            this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.lblname = new System.Windows.Forms.Label();
             this.lbldatebrith = new System.Windows.Forms.Label();
             this.cbSelecTutoRegister = new System.Windows.Forms.ComboBox();
@@ -47,12 +53,6 @@
             this.lblapellidomat = new System.Windows.Forms.Label();
             this.checkBoxFemaleRegister = new System.Windows.Forms.CheckBox();
             this.checkBoxMenRegister = new System.Windows.Forms.CheckBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnAddAlumn = new System.Windows.Forms.Button();
-            this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
-            this.btnAddTutorRegister = new System.Windows.Forms.Button();
-            this.btnCancelRegister = new System.Windows.Forms.Button();
-            this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.gb_Info_Alumno.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,9 +64,9 @@
             this.gb_Info_Alumno.AutoSize = true;
             this.gb_Info_Alumno.BackColor = System.Drawing.Color.MediumOrchid;
             this.gb_Info_Alumno.Controls.Add(this.panel4);
-            this.gb_Info_Alumno.Controls.Add(this.rjTextBox3);
-            this.gb_Info_Alumno.Controls.Add(this.rjTextBox2);
-            this.gb_Info_Alumno.Controls.Add(this.rjTextBox1);
+            this.gb_Info_Alumno.Controls.Add(this.txtApellido2);
+            this.gb_Info_Alumno.Controls.Add(this.txtApellido1);
+            this.gb_Info_Alumno.Controls.Add(this.txtNombre);
             this.gb_Info_Alumno.Controls.Add(this.label1);
             this.gb_Info_Alumno.Controls.Add(this.cbHorario);
             this.gb_Info_Alumno.Controls.Add(this.btnAddAlumn);
@@ -118,59 +118,74 @@
             this.label9.TabIndex = 40;
             this.label9.Text = "EDITAR INFORMACIÓN";
             // 
-            // rjTextBox3
+            // pictureBox2
             // 
-            this.rjTextBox3.AutoSize = true;
-            this.rjTextBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox3.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox3.BorderSize = 2;
-            this.rjTextBox3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox3.Location = new System.Drawing.Point(897, 145);
-            this.rjTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rjTextBox3.Name = "rjTextBox3";
-            this.rjTextBox3.Padding = new System.Windows.Forms.Padding(9);
-            this.rjTextBox3.PasswordChar = false;
-            this.rjTextBox3.Size = new System.Drawing.Size(342, 46);
-            this.rjTextBox3.TabIndex = 71;
-            this.rjTextBox3.Texts = "";
-            this.rjTextBox3.UnderlineStyle = false;
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(130, 78);
+            this.pictureBox2.TabIndex = 39;
+            this.pictureBox2.TabStop = false;
             // 
-            // rjTextBox2
+            // txtApellido2
             // 
-            this.rjTextBox2.AutoSize = true;
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox2.BorderSize = 2;
-            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox2.Location = new System.Drawing.Point(475, 145);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(9);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.Size = new System.Drawing.Size(350, 46);
-            this.rjTextBox2.TabIndex = 70;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlineStyle = false;
+            this.txtApellido2.AutoSize = true;
+            this.txtApellido2.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellido2.BorderSize = 2;
+            this.txtApellido2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido2.ForeColor = System.Drawing.Color.DimGray;
+            this.txtApellido2.Location = new System.Drawing.Point(897, 145);
+            this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Padding = new System.Windows.Forms.Padding(9);
+            this.txtApellido2.PasswordChar = false;
+            this.txtApellido2.Size = new System.Drawing.Size(342, 46);
+            this.txtApellido2.TabIndex = 71;
+            this.txtApellido2.Texts = "";
+            this.txtApellido2.UnderlineStyle = false;
+            this.txtApellido2.Load += new System.EventHandler(this.txtApellido2_Load);
             // 
-            // rjTextBox1
+            // txtApellido1
             // 
-            this.rjTextBox1.AutoSize = true;
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox1.Location = new System.Drawing.Point(43, 145);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(9);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.Size = new System.Drawing.Size(312, 46);
-            this.rjTextBox1.TabIndex = 69;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlineStyle = false;
+            this.txtApellido1.AutoSize = true;
+            this.txtApellido1.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellido1.BorderSize = 2;
+            this.txtApellido1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido1.ForeColor = System.Drawing.Color.DimGray;
+            this.txtApellido1.Location = new System.Drawing.Point(475, 145);
+            this.txtApellido1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Padding = new System.Windows.Forms.Padding(9);
+            this.txtApellido1.PasswordChar = false;
+            this.txtApellido1.Size = new System.Drawing.Size(350, 46);
+            this.txtApellido1.TabIndex = 70;
+            this.txtApellido1.Texts = "";
+            this.txtApellido1.UnderlineStyle = false;
+            this.txtApellido1.Load += new System.EventHandler(this.txtApellido1_Load);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.AutoSize = true;
+            this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNombre.BorderSize = 2;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNombre.Location = new System.Drawing.Point(43, 145);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Padding = new System.Windows.Forms.Padding(9);
+            this.txtNombre.PasswordChar = false;
+            this.txtNombre.Size = new System.Drawing.Size(312, 46);
+            this.txtNombre.TabIndex = 69;
+            this.txtNombre.Texts = "";
+            this.txtNombre.UnderlineStyle = false;
+            this.txtNombre.Load += new System.EventHandler(this.txtNombre_Load);
             // 
             // label1
             // 
@@ -194,6 +209,86 @@
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(270, 39);
             this.cbHorario.TabIndex = 67;
+            this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
+            // 
+            // btnAddAlumn
+            // 
+            this.btnAddAlumn.AutoSize = true;
+            this.btnAddAlumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAlumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
+            this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
+            this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAlumn.Location = new System.Drawing.Point(967, 547);
+            this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnAddAlumn.Name = "btnAddAlumn";
+            this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
+            this.btnAddAlumn.TabIndex = 66;
+            this.btnAddAlumn.Text = "   FOTO";
+            this.btnAddAlumn.UseVisualStyleBackColor = true;
+            this.btnAddAlumn.Click += new System.EventHandler(this.btnAddAlumn_Click);
+            // 
+            // PictureBoxAddImageAlum
+            // 
+            this.PictureBoxAddImageAlum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBoxAddImageAlum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PictureBoxAddImageAlum.Location = new System.Drawing.Point(911, 251);
+            this.PictureBoxAddImageAlum.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.PictureBoxAddImageAlum.Name = "PictureBoxAddImageAlum";
+            this.PictureBoxAddImageAlum.Size = new System.Drawing.Size(298, 286);
+            this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxAddImageAlum.TabIndex = 65;
+            this.PictureBoxAddImageAlum.TabStop = false;
+            this.PictureBoxAddImageAlum.Click += new System.EventHandler(this.PictureBoxAddImageAlum_Click);
+            // 
+            // btnAddTutorRegister
+            // 
+            this.btnAddTutorRegister.AutoSize = true;
+            this.btnAddTutorRegister.FlatAppearance.BorderSize = 0;
+            this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
+            this.btnAddTutorRegister.Location = new System.Drawing.Point(353, 461);
+            this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnAddTutorRegister.Name = "btnAddTutorRegister";
+            this.btnAddTutorRegister.Size = new System.Drawing.Size(36, 45);
+            this.btnAddTutorRegister.TabIndex = 64;
+            this.btnAddTutorRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelRegister
+            // 
+            this.btnCancelRegister.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnCancelRegister.AutoSize = true;
+            this.btnCancelRegister.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelRegister.ForeColor = System.Drawing.Color.White;
+            this.btnCancelRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelRegister.Image")));
+            this.btnCancelRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelRegister.Location = new System.Drawing.Point(678, 602);
+            this.btnCancelRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnCancelRegister.Name = "btnCancelRegister";
+            this.btnCancelRegister.Size = new System.Drawing.Size(214, 49);
+            this.btnCancelRegister.TabIndex = 63;
+            this.btnCancelRegister.Text = "      CANCELAR";
+            this.btnCancelRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveAlumRegister
+            // 
+            this.btnSaveAlumRegister.AutoSize = true;
+            this.btnSaveAlumRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAlumRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveAlumRegister.ForeColor = System.Drawing.Color.White;
+            this.btnSaveAlumRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAlumRegister.Image")));
+            this.btnSaveAlumRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAlumRegister.Location = new System.Drawing.Point(411, 602);
+            this.btnSaveAlumRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnSaveAlumRegister.Name = "btnSaveAlumRegister";
+            this.btnSaveAlumRegister.Size = new System.Drawing.Size(213, 49);
+            this.btnSaveAlumRegister.TabIndex = 62;
+            this.btnSaveAlumRegister.Text = "    GUARDAR";
+            this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
+            this.btnSaveAlumRegister.Click += new System.EventHandler(this.btnSaveAlumRegister_Click);
             // 
             // lblname
             // 
@@ -230,6 +325,7 @@
             this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
             this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 39);
             this.cbSelecTutoRegister.TabIndex = 59;
+            this.cbSelecTutoRegister.SelectedIndexChanged += new System.EventHandler(this.cbSelecTutoRegister_SelectedIndexChanged);
             // 
             // dtpFechaNaciRegister
             // 
@@ -240,6 +336,7 @@
             this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
             this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 42);
             this.dtpFechaNaciRegister.TabIndex = 61;
+            this.dtpFechaNaciRegister.ValueChanged += new System.EventHandler(this.dtpFechaNaciRegister_ValueChanged);
             // 
             // lblAddfhater
             // 
@@ -321,94 +418,6 @@
             this.checkBoxMenRegister.Text = "HOMBRE";
             this.checkBoxMenRegister.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 78);
-            this.pictureBox2.TabIndex = 39;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnAddAlumn
-            // 
-            this.btnAddAlumn.AutoSize = true;
-            this.btnAddAlumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAlumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAlumn.ForeColor = System.Drawing.Color.White;
-            this.btnAddAlumn.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAlumn.Image")));
-            this.btnAddAlumn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAlumn.Location = new System.Drawing.Point(967, 547);
-            this.btnAddAlumn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnAddAlumn.Name = "btnAddAlumn";
-            this.btnAddAlumn.Size = new System.Drawing.Size(188, 52);
-            this.btnAddAlumn.TabIndex = 66;
-            this.btnAddAlumn.Text = "   FOTO";
-            this.btnAddAlumn.UseVisualStyleBackColor = true;
-            // 
-            // PictureBoxAddImageAlum
-            // 
-            this.PictureBoxAddImageAlum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxAddImageAlum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PictureBoxAddImageAlum.Location = new System.Drawing.Point(911, 251);
-            this.PictureBoxAddImageAlum.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.PictureBoxAddImageAlum.Name = "PictureBoxAddImageAlum";
-            this.PictureBoxAddImageAlum.Size = new System.Drawing.Size(298, 286);
-            this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBoxAddImageAlum.TabIndex = 65;
-            this.PictureBoxAddImageAlum.TabStop = false;
-            // 
-            // btnAddTutorRegister
-            // 
-            this.btnAddTutorRegister.AutoSize = true;
-            this.btnAddTutorRegister.FlatAppearance.BorderSize = 0;
-            this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
-            this.btnAddTutorRegister.Location = new System.Drawing.Point(353, 461);
-            this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnAddTutorRegister.Name = "btnAddTutorRegister";
-            this.btnAddTutorRegister.Size = new System.Drawing.Size(36, 45);
-            this.btnAddTutorRegister.TabIndex = 64;
-            this.btnAddTutorRegister.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelRegister
-            // 
-            this.btnCancelRegister.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnCancelRegister.AutoSize = true;
-            this.btnCancelRegister.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelRegister.ForeColor = System.Drawing.Color.White;
-            this.btnCancelRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelRegister.Image")));
-            this.btnCancelRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelRegister.Location = new System.Drawing.Point(678, 602);
-            this.btnCancelRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnCancelRegister.Name = "btnCancelRegister";
-            this.btnCancelRegister.Size = new System.Drawing.Size(214, 49);
-            this.btnCancelRegister.TabIndex = 63;
-            this.btnCancelRegister.Text = "      CANCELAR";
-            this.btnCancelRegister.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveAlumRegister
-            // 
-            this.btnSaveAlumRegister.AutoSize = true;
-            this.btnSaveAlumRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveAlumRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAlumRegister.ForeColor = System.Drawing.Color.White;
-            this.btnSaveAlumRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAlumRegister.Image")));
-            this.btnSaveAlumRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveAlumRegister.Location = new System.Drawing.Point(411, 602);
-            this.btnSaveAlumRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnSaveAlumRegister.Name = "btnSaveAlumRegister";
-            this.btnSaveAlumRegister.Size = new System.Drawing.Size(213, 49);
-            this.btnSaveAlumRegister.TabIndex = 62;
-            this.btnSaveAlumRegister.Text = "    GUARDAR";
-            this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
-            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -432,9 +441,9 @@
         #endregion
 
         public System.Windows.Forms.GroupBox gb_Info_Alumno;
-        private RJTextBox rjTextBox3;
-        private RJTextBox rjTextBox2;
-        private RJTextBox rjTextBox1;
+        private RJTextBox txtApellido2;
+        private RJTextBox txtApellido1;
+        private RJTextBox txtNombre;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox cbHorario;
         public System.Windows.Forms.Button btnAddAlumn;
