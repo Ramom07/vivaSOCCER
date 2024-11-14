@@ -144,9 +144,44 @@ namespace vsoccer
 
         }
 
+        //Metodo para calcular edad segun la fecha de nacimietno seleccionada
+        private int CalcularEdad(DateTime fechNac)
+        {
+            int edad = DateTime.Now.Year - fechNac.Year;
+            if (DateTime.Now.DayOfYear < fechNac.DayOfYear)
+                edad--;
+            return edad;
+        }
+
         private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
         {
+            int age = CalcularEdad(dtpFechaNaciRegister.Value);
+            cbHorario.Items.Clear();
 
+            if (age >= 3 && age <= 4)
+            {
+                cbHorario.Items.Add("MINI 1 - Lunes y Miércoles 4PM - 5PM");
+                cbHorario.Items.Add("MINI 2 - Martes y Jueves 3PM - 4PM");
+            }
+            else if (age >= 5 && age <= 6)
+            {
+                cbHorario.Items.Add("MENOR 1 - Lunes y Miércoles 3PM - 4PM");
+                cbHorario.Items.Add("MENOR 2 - Martes y Jueves 4PM - 5PM");
+            }
+            else if (age >= 7 && age <= 8)
+            {
+                cbHorario.Items.Add("MAYOR A - Lunes y Miércoles 5PM - 6PM");
+                cbHorario.Items.Add("MAYOR B - Martes y Jueves 6PM - 7PM");
+            }
+            else if (age >= 9 && age <= 10)
+            {
+                cbHorario.Items.Add("JUVENIL A - Lunes y Miércoles 6PM - 7:30PM");
+                cbHorario.Items.Add("JUVENIL B - Martes y Jueves 4PM - 5:30PM");
+            }
+            else if (age >= 11 && age <= 12)
+            {
+                cbHorario.Items.Add("PRO - Martes y Jueves 5:30PM - 7PM");
+            }
         }
 
         private void cbSelecTutoRegister_SelectedIndexChanged(object sender, EventArgs e)
