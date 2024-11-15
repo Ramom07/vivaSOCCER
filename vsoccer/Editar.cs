@@ -16,12 +16,11 @@ namespace vsoccer
 {
     public partial class Editar : Form
     {
-        private int numcontrol; //Numero de control del alumno
-        private MySqlConnection conn;
-        private FilterInfoCollection dispositivos; // Colección de dispositivos de cámara
-        private VideoCaptureDevice fuenteDeVideo; // Dispositivo de captura de video
+        private int numcontrol; // Numero de control del alumno
+        private FilterInfoCollection dispositivos; // Para detectar cámaras disponibles
+        private VideoCaptureDevice fuenteDeVideo; // Para capturar video desde la cámara
 
-        public Editar()
+        public Editar(int numcontrol)
         {
             InitializeComponent();
             this.numcontrol = numcontrol;
@@ -29,10 +28,10 @@ namespace vsoccer
 
         private void Editar_Load(object sender, EventArgs e)
         {
-            // Cargar los datos del alumno
+            // Cargar los datos del alumno y los ComboBoxes al cargar el formulario
             CargarDatosAlumno();
-            CargarTutores();
             CargarCategorias();
+            CargarTutores();
         }
 
         // Método común para cargar ComboBox desde la base de datos
@@ -42,7 +41,7 @@ namespace vsoccer
             {
                 using (var conexion = new Conexion())
                 {
-                    conn = conexion.AbrirConexion();
+                    var conn = conexion.AbrirConexion();
                     if (conn == null) return;
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
@@ -62,43 +61,54 @@ namespace vsoccer
             }
         }
 
-        //metodo para cargar los datos del alumno
 
 
-        //metodo para cargar los tutores
-        // Método para cargar los datos del alumno
+        // Método para cargar los datos del alumno desde la base de datos
         private void CargarDatosAlumno()
         {
             try
             {
+                // Conectar a la base de datos
                 using (var conexion = new Conexion())
                 {
-                    conn = conexion.AbrirConexion();
+                    var conn = conexion.AbrirConexion();
                     if (conn == null) return;
 
-                    string query = @"SELECT u.nombre, u.apellido1, u.apellido2, u.fechaNacimiento, u.foto, a.categoria, at.idtutor
-                                     FROM usuarios u
-                                     INNER JOIN alumnos a ON u.id = a.id
-                                     LEFT JOIN alumno_tutor at ON a.numcontrol = at.numcontrol
-                                     WHERE a.numcontrol = @numcontrol";
+                    // Consulta SQL para obtener los datos del alumno por su numcontrol
+                    string query = "SELECT u.nombre, u.apellido1, u.apellido2, u.fechaNacimiento, a.categoria, a.idtutor " +
+                                   "FROM usuarios u " +
+                                   "INNER JOIN alumnos a ON u.id = a.id " +
+                                   "WHERE a.numcontrol = @numcontrol";
 
                     using (var cmd = new MySqlCommand(query, conn))
                     {
+                        // Añadir el parámetro numcontrol
                         cmd.Parameters.AddWithValue("@numcontrol", numcontrol);
+
+                        // Ejecutar la consulta y leer los resultados
                         using (var reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                txtNombre.Text = reader["nombre"].ToString();
-                                txtApellido1.Text = reader["apellido1"].ToString();
-                                txtApellido2.Text = reader["apellido2"].ToString();
-                                dtpFechaNaciRegister.Value = Convert.ToDateTime(reader["fechaNacimiento"]);
-                                if (!reader.IsDBNull(reader.GetOrdinal("foto")))
-                                {
-                                    PictureBoxAddImageAlum.ImageLocation = reader["foto"].ToString();
-                                }
-                                cbCategoria.SelectedValue = reader["categoria"];
-                                cbSelecTutoRegister.SelectedValue = reader["idtutor"];
+                                // Leer los datos del alumno
+                                string nombre = reader.GetString("nombre");
+                                string apellido1 = reader.GetString("apellido1");
+                                string apellido2 = reader.GetString("apellido2");
+                                DateTime fechaNacimiento = reader.GetDateTime("fechaNacimiento");
+                                int categoria = reader.GetInt32("categoria");
+                                int idTutor = reader.GetInt32("idtutor");
+
+                                // Asignar los datos a los controles del formulario
+                                txtNombre.Text = nombre;
+                                txtApellido1.Text = apellido1;
+                                txtApellido2.Text = apellido2;
+                                dtpFechaNaciRegister.Value = fechaNacimiento;
+                                cbHorario.SelectedValue = categoria; // Asigna la categoría al ComboBox
+                                cbSelecTutoRegister.SelectedValue = idTutor; // Asigna el tutor al ComboBox
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró el alumno con el número de control especificado.");
                             }
                         }
                     }
@@ -111,51 +121,17 @@ namespace vsoccer
             }
         }
 
+
         // Cargar categorías
         private void CargarCategorias()
         {
-            CargarComboBox("SELECT id_categoria, nombre FROM categorias", cbCategoria, "nombre", "id_categoria");
+            CargarComboBox("SELECT id_categoria, nombre FROM categorias", cbHorario, "nombre", "id_categoria");
         }
 
         // Cargar tutores
         private void CargarTutores()
         {
-            CargarComboBox("SELECT id, nombre FROM tutores", cbSelecTutoRegister, "nombre", "id");
-        }
-
-        private void txtNombre_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellido1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellido2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbSelecTutoRegister_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PictureBoxAddImageAlum_Click(object sender, EventArgs e)
-        {
-
+            CargarComboBox("SELECT idtutor, nombre FROM tutores", cbSelecTutoRegister, "nombre", "idtutor");
         }
 
         // Validación de campos antes de actualizar
@@ -169,6 +145,7 @@ namespace vsoccer
             return true;
         }
 
+        // Método para guardar la información del alumno
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
             // Verificar que los campos sean válidos
@@ -179,7 +156,7 @@ namespace vsoccer
             string apellido1 = txtApellido1.Text;
             string apellido2 = txtApellido2.Text;
             DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
-            int categoria = Convert.ToInt32(cbCategoria.SelectedValue);
+            int categoria = Convert.ToInt32(cbHorario.SelectedValue);
             int tutor = Convert.ToInt32(cbSelecTutoRegister.SelectedValue);
             string fotoPath = GuardarImagen(); // Obtener la ruta de la foto guardada
 
@@ -239,7 +216,7 @@ namespace vsoccer
             // Usar la clase Conexion para obtener la conexión a la base de datos
             using (var conexion = new Conexion())
             {
-                conn = conexion.AbrirConexion();
+                var conn = conexion.AbrirConexion();
                 if (conn == null) return;
 
                 using (var command = new MySqlCommand(updateQuery.ToString(), conn))
@@ -257,45 +234,7 @@ namespace vsoccer
             MessageBox.Show("Información actualizada correctamente.");
         }
 
-        //Foto de clic de la Foto
-        private void btnFoto_Click(object sender, EventArgs e)
-        {
-            // Mostrar una lista de cámaras y seleccionar una
-            if (dispositivos.Count == 0)
-            {
-                MessageBox.Show("No se detectaron cámaras.");
-                return;
-            }
-
-            // Seleccionar la primera cámara
-            fuenteDeVideo = new VideoCaptureDevice(dispositivos[0].MonikerString);
-            fuenteDeVideo.NewFrame += new NewFrameEventHandler(CapturarFrame);
-            fuenteDeVideo.Start();
-
-            // Capturar la imagen después de 5 segundos
-            Task.Delay(5000).ContinueWith(_ => CapturarImagen());
-
-        }
-
-        private void CapturarFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            // Mostrar la imagen en el PictureBox (de manera continua mientras la cámara esté activa)
-            PictureBoxAddImageAlum.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-
-        //Metodo que captura imagen
-        private void CapturarImagen()
-        {
-            if (fuenteDeVideo != null && fuenteDeVideo.IsRunning)
-            {
-                fuenteDeVideo.SignalToStop();
-                fuenteDeVideo.WaitForStop();
-
-                GuardarImagen(); // Llamar al método para guardar la imagen
-            }
-        }
-
-        //metodo para guardar imagen
+        // Método para guardar la imagen de la foto del alumno
         private string GuardarImagen()
         {
             // Crear la ruta de la carpeta FotosAlumnos dentro del proyecto
@@ -320,7 +259,68 @@ namespace vsoccer
             return null;
         }
 
+        // Detectar cámaras disponibles
+        private void DetectarCamaras()
+        {
+            dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (dispositivos.Count == 0)
+            {
+                MessageBox.Show("No se detectaron cámaras.");
+                return;
+            }
+        }
 
+        // Foto de clic para tomar imagen
+        private void btnFoto_Click(object sender, EventArgs e)
+        {
+            // Mostrar una lista de cámaras y seleccionar una
+            if (dispositivos.Count == 0)
+            {
+                MessageBox.Show("No se detectaron cámaras.");
+                return;
+            }
 
+            // Seleccionar la primera cámara
+            fuenteDeVideo = new VideoCaptureDevice(dispositivos[0].MonikerString);
+            fuenteDeVideo.NewFrame += new NewFrameEventHandler(CapturarFrame);
+            fuenteDeVideo.Start();
+
+            // Capturar la imagen después de 5 segundos
+            Task.Delay(5000).ContinueWith(_ => CapturarImagen());
+        }
+
+        // Método para capturar el frame de la cámara
+        private void CapturarFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            // Mostrar la imagen en el PictureBox
+            PictureBoxAddImageAlum.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        // Método que captura la imagen cuando la cámara está activa
+        private void CapturarImagen()
+        {
+            if (fuenteDeVideo != null && fuenteDeVideo.IsRunning)
+            {
+                fuenteDeVideo.SignalToStop();
+                fuenteDeVideo.WaitForStop();
+
+                GuardarImagen(); // Llamar al método para guardar la imagen
+            }
+        }
+
+        private void txtNombre_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

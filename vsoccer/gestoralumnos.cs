@@ -13,6 +13,9 @@ namespace vsoccer
 {
     public partial class gestoralumnos : Form
     {
+
+        // Variable para almacenar el numcontrol seleccionado
+        private int numcontrolSeleccionado;
         public gestoralumnos()
         {
             this.AutoScaleMode = AutoScaleMode.Dpi;
@@ -45,6 +48,16 @@ namespace vsoccer
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Verifica si la columna 'numcontrol' existe
+            if (e.RowIndex >= 0 && dgDatosAlumnos.Columns.Contains("numcontrol"))
+            {
+                // Obtener el numcontrol seleccionado
+                numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.Rows[e.RowIndex].Cells["Id"].Value);
+            }
+            else
+            {
+                MessageBox.Show("La columna 'numcontrol' no está presente.");
+            }
 
         }
 
@@ -96,9 +109,21 @@ namespace vsoccer
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            // Crear y mostrar el formulario frmAlumnos
-            Editar formEditar = new Editar();
-            formEditar.Show();
+
+            // Verificar si se ha seleccionado una fila en el DataGridView
+            if (dgDatosAlumnos.SelectedRows.Count > 0)
+            {
+                // Obtener el numcontrol de la fila seleccionada
+                int numcontrol = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells["numcontrol"].Value);
+
+                // Crear y mostrar el formulario Editar, pasando el numcontrol como argumento
+                Editar formEditar = new Editar(numcontrol);
+                formEditar.Show();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un alumno para editar.");
+            }
         }
     }
 }

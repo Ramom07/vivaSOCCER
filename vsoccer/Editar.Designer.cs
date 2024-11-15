@@ -209,7 +209,6 @@
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(270, 39);
             this.cbHorario.TabIndex = 67;
-            this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
             // 
             // btnFoto
             // 
@@ -239,7 +238,6 @@
             this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxAddImageAlum.TabIndex = 65;
             this.PictureBoxAddImageAlum.TabStop = false;
-            this.PictureBoxAddImageAlum.Click += new System.EventHandler(this.PictureBoxAddImageAlum_Click);
             // 
             // btnAddTutorRegister
             // 
@@ -325,7 +323,6 @@
             this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
             this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 39);
             this.cbSelecTutoRegister.TabIndex = 59;
-            this.cbSelecTutoRegister.SelectedIndexChanged += new System.EventHandler(this.cbSelecTutoRegister_SelectedIndexChanged);
             // 
             // dtpFechaNaciRegister
             // 
@@ -336,7 +333,6 @@
             this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
             this.dtpFechaNaciRegister.Size = new System.Drawing.Size(285, 42);
             this.dtpFechaNaciRegister.TabIndex = 61;
-            this.dtpFechaNaciRegister.ValueChanged += new System.EventHandler(this.dtpFechaNaciRegister_ValueChanged);
             // 
             // lblAddfhater
             // 

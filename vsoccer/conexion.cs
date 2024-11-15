@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 
 namespace vsoccer
 {
-     class Conexion
+     class Conexion : IDisposable
     {
         private MySqlConnection conexionBD;
        
@@ -49,10 +49,15 @@ namespace vsoccer
                 MessageBox.Show("Error al cerrar la conexion: " + e.Message + "\n" + e.StackTrace);
             }
         }
-            
 
-           
-            
-        
+        public void Dispose()
+        {
+            CerrarConexion();
+        }
+
+
+
+
+
     }
 }
