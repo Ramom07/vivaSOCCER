@@ -97,7 +97,7 @@
             this.btnCerrar.Size = new System.Drawing.Size(51, 55);
             this.btnCerrar.TabIndex = 5;
             this.btnCerrar.UseVisualStyleBackColor = true;
-            //this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnMax
             // 
@@ -113,7 +113,7 @@
             this.btnMax.Size = new System.Drawing.Size(51, 55);
             this.btnMax.TabIndex = 4;
             this.btnMax.UseVisualStyleBackColor = true;
-            //this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // btnMin
             // 
@@ -129,7 +129,7 @@
             this.btnMin.Size = new System.Drawing.Size(51, 55);
             this.btnMin.TabIndex = 3;
             this.btnMin.UseVisualStyleBackColor = true;
-            //this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
             // logo
             // 
