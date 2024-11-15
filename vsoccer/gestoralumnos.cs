@@ -48,7 +48,7 @@ namespace vsoccer
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
 
         }
 
@@ -120,6 +120,10 @@ namespace vsoccer
                 MessageBox.Show("Por favor, seleccione un alumno para editar.");
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-

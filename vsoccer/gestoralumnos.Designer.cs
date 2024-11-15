@@ -97,7 +97,7 @@
             this.btnCerrar.Size = new System.Drawing.Size(51, 55);
             this.btnCerrar.TabIndex = 5;
             this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            //this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnMax
             // 
@@ -113,7 +113,7 @@
             this.btnMax.Size = new System.Drawing.Size(51, 55);
             this.btnMax.TabIndex = 4;
             this.btnMax.UseVisualStyleBackColor = true;
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            //this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // btnMin
             // 
@@ -129,7 +129,7 @@
             this.btnMin.Size = new System.Drawing.Size(51, 55);
             this.btnMin.TabIndex = 3;
             this.btnMin.UseVisualStyleBackColor = true;
-            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            //this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
             // logo
             // 
@@ -206,7 +206,7 @@
             this.dgDatosAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgDatosAlumnos.Size = new System.Drawing.Size(1053, 486);
             this.dgDatosAlumnos.TabIndex = 2;
-            this.dgDatosAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatosAlumnos_CellContentClick);
+            //this.dgDatosAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatosAlumnos_CellContentClick);
             // 
             // chtCalificaciones
             // 
@@ -230,7 +230,7 @@
             this.chtCalificaciones.Size = new System.Drawing.Size(519, 486);
             this.chtCalificaciones.TabIndex = 3;
             this.chtCalificaciones.Text = "chart1";
-            this.chtCalificaciones.Click += new System.EventHandler(this.chtCalificaciones_Click);
+            //this.chtCalificaciones.Click += new System.EventHandler(this.chtCalificaciones_Click);
             // 
             // panelOpciones
             // 
@@ -264,7 +264,7 @@
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "    Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            //this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
@@ -439,7 +439,7 @@
             this.Name = "gestoralumnos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.gestoralumnos_Load);
+            //this.Load += new System.EventHandler(this.gestoralumnos_Load);
             this.paneltitulo.ResumeLayout(false);
             this.paneltitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();

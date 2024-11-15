@@ -147,7 +147,7 @@
             this.txtApellido2.TabIndex = 71;
             this.txtApellido2.Texts = "";
             this.txtApellido2.UnderlineStyle = false;
-            this.txtApellido2.Load += new System.EventHandler(this.txtApellido2_Load);
+            //this.txtApellido2.Load += new System.EventHandler(this.txtApellido2_Load);
             // 
             // txtApellido1
             // 
@@ -166,7 +166,7 @@
             this.txtApellido1.TabIndex = 70;
             this.txtApellido1.Texts = "";
             this.txtApellido1.UnderlineStyle = false;
-            this.txtApellido1.Load += new System.EventHandler(this.txtApellido1_Load);
+            //this.txtApellido1.Load += new System.EventHandler(this.txtApellido1_Load);
             // 
             // txtNombre
             // 
@@ -185,7 +185,7 @@
             this.txtNombre.TabIndex = 69;
             this.txtNombre.Texts = "";
             this.txtNombre.UnderlineStyle = false;
-            this.txtNombre.Load += new System.EventHandler(this.txtNombre_Load);
+           // this.txtNombre.Load += new System.EventHandler(this.txtNombre_Load);
             // 
             // label1
             // 
@@ -225,7 +225,7 @@
             this.btnFoto.TabIndex = 66;
             this.btnFoto.Text = "   FOTO";
             this.btnFoto.UseVisualStyleBackColor = true;
-            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
+            //this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // PictureBoxAddImageAlum
             // 
