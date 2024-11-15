@@ -48,16 +48,7 @@ namespace vsoccer
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verifica si la columna 'numcontrol' existe
-            if (e.RowIndex >= 0 && dgDatosAlumnos.Columns.Contains("numcontrol"))
-            {
-                // Obtener el numcontrol seleccionado
-                numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.Rows[e.RowIndex].Cells["Id"].Value);
-            }
-            else
-            {
-                MessageBox.Show("La columna 'numcontrol' no está presente.");
-            }
+           
 
         }
 
@@ -65,7 +56,12 @@ namespace vsoccer
         {
             List<Alumno> lista = new List<Alumno>();
             CtrlAlumnos ctrlAlumnos = new CtrlAlumnos();
-            dgDatosAlumnos.DataSource = ctrlAlumnos.consulta(dato);
+            var datosAlumnos = ctrlAlumnos.consulta(dato);
+
+            dgDatosAlumnos.DataSource = datosAlumnos;
+
+            // Asegúrate de que la columna "Id" esté correctamente configurada
+            dgDatosAlumnos.Columns[0].HeaderText = "Num Control"; // Si es necesario, ajusta el nombre de la columna
         }
 
         private void gestoralumnos_Load(object sender, EventArgs e)
@@ -110,11 +106,10 @@ namespace vsoccer
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
-            // Verificar si se ha seleccionado una fila en el DataGridView
             if (dgDatosAlumnos.SelectedRows.Count > 0)
             {
-                // Obtener el numcontrol de la fila seleccionada
-                int numcontrol = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells["numcontrol"].Value);
+                // Asegúrate de que la celda seleccionada contiene un valor de tipo numcontrol
+                int numcontrol = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value); // Usa el nombre correcto aquí
 
                 // Crear y mostrar el formulario Editar, pasando el numcontrol como argumento
                 Editar formEditar = new Editar(numcontrol);
