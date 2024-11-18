@@ -70,21 +70,7 @@ namespace vsoccer
 
         private void dgDatosAlumnos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgDatosAlumnos.SelectedRows.Count > 0)
-            {
-                try
-                {
-                    // Obtener el numcontrol del alumno seleccionado
-                    numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value);
-
-                    // Llamar a la función para cargar los promedios
-                    CargarPromedios(numcontrolSeleccionado);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al seleccionar el alumno: " + ex.Message);
-                }
-            }
+            
         }
 
         private void cargarTabla(string dato)
@@ -110,7 +96,7 @@ namespace vsoccer
                     dgDatosAlumnos.Columns[5].HeaderText = "Teléfono";
 
                     // Formatear la columna de fechaNacimiento
-                    dgDatosAlumnos.Columns["fechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy"; // Asegura que esta columna se formatee como fecha
+                    dgDatosAlumnos.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy"; // Asegura que esta columna se formatee como fecha
 
                     // Asegúrate de que "fechaNacimiento" es el nombre correcto de la columna en la base de datos
                     // Si usas un nombre diferente, ajusta el índice o el nombre de la columna

@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alumno.cs" />
+    <Compile Include="AlumnoData.cs" />
     <Compile Include="conexion.cs" />
     <Compile Include="CtrlAlumnos.cs" />
     <Compile Include="Editar.cs">

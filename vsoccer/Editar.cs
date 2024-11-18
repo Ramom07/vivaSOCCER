@@ -18,19 +18,40 @@ namespace vsoccer
 
         public Editar(int numcontrol)
         {
-            InitializeComponent();
-            this.numcontrol = numcontrol;
+            try
+            {
+                AlumnoData alumno = AlumnoData.ObtenerDatosAlumno(numcontrol);
+
+                // Asignar los datos a los controles del formulario
+                txtNombre.Text = alumno.NombreCompleto;
+                dtpFechaNaciRegister.Value = alumno.FechaNacimiento;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del alumno: " + ex.Message);
+            }
         }
 
         private void Editar_Load(object sender, EventArgs e)
         {
             // Cargar los datos iniciales necesarios
+            CargarDatosAlumno();
         }
 
         // Método para cargar datos del alumno
         private void CargarDatosAlumno()
         {
             // Implementar la lógica de carga de datos
+            try
+            {
+                // Aquí cargarías más datos como categoría, tutor, teléfono, etc.
+                AlumnoData alumno = AlumnoData.ObtenerDatosAlumno(numcontrol);
+                // Si tienes más campos, asignarlos a los controles aquí
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del alumno: " + ex.Message);
+            }
         }
 
         // Método para cargar ComboBox desde la base de datos
@@ -42,6 +63,34 @@ namespace vsoccer
         // Validación de campos antes de actualizar
         private bool ValidarCampos()
         {
+            if (!ValidarCampos()) return;
+
+            // Actualizar los datos del alumno en la base de datos
+            try
+            {
+                string nombreCompleto = txtNombre.Text;
+                DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
+
+                // Actualizar los datos en la base de datos
+                AlumnoData.ActualizarDatosAlumno(numcontrol, nombreCompleto, fechaNacimiento);
+
+                MessageBox.Show("Información actualizada correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los datos: " + ex.Message);
+            }
+        }
+
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre es obligatorio.");
+                return false;
+            }
+
+            // Agregar validaciones adicionales si es necesario
             return true;
         }
 
@@ -85,6 +134,21 @@ namespace vsoccer
         }
 
         private void Editar_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
         {
 
         }

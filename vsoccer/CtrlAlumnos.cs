@@ -19,52 +19,50 @@ namespace vsoccer
             if (string.IsNullOrEmpty(dato))
             {
                 sql = @"
-                SELECT 
-                    a.numcontrol, 
-                    CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo_alumno, 
-                    c.nombre AS categoria_alumno,  -- Cambié 'a.categoria' por 'c.nombre' (de la tabla categorias)
-                    u.fechaNacimiento,
-                    CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS nombre_completo_tutor,
-                    t.tel
-                FROM
-                    alumno_tutor at
-                JOIN
-                    alumnos a ON at.numcontrol = a.numcontrol
-                JOIN
-                    usuarios u ON a.id = u.id
-                LEFT JOIN
-                    categorias c ON a.id_categoria = c.id_categoria  -- LEFT JOIN para obtener la categoría del alumno
-                JOIN
-                    tutores tu ON at.id_tutor = tu.id_tutor
-                JOIN
-                    usuarios t ON tu.idusuario = t.id;
-                ";
+        SELECT 
+            a.numcontrol, 
+            CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo_alumno, 
+            c.nombre AS categoria_alumno,  
+            u.fechaNacimiento,
+            CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS nombre_completo_tutor,
+            t.tel
+        FROM
+            alumno_tutor at
+        JOIN
+            alumnos a ON at.numcontrol = a.numcontrol
+        JOIN
+            usuarios u ON a.id = u.id
+        LEFT JOIN
+            categorias c ON a.id_categoria = c.id_categoria  
+        JOIN
+            tutores tu ON at.id_tutor = tu.id_tutor
+        JOIN
+            usuarios t ON tu.idusuario = t.id;";
             }
             else
             {
                 sql = @"
-                SELECT 
-                    a.numcontrol, 
-                    CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo_alumno, 
-                    c.nombre AS categoria_alumno,  -- Cambié 'a.categoria' por 'c.nombre'
-                    u.fechaNacimiento,
-                    CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS nombre_completo_tutor,
-                    t.tel
-                FROM
-                    alumno_tutor at
-                JOIN
-                    alumnos a ON at.numcontrol = a.numcontrol
-                JOIN
-                    usuarios u ON a.id = u.id
-                LEFT JOIN
-                    categorias c ON a.id_categoria = c.id_categoria  -- LEFT JOIN para obtener la categoría del alumno
-                JOIN
-                    tutores tu ON at.id_tutor = tu.id_tutor
-                JOIN
-                    usuarios t ON tu.idusuario = t.id
-                WHERE
-                    CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) LIKE @dato;
-                ";
+        SELECT 
+            a.numcontrol, 
+            CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo_alumno, 
+            c.nombre AS categoria_alumno,  
+            u.fechaNacimiento,
+            CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS nombre_completo_tutor,
+            t.tel
+        FROM
+            alumno_tutor at
+        JOIN
+            alumnos a ON at.numcontrol = a.numcontrol
+        JOIN
+            usuarios u ON a.id = u.id
+        LEFT JOIN
+            categorias c ON a.id_categoria = c.id_categoria  
+        JOIN
+            tutores tu ON at.id_tutor = tu.id_tutor
+        JOIN
+            usuarios t ON tu.idusuario = t.id
+        WHERE
+            CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) LIKE @dato;";
             }
 
             try
@@ -88,11 +86,12 @@ namespace vsoccer
                             {
                                 Alumno _alumno = new Alumno
                                 {
-                                    Id = int.Parse(reader["numcontrol"].ToString()), // Asegúrate de que 'numcontrol' es el ID correcto
+                                    Id = int.TryParse(reader["numcontrol"].ToString(), out int numControl) ? numControl : 0, // Manejo seguro de numcontrol
                                     Nombre = reader["nombre_completo_alumno"].ToString(),
-                                    Categoria = reader["categoria_alumno"].ToString(), // Ahora se usa 'categoria_alumno' que proviene de la tabla 'categorias'
+                                    Categoria = reader["categoria_alumno"].ToString(),
                                     Tutor = reader["nombre_completo_tutor"].ToString(),
-                                    Telefono = reader["tel"].ToString() // Cambia aquí si es necesario
+                                    Telefono = reader["tel"] != DBNull.Value ? reader["tel"].ToString() : "No disponible", // Manejo de NULL para telefono
+                                    FechaNac = reader["fechaNacimiento"] != DBNull.Value ? Convert.ToDateTime(reader["fechaNacimiento"]) : DateTime.MinValue // Manejo de NULL para fechaNacimiento
                                 };
 
                                 lista.Add(_alumno);
