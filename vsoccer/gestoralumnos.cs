@@ -103,6 +103,17 @@ namespace vsoccer
                 {
                     dgDatosAlumnos.Columns[0].HeaderText = "Num Control";
                     dgDatosAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Ajustar ancho
+                    dgDatosAlumnos.Columns[1].HeaderText = "Nombre Completo";
+                    dgDatosAlumnos.Columns[2].HeaderText = "Categoría";
+                    dgDatosAlumnos.Columns[3].HeaderText = "Fecha de Nacimiento";
+                    dgDatosAlumnos.Columns[4].HeaderText = "Tutor";
+                    dgDatosAlumnos.Columns[5].HeaderText = "Teléfono";
+
+                    // Formatear la columna de fechaNacimiento
+                    dgDatosAlumnos.Columns["fechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy"; // Asegura que esta columna se formatee como fecha
+
+                    // Asegúrate de que "fechaNacimiento" es el nombre correcto de la columna en la base de datos
+                    // Si usas un nombre diferente, ajusta el índice o el nombre de la columna
                 }
             }
             catch (Exception ex)
