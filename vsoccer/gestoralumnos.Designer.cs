@@ -207,9 +207,9 @@
             this.dgDatosAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgDatosAlumnos.Size = new System.Drawing.Size(1053, 486);
             this.dgDatosAlumnos.TabIndex = 2;
+            this.dgDatosAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatosAlumnos_CellClick);
             this.dgDatosAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatosAlumnos_CellContentClick);
             this.dgDatosAlumnos.SelectionChanged += new System.EventHandler(this.dgDatosAlumnos_SelectionChanged);
-
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -274,7 +274,7 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chtCalificaciones.Legends.Add(legend1);
-            this.chtCalificaciones.Location = new System.Drawing.Point(1301, 434);
+            this.chtCalificaciones.Location = new System.Drawing.Point(1303, 404);
             this.chtCalificaciones.Margin = new System.Windows.Forms.Padding(4);
             this.chtCalificaciones.Name = "chtCalificaciones";
             this.chtCalificaciones.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
@@ -296,7 +296,6 @@
             this.panelOpciones.Controls.Add(this.btnAgregar);
             this.panelOpciones.Controls.Add(this.btnEliminar);
             this.panelOpciones.Controls.Add(this.btnEditar);
-            this.panelOpciones.Controls.Add(this.btnCuenta);
             this.panelOpciones.Location = new System.Drawing.Point(0, 144);
             this.panelOpciones.Margin = new System.Windows.Forms.Padding(4);
             this.panelOpciones.Name = "panelOpciones";
@@ -337,6 +336,7 @@
             this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "     Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnEditar
             // 
@@ -363,7 +363,7 @@
             this.btnCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCuenta.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCuenta.Image = ((System.Drawing.Image)(resources.GetObject("btnCuenta.Image")));
-            this.btnCuenta.Location = new System.Drawing.Point(1821, 16);
+            this.btnCuenta.Location = new System.Drawing.Point(1667, 524);
             this.btnCuenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCuenta.Name = "btnCuenta";
             this.btnCuenta.Size = new System.Drawing.Size(93, 106);
@@ -422,14 +422,15 @@
             this.btnCerrarsesion.Size = new System.Drawing.Size(68, 69);
             this.btnCerrarsesion.TabIndex = 6;
             this.btnCerrarsesion.UseVisualStyleBackColor = true;
+            this.btnCerrarsesion.Click += new System.EventHandler(this.btnCerrarsesion_Click);
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(543, 369);
+            this.btnActualizar.Location = new System.Drawing.Point(467, 355);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(100, 47);
             this.btnActualizar.TabIndex = 7;
-            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.Text = "Actualizar Registros";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -447,6 +448,7 @@
             this.Controls.Add(this.chtCalificaciones);
             this.Controls.Add(this.dgDatosAlumnos);
             this.Controls.Add(this.paneltitulo);
+            this.Controls.Add(this.btnCuenta);
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

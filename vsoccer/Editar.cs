@@ -78,5 +78,15 @@ namespace vsoccer
         {
             // Implementar lógica para capturar imagen final
         }
+
+        private void btnCancelRegister_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Editar_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

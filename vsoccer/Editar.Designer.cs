@@ -33,9 +33,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtApellido2 = new vsoccer.RJTextBox();
-            this.txtApellido1 = new vsoccer.RJTextBox();
-            this.txtNombre = new vsoccer.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbHorario = new System.Windows.Forms.ComboBox();
             this.btnFoto = new System.Windows.Forms.Button();
@@ -53,6 +50,9 @@
             this.lblapellidomat = new System.Windows.Forms.Label();
             this.checkBoxFemaleRegister = new System.Windows.Forms.CheckBox();
             this.checkBoxMenRegister = new System.Windows.Forms.CheckBox();
+            this.txtApellido2 = new vsoccer.RJTextBox();
+            this.txtApellido1 = new vsoccer.RJTextBox();
+            this.txtNombre = new vsoccer.RJTextBox();
             this.gb_Info_Alumno.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -130,63 +130,6 @@
             this.pictureBox2.TabIndex = 39;
             this.pictureBox2.TabStop = false;
             // 
-            // txtApellido2
-            // 
-            this.txtApellido2.AutoSize = true;
-            this.txtApellido2.BackColor = System.Drawing.SystemColors.Window;
-            this.txtApellido2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtApellido2.BorderSize = 2;
-            this.txtApellido2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido2.ForeColor = System.Drawing.Color.DimGray;
-            this.txtApellido2.Location = new System.Drawing.Point(897, 145);
-            this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Padding = new System.Windows.Forms.Padding(9);
-            this.txtApellido2.PasswordChar = false;
-            this.txtApellido2.Size = new System.Drawing.Size(342, 46);
-            this.txtApellido2.TabIndex = 71;
-            this.txtApellido2.Texts = "";
-            this.txtApellido2.UnderlineStyle = false;
-            //this.txtApellido2.Load += new System.EventHandler(this.txtApellido2_Load);
-            // 
-            // txtApellido1
-            // 
-            this.txtApellido1.AutoSize = true;
-            this.txtApellido1.BackColor = System.Drawing.SystemColors.Window;
-            this.txtApellido1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtApellido1.BorderSize = 2;
-            this.txtApellido1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido1.ForeColor = System.Drawing.Color.DimGray;
-            this.txtApellido1.Location = new System.Drawing.Point(475, 145);
-            this.txtApellido1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtApellido1.Name = "txtApellido1";
-            this.txtApellido1.Padding = new System.Windows.Forms.Padding(9);
-            this.txtApellido1.PasswordChar = false;
-            this.txtApellido1.Size = new System.Drawing.Size(350, 46);
-            this.txtApellido1.TabIndex = 70;
-            this.txtApellido1.Texts = "";
-            this.txtApellido1.UnderlineStyle = false;
-            //this.txtApellido1.Load += new System.EventHandler(this.txtApellido1_Load);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.AutoSize = true;
-            this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNombre.BorderSize = 2;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNombre.Location = new System.Drawing.Point(43, 145);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Padding = new System.Windows.Forms.Padding(9);
-            this.txtNombre.PasswordChar = false;
-            this.txtNombre.Size = new System.Drawing.Size(312, 46);
-            this.txtNombre.TabIndex = 69;
-            this.txtNombre.Texts = "";
-            this.txtNombre.UnderlineStyle = false;
-           // this.txtNombre.Load += new System.EventHandler(this.txtNombre_Load);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -225,7 +168,6 @@
             this.btnFoto.TabIndex = 66;
             this.btnFoto.Text = "   FOTO";
             this.btnFoto.UseVisualStyleBackColor = true;
-            //this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // PictureBoxAddImageAlum
             // 
@@ -263,13 +205,14 @@
             this.btnCancelRegister.ForeColor = System.Drawing.Color.White;
             this.btnCancelRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelRegister.Image")));
             this.btnCancelRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelRegister.Location = new System.Drawing.Point(678, 602);
+            this.btnCancelRegister.Location = new System.Drawing.Point(678, 640);
             this.btnCancelRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnCancelRegister.Name = "btnCancelRegister";
-            this.btnCancelRegister.Size = new System.Drawing.Size(214, 49);
+            this.btnCancelRegister.Size = new System.Drawing.Size(289, 68);
             this.btnCancelRegister.TabIndex = 63;
             this.btnCancelRegister.Text = "      CANCELAR";
             this.btnCancelRegister.UseVisualStyleBackColor = true;
+            this.btnCancelRegister.Click += new System.EventHandler(this.btnCancelRegister_Click);
             // 
             // btnSaveAlumRegister
             // 
@@ -279,10 +222,10 @@
             this.btnSaveAlumRegister.ForeColor = System.Drawing.Color.White;
             this.btnSaveAlumRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAlumRegister.Image")));
             this.btnSaveAlumRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveAlumRegister.Location = new System.Drawing.Point(411, 602);
+            this.btnSaveAlumRegister.Location = new System.Drawing.Point(313, 640);
             this.btnSaveAlumRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnSaveAlumRegister.Name = "btnSaveAlumRegister";
-            this.btnSaveAlumRegister.Size = new System.Drawing.Size(213, 49);
+            this.btnSaveAlumRegister.Size = new System.Drawing.Size(289, 68);
             this.btnSaveAlumRegister.TabIndex = 62;
             this.btnSaveAlumRegister.Text = "    GUARDAR";
             this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
@@ -414,6 +357,60 @@
             this.checkBoxMenRegister.Text = "HOMBRE";
             this.checkBoxMenRegister.UseVisualStyleBackColor = false;
             // 
+            // txtApellido2
+            // 
+            this.txtApellido2.AutoSize = true;
+            this.txtApellido2.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellido2.BorderSize = 2;
+            this.txtApellido2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido2.ForeColor = System.Drawing.Color.DimGray;
+            this.txtApellido2.Location = new System.Drawing.Point(897, 145);
+            this.txtApellido2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Padding = new System.Windows.Forms.Padding(9);
+            this.txtApellido2.PasswordChar = false;
+            this.txtApellido2.Size = new System.Drawing.Size(342, 46);
+            this.txtApellido2.TabIndex = 71;
+            this.txtApellido2.Texts = "";
+            this.txtApellido2.UnderlineStyle = false;
+            // 
+            // txtApellido1
+            // 
+            this.txtApellido1.AutoSize = true;
+            this.txtApellido1.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellido1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellido1.BorderSize = 2;
+            this.txtApellido1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido1.ForeColor = System.Drawing.Color.DimGray;
+            this.txtApellido1.Location = new System.Drawing.Point(475, 145);
+            this.txtApellido1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Padding = new System.Windows.Forms.Padding(9);
+            this.txtApellido1.PasswordChar = false;
+            this.txtApellido1.Size = new System.Drawing.Size(350, 46);
+            this.txtApellido1.TabIndex = 70;
+            this.txtApellido1.Texts = "";
+            this.txtApellido1.UnderlineStyle = false;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.AutoSize = true;
+            this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNombre.BorderSize = 2;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNombre.Location = new System.Drawing.Point(43, 145);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Padding = new System.Windows.Forms.Padding(9);
+            this.txtNombre.PasswordChar = false;
+            this.txtNombre.Size = new System.Drawing.Size(312, 46);
+            this.txtNombre.TabIndex = 69;
+            this.txtNombre.Texts = "";
+            this.txtNombre.UnderlineStyle = false;
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -423,6 +420,7 @@
             this.Name = "Editar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Editar";
+            this.Load += new System.EventHandler(this.Editar_Load_1);
             this.gb_Info_Alumno.ResumeLayout(false);
             this.gb_Info_Alumno.PerformLayout();
             this.panel4.ResumeLayout(false);

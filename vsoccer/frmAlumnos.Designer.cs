@@ -112,13 +112,13 @@
             this.gb_Info_Alumno.BackColor = System.Drawing.Color.MediumOrchid;
             this.gb_Info_Alumno.Controls.Add(this.txtAp2);
             this.gb_Info_Alumno.Controls.Add(this.txtAp1);
+            this.gb_Info_Alumno.Controls.Add(this.btnAgregartutor);
             this.gb_Info_Alumno.Controls.Add(this.txtNom);
             this.gb_Info_Alumno.Controls.Add(this.gpRegistrartutor);
             this.gb_Info_Alumno.Controls.Add(this.label1);
             this.gb_Info_Alumno.Controls.Add(this.cbHorario);
             this.gb_Info_Alumno.Controls.Add(this.btnFoto);
             this.gb_Info_Alumno.Controls.Add(this.PictureBoxAddImageAlum);
-            this.gb_Info_Alumno.Controls.Add(this.btnAgregartutor);
             this.gb_Info_Alumno.Controls.Add(this.btnCancelRegister);
             this.gb_Info_Alumno.Controls.Add(this.btnSaveAlumRegister);
             this.gb_Info_Alumno.Controls.Add(this.lblname);
@@ -144,16 +144,16 @@
             // txtAp2
             // 
             this.txtAp2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txtAp2.Location = new System.Drawing.Point(967, 143);
+            this.txtAp2.Location = new System.Drawing.Point(936, 128);
             this.txtAp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAp2.Name = "txtAp2";
-            this.txtAp2.Size = new System.Drawing.Size(245, 45);
+            this.txtAp2.Size = new System.Drawing.Size(281, 45);
             this.txtAp2.TabIndex = 75;
             // 
             // txtAp1
             // 
             this.txtAp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txtAp1.Location = new System.Drawing.Point(535, 161);
+            this.txtAp1.Location = new System.Drawing.Point(518, 129);
             this.txtAp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAp1.Name = "txtAp1";
             this.txtAp1.Size = new System.Drawing.Size(281, 45);
@@ -162,7 +162,7 @@
             // txtNom
             // 
             this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.txtNom.Location = new System.Drawing.Point(91, 143);
+            this.txtNom.Location = new System.Drawing.Point(88, 129);
             this.txtNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(277, 45);
@@ -449,7 +449,7 @@
             this.btnFoto.Location = new System.Drawing.Point(1013, 497);
             this.btnFoto.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnFoto.Name = "btnFoto";
-            this.btnFoto.Size = new System.Drawing.Size(165, 55);
+            this.btnFoto.Size = new System.Drawing.Size(180, 55);
             this.btnFoto.TabIndex = 66;
             this.btnFoto.Text = "   FOTO";
             this.btnFoto.UseVisualStyleBackColor = true;
@@ -474,10 +474,10 @@
             this.btnAgregartutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregartutor.ForeColor = System.Drawing.Color.Transparent;
             this.btnAgregartutor.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregartutor.Image")));
-            this.btnAgregartutor.Location = new System.Drawing.Point(405, 431);
+            this.btnAgregartutor.Location = new System.Drawing.Point(1125, 129);
             this.btnAgregartutor.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnAgregartutor.Name = "btnAgregartutor";
-            this.btnAgregartutor.Size = new System.Drawing.Size(48, 44);
+            this.btnAgregartutor.Size = new System.Drawing.Size(36, 36);
             this.btnAgregartutor.TabIndex = 64;
             this.btnAgregartutor.UseVisualStyleBackColor = true;
             this.btnAgregartutor.Click += new System.EventHandler(this.btnAgregartutor_Click);
@@ -499,6 +499,7 @@
             this.btnCancelRegister.TabIndex = 63;
             this.btnCancelRegister.Text = "      CANCELAR";
             this.btnCancelRegister.UseVisualStyleBackColor = true;
+            this.btnCancelRegister.Click += new System.EventHandler(this.btnCancelRegister_Click);
             // 
             // btnSaveAlumRegister
             // 
@@ -547,10 +548,10 @@
             // 
             this.cbSelecTutoRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSelecTutoRegister.FormattingEnabled = true;
-            this.cbSelecTutoRegister.Location = new System.Drawing.Point(71, 432);
+            this.cbSelecTutoRegister.Location = new System.Drawing.Point(15, 432);
             this.cbSelecTutoRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
-            this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 39);
+            this.cbSelecTutoRegister.Size = new System.Drawing.Size(334, 39);
             this.cbSelecTutoRegister.TabIndex = 59;
             this.cbSelecTutoRegister.SelectedIndexChanged += new System.EventHandler(this.cbSelecTutoRegister_SelectedIndexChanged);
             // 
@@ -572,10 +573,10 @@
             this.lblAddfhater.BackColor = System.Drawing.Color.Transparent;
             this.lblAddfhater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddfhater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.lblAddfhater.Location = new System.Drawing.Point(311, 442);
+            this.lblAddfhater.Location = new System.Drawing.Point(357, 442);
             this.lblAddfhater.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddfhater.Name = "lblAddfhater";
-            this.lblAddfhater.Size = new System.Drawing.Size(91, 22);
+            this.lblAddfhater.Size = new System.Drawing.Size(223, 22);
             this.lblAddfhater.TabIndex = 60;
             this.lblAddfhater.Text = "TUTOR";
             // 

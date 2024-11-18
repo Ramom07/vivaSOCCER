@@ -546,6 +546,8 @@ namespace vsoccer
             {
                 MessageBox.Show("Error al guardar la imagen.");
             }
+
+            this.Close();
         }
 
 
@@ -589,6 +591,24 @@ namespace vsoccer
         private void gpRegistrartutor_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelRegister_Click(object sender, EventArgs e)
+        {
+            // Mostrar un cuadro de diálogo de confirmación
+            DialogResult resultado = MessageBox.Show("¿Seguro que deseas cancelar el registro?", "Confirmación de Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verificar si el usuario seleccionó "Sí"
+            if (resultado == DialogResult.Yes)
+            {
+                // Cerrar el formulario, cancelando el registro
+                this.Close();
+            }
+            else
+            {
+                // Si seleccionó "No", no se hace nada o puedes mostrar un mensaje opcional
+                MessageBox.Show("Operación cancelada. Continúa con el registro.");
+            }
         }
     }
 }

@@ -47,31 +47,68 @@ namespace vsoccer
 
         private void ConfigurarGrafico()
         {
+            // Verificar si la serie "Promedios" ya existe, si no, crearla
+            if (!chtCalificaciones.Series.IsUniqueName("Promedios"))
+            {
+                chtCalificaciones.Series.Add("Promedios");
+                chtCalificaciones.Series["Promedios"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar; // Tipo de gráfico de barras
+                chtCalificaciones.Series["Promedios"].Color = Color.Blue; // Color de las barras
+            }
+
+            // Configuración del eje Y (calificación entre 1 y 10)
+            chtCalificaciones.ChartAreas[0].AxisY.Minimum = 1; // Mínimo de 1
+            chtCalificaciones.ChartAreas[0].AxisY.Maximum = 10; // Máximo de 10
+            chtCalificaciones.ChartAreas[0].AxisY.Interval = 1; // Intervalo de 1 (de 1 en 1)
+
+            // Configuración del eje X (categorías de calificación)
+            chtCalificaciones.ChartAreas[0].AxisX.Interval = 1; // Intervalo de 1 (de 1 en 1)
+            chtCalificaciones.ChartAreas[0].AxisX.Title = "Categorías"; // Título del eje X
+            chtCalificaciones.ChartAreas[0].AxisY.Title = "Calificación"; // Título del eje Y
         }
+
 
 
         private void dgDatosAlumnos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgDatosAlumnos.SelectedRows.Count > 0)
             {
-                // Obtener el numcontrol del alumno seleccionado
-                numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value);
+                try
+                {
+                    // Obtener el numcontrol del alumno seleccionado
+                    numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value);
 
-                // Llamar a la función para cargar los promedios
-                CargarPromedios(numcontrolSeleccionado);
+                    // Llamar a la función para cargar los promedios
+                    CargarPromedios(numcontrolSeleccionado);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al seleccionar el alumno: " + ex.Message);
+                }
             }
         }
 
         private void cargarTabla(string dato)
         {
-            List<Alumno> lista = new List<Alumno>();
-            CtrlAlumnos ctrlAlumnos = new CtrlAlumnos();
-            var datosAlumnos = ctrlAlumnos.consulta(dato);
+            try
+            {
+                List<Alumno> lista = new List<Alumno>();
+                CtrlAlumnos ctrlAlumnos = new CtrlAlumnos();
+                var datosAlumnos = ctrlAlumnos.consulta(dato);
 
-            dgDatosAlumnos.DataSource = datosAlumnos;
+                // Asignar los datos al DataGridView
+                dgDatosAlumnos.DataSource = datosAlumnos;
 
-            // Asegúrate de que la columna "Id" esté correctamente configurada
-            dgDatosAlumnos.Columns[0].HeaderText = "Num Control"; // Si es necesario, ajusta el nombre de la columna
+                // Configuración de las columnas
+                if (dgDatosAlumnos.Columns.Count > 0)
+                {
+                    dgDatosAlumnos.Columns[0].HeaderText = "Num Control";
+                    dgDatosAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Ajustar ancho
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la tabla de alumnos: " + ex.Message);
+            }
         }
 
         private void CargarPromedios(int numcontrol)
@@ -85,7 +122,8 @@ namespace vsoccer
             AVG(conduccion) AS promedio_conduccion,
             AVG(tiro) AS promedio_tiro
         FROM evaluaciones
-        WHERE numcontrol = @numcontrol";  // Usamos el parámetro @numcontrol
+        WHERE numcontrol = @numcontrol
+        GROUP BY numcontrol";  // Usamos el parámetro @numcontrol
 
             try
             {
@@ -122,6 +160,7 @@ namespace vsoccer
                 MessageBox.Show("Error al cargar los promedios: " + ex.Message);
             }
         }
+
 
 
         // Evento cerrar
@@ -165,15 +204,29 @@ namespace vsoccer
         {
             if (dgDatosAlumnos.SelectedRows.Count > 0)
             {
-                int numcontrol = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value);
-                Editar formEditar = new Editar(numcontrol);
-                formEditar.Show();
+                try
+                {
+                    // Obtener el numcontrol del alumno seleccionado
+                    int numcontrol = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value);
+
+                    // Crear y abrir el formulario Editar
+                    Editar formEditar = new Editar(numcontrol);
+                    formEditar.ShowDialog(); // Usar ShowDialog para bloquear el formulario actual
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar abrir el formulario de edición: " + ex.Message);
+                }
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un alumno para editar.");
+                // Mensaje si no hay una fila seleccionada
+                MessageBox.Show("Por favor, seleccione un alumno para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        
+
 
         // Evento actualizar tabla
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -188,6 +241,45 @@ namespace vsoccer
         }
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        //btn eliminar
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            // Mostrar un cuadro de diálogo de confirmación
+            DialogResult resultado = MessageBox.Show("¿SEGURO QUE QUIERES ELIMINAR ALUMNO?", "Confirmación de Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Verificar si el usuario seleccionó "Sí"
+            if (resultado == DialogResult.Yes)
+            {
+                // Lógica para eliminar al alumno
+                MessageBox.Show("Alumno eliminado.");
+                // Aquí puedes agregar el código para eliminar el alumno de la base de datos o lista
+            }
+            else
+            {
+                // Si seleccionó "No", no se hace nada o puedes mostrar un mensaje opcional
+                MessageBox.Show("Operación cancelada.");
+            }
+        }
+
+        private void btnCerrarsesion_Click(object sender, EventArgs e)
+        {
+            // Mostrar un cuadro de mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Si el usuario selecciona 'Sí', cerrar el formulario actual y abrir el formulario de inicio de sesión
+            if (result == DialogResult.Yes)
+            {
+              
+
+                // Cerrar el formulario actual (gestoralumnos)
+                this.Close();
+            }
+        }
+
+        private void dgDatosAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
