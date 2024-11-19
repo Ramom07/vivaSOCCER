@@ -13,19 +13,30 @@ namespace vsoccer
         public string NombreCompleto { get; set; }
         public string Categoria { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public string Tutor { get; set; }
+        public string Correo { get; set; }
         public string Telefono { get; set; }
+        public string Foto { get; set; }
 
         public static AlumnoData ObtenerDatosAlumno(int numcontrol)
         {
             // Creación del objeto de resultado
             AlumnoData alumno = null;
 
-            // Consulta SQL para obtener los datos del alumno
+            // Consulta SQL para obtener los datos del alumno con JOIN entre `alumnos` y `usuarios`
             string sql = @"
-            SELECT numcontrol, nombre, categoria, fechaNacimiento, tutor, telefono
-            FROM alumnos
-            WHERE numcontrol = @numcontrol";
+                           SELECT 
+                               a.numcontrol,
+                               CONCAT(u.nombre, ' ', u.apellido1, ' ', IFNULL(u.apellido2, '')) AS nombreCompleto,
+                               c.nombre AS categoria,
+                               u.fechaNacimiento,
+                               u.correo,
+                               u.tel AS telefono,
+                               u.foto
+                           FROM alumnos a
+                           INNER JOIN usuarios u ON a.id = u.id
+                           LEFT JOIN categorias c ON a.id_categoria = c.id_categoria
+                           WHERE a.numcontrol = @numcontrol";
+
 
             try
             {
@@ -46,11 +57,12 @@ namespace vsoccer
                                 alumno = new AlumnoData
                                 {
                                     NumControl = reader.GetInt32("numcontrol"),
-                                    NombreCompleto = reader.GetString("nombre"),
-                                    Categoria = reader.GetString("categoria"),
+                                    NombreCompleto = reader.GetString("nombreCompleto"),
+                                    Categoria = reader["categoria"]?.ToString(),
                                     FechaNacimiento = reader.GetDateTime("fechaNacimiento"),
-                                    Tutor = reader.GetString("tutor"),
-                                    Telefono = reader.GetString("telefono")
+                                    Correo = reader["correo"]?.ToString(),
+                                    Telefono = reader["telefono"]?.ToString(),
+                                    Foto = reader["foto"]?.ToString()
                                 };
                             }
                         }

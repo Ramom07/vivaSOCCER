@@ -63,10 +63,10 @@ namespace vsoccer
             {
                 if (connection != null)
                 {
-                    string query = "SELECT u.nombre, u.apellido1, u.apellido2, t.idtutor " +
+                    string query = "SELECT u.nombre, u.apellido1, u.apellido2, t.id_tutor " +
                                    "FROM usuarios u " +
                                    "INNER JOIN tutores t ON u.id = t.idusuario " +
-                                   "WHERE u.rol = 3"; // Rol 3 es el de tutor
+                                   "WHERE u.id_rol = 3"; // Rol 3 es el de tutor
 
                     using (var command = new MySqlCommand(query, connection))
                     {

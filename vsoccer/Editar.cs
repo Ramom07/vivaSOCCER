@@ -18,11 +18,11 @@ namespace vsoccer
 
         public Editar(int numcontrol)
         {
+            this.numcontrol = numcontrol; // Save the value
+            InitializeComponent();
             try
             {
                 AlumnoData alumno = AlumnoData.ObtenerDatosAlumno(numcontrol);
-
-                // Asignar los datos a los controles del formulario
                 txtNombre.Text = alumno.NombreCompleto;
                 dtpFechaNaciRegister.Value = alumno.FechaNacimiento;
             }
@@ -94,6 +94,21 @@ namespace vsoccer
             // Agregar validaciones adicionales si es necesario
             return true;
         }*/
+
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre es obligatorio.");
+                return false;
+            }
+            if (dtpFechaNaciRegister.Value > DateTime.Now)
+            {
+                MessageBox.Show("La fecha de nacimiento no puede ser futura.");
+                return false;
+            }
+            return true;
+        }
 
         // Guardar información del alumno
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
