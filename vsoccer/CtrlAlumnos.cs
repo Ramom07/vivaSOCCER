@@ -9,6 +9,7 @@ namespace vsoccer
 {
     class CtrlAlumnos : Conexion
     {
+        //lista de alumnos
         public List<Alumno> consulta(string dato)
         {
             MySqlDataReader reader;
