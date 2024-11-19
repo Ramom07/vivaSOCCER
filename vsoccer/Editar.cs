@@ -61,7 +61,7 @@ namespace vsoccer
         }
 
         // Validación de campos antes de actualizar
-        private bool ValidarCampos()
+        /*private bool ValidarCampos()
         {
             if (!ValidarCampos()) return;
 
@@ -81,8 +81,9 @@ namespace vsoccer
                 MessageBox.Show("Error al guardar los datos: " + ex.Message);
             }
         }
+        */
 
-        private bool ValidarCampos()
+        /*private bool ValidarCampos()
         {
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
@@ -92,12 +93,12 @@ namespace vsoccer
 
             // Agregar validaciones adicionales si es necesario
             return true;
-        }
+        }*/
 
         // Guardar información del alumno
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
-            if (!ValidarCampos()) return;
+           // if (!ValidarCampos()) return;
 
             // Implementar lógica de guardado
             MessageBox.Show("Información actualizada correctamente.");
