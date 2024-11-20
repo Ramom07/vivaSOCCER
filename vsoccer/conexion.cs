@@ -17,7 +17,7 @@ namespace vsoccer
             //Constructor para inicializar cadena para servidor
             public Conexion()
             {
-                string servidor = "server = localhost; database=vsoccer; Uid = root; pwd=Ramon3t3s";
+                string servidor = "server = localhost; database=vsoccer; Uid = root; pwd=pokechon";
                 conexionBD = new MySqlConnection(servidor);
             }
 

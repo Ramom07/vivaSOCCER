@@ -76,7 +76,7 @@ namespace vsoccer
                             {
                                 // Concatenar nombre completo
                                 string nombreCompleto = reader["nombre"].ToString() + " " + reader["apellido1"].ToString() + " " + reader["apellido2"].ToString();
-                                int idTutor = Convert.ToInt32(reader["idtutor"]);
+                                int idTutor = Convert.ToInt32(reader["id_tutor"]);
 
                                 // Agregar el tutor al ComboBox (almacenando el idTutor como Tag)
                                 cbSelecTutoRegister.Items.Add(new ComboBoxItem { Text = nombreCompleto, Tag = idTutor });
