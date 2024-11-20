@@ -60,7 +60,7 @@ namespace vsoccer
                                     NombreCompleto = reader.GetString("nombreCompleto"),
                                     Categoria = reader["categoria"]?.ToString(),
                                     FechaNacimiento = reader.GetDateTime("fechaNacimiento"),
-                                    Correo = reader["correo"]?.ToString(),
+                                    
                                     Telefono = reader["telefono"]?.ToString(),
                                     Foto = reader["foto"]?.ToString()
                                 };

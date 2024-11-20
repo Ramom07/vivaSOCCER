@@ -44,26 +44,16 @@ namespace vsoccer
             {
                 sql = @"
         SELECT 
-            a.numcontrol, 
-            CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo_alumno, 
-            c.nombre AS categoria_alumno,  
-            u.fechaNacimiento,
-            CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS nombre_completo_tutor,
-            t.tel
-        FROM
-            alumno_tutor at
-        JOIN
-            alumnos a ON at.numcontrol = a.numcontrol
-        JOIN
-            usuarios u ON a.id = u.id
-        LEFT JOIN
-            categorias c ON a.id_categoria = c.id_categoria  
-        JOIN
-            tutores tu ON at.id_tutor = tu.id_tutor
-        JOIN
-            usuarios t ON tu.idusuario = t.id
-        WHERE
-            CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) LIKE @dato;";
+    CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo,
+    a.numcontrol AS id_alumno,
+    c.nombre AS categoria,
+    u.fechaNacimiento,
+    u.tel,
+    u.foto
+FROM 
+    alumnos a
+INNER JOIN usuarios u ON a.id = u.id
+INNER JOIN categorias c ON a.id_categoria = c.id_categoria;";
             }
 
             try

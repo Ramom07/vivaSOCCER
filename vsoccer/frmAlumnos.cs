@@ -479,7 +479,7 @@ namespace vsoccer
                 {
                     if (connection != null)
                     {
-                        string queryUsuario = "INSERT INTO usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
+                        string queryUsuario = "INSERT INTO usuarios (id_rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
                                               "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
 
                         using (var command = new MySqlCommand(queryUsuario, connection))
