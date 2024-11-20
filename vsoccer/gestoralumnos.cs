@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolTip = System.Windows.Forms.ToolTip;
 using System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
 
@@ -279,6 +280,16 @@ namespace vsoccer
         private void dgDatosAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void gestoralumnos_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnAgregar, "Agregar Alumno Nuevo");
+            toolTip.SetToolTip(btnEditar, "Editar Alumno o Padre");
+            toolTip.SetToolTip(btnEliminar, "Eliminar Alumno");
+            toolTip.SetToolTip(btnCerrarsesion, "Cerrar Sesión");
+            toolTip.SetToolTip(btnCerrar, "Cerrar");
         }
     }
 }
