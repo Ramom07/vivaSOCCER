@@ -35,7 +35,7 @@ namespace vsoccer
                            FROM alumnos a
                            INNER JOIN usuarios u ON a.id = u.id
                            LEFT JOIN categorias c ON a.id_categoria = c.id_categoria
-                           WHERE a.numcontrol = @numcontrol";
+                           WHERE a.numcontrol = 10";
 
 
             try
