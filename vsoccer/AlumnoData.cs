@@ -14,7 +14,7 @@ namespace vsoccer
         public string Categoria { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Correo { get; set; }
-        public string Telefono { get; set; }
+        
         public string Foto { get; set; }
 
         public static AlumnoData ObtenerDatosAlumno(int numcontrol)
@@ -60,8 +60,6 @@ namespace vsoccer
                                     NombreCompleto = reader.GetString("nombreCompleto"),
                                     Categoria = reader["categoria"]?.ToString(),
                                     FechaNacimiento = reader.GetDateTime("fechaNacimiento"),
-                                    
-                                    Telefono = reader["telefono"]?.ToString(),
                                     Foto = reader["foto"]?.ToString()
                                 };
                             }

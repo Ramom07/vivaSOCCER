@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace vsoccer
@@ -12,93 +13,76 @@ namespace vsoccer
         //lista de alumnos
         public List<Alumno> consulta(string dato)
         {
-            MySqlDataReader reader;
             List<Alumno> lista = new List<Alumno>();
-            string sql;
 
-            // Consulta SQL con filtro según el dato proporcionado
-            if (string.IsNullOrEmpty(dato))
+            // Consulta SQL más compleja con múltiples JOIN
+            string sql = @"
+    SELECT 
+        a.numcontrol AS Id,
+        u.nombre AS Nombre,
+        u.apellido1 AS Apellido1,
+        u.apellido2 AS Apellido2,
+        c.nombre AS Categoria,
+        u.fechaNacimiento AS FechaNac,
+        CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS Tutor,
+        t.tel AS Telefono
+    FROM
+        alumno_tutor at
+    JOIN
+        alumnos a ON at.numcontrol = a.numcontrol
+    JOIN
+        usuarios u ON a.id = u.id
+    LEFT JOIN
+        categorias c ON a.id_categoria = c.id_categoria  
+    JOIN
+        tutores tu ON at.id_tutor = tu.id_tutor
+    JOIN
+        usuarios t ON tu.idusuario = t.id
+    ";
+
+            // Si dato no es null o vacío, agregar un filtro de búsqueda
+            if (!string.IsNullOrEmpty(dato))
             {
-                sql = @"
-        SELECT 
-            a.numcontrol, 
-            CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo_alumno, 
-            c.nombre AS categoria_alumno,  
-            u.fechaNacimiento,
-            CONCAT(t.nombre, ' ', t.apellido1, ' ', t.apellido2) AS nombre_completo_tutor,
-            t.tel
-        FROM
-            alumno_tutor at
-        JOIN
-            alumnos a ON at.numcontrol = a.numcontrol
-        JOIN
-            usuarios u ON a.id = u.id
-        LEFT JOIN
-            categorias c ON a.id_categoria = c.id_categoria  
-        JOIN
-            tutores tu ON at.id_tutor = tu.id_tutor
-        JOIN
-            usuarios t ON tu.idusuario = t.id;";
-            }
-            else
-            {
-                sql = @"
-        SELECT 
-    CONCAT(u.nombre, ' ', u.apellido1, ' ', u.apellido2) AS nombre_completo,
-    a.numcontrol AS id_alumno,
-    c.nombre AS categoria,
-    u.fechaNacimiento,
-    u.tel,
-    u.foto
-FROM 
-    alumnos a
-INNER JOIN usuarios u ON a.id = u.id
-INNER JOIN categorias c ON a.id_categoria = c.id_categoria;";
+                sql += " WHERE u.nombre LIKE @dato OR u.apellido1 LIKE @dato OR u.apellido2 LIKE @dato";
             }
 
             try
             {
-                // Abrir conexión
-                using (MySqlConnection conexionBD = AbrirConexion())
+                using (MySqlConnection conexionBD = new Conexion().AbrirConexion())
                 {
-                    if (conexionBD != null)
+                    using (MySqlCommand comando = new MySqlCommand(sql, conexionBD))
                     {
-                        using (MySqlCommand comando = new MySqlCommand(sql, conexionBD))
+                        if (!string.IsNullOrEmpty(dato))
                         {
-                            // Asignar parámetro de búsqueda si se proporciona un dato
-                            if (!string.IsNullOrEmpty(dato))
-                            {
-                                comando.Parameters.AddWithValue("@dato", "%" + dato + "%");
-                            }
+                            comando.Parameters.AddWithValue("@dato", "%" + dato + "%");
+                        }
 
-                            reader = comando.ExecuteReader();
-
+                        using (MySqlDataReader reader = comando.ExecuteReader())
+                        {
                             while (reader.Read())
                             {
-                                Alumno _alumno = new Alumno
+                                Alumno alumno = new Alumno
                                 {
-                                    Id = int.TryParse(reader["numcontrol"].ToString(), out int numControl) ? numControl : 0, // Manejo seguro de numcontrol
-                                    Nombre = reader["nombre_completo_alumno"].ToString(),
-                                    Categoria = reader["categoria_alumno"].ToString(),
-                                    Tutor = reader["nombre_completo_tutor"].ToString(),
-                                    Telefono = reader["tel"] != DBNull.Value ? reader["tel"].ToString() : "No disponible", // Manejo de NULL para telefono
-                                    FechaNac = reader["fechaNacimiento"] != DBNull.Value ? Convert.ToDateTime(reader["fechaNacimiento"]) : DateTime.MinValue // Manejo de NULL para fechaNacimiento
+                                    Id = reader.GetInt32("Id"),
+                                    Nombre = reader.GetString("Nombre"),
+                                    Apellido1 = reader.GetString("Apellido1"),
+                                    Apellido2 = reader.GetString("Apellido2"),
+                                    Categoria = reader.IsDBNull(reader.GetOrdinal("Categoria")) ? null : reader.GetString("Categoria"),
+                                    FechaNac = reader.GetDateTime("FechaNac"),
+                                    Tutor = reader.GetString("Tutor"),
+                                    
                                 };
-
-                                lista.Add(_alumno);
+                                lista.Add(alumno);
                             }
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("No se pudo establecer conexión.");
-                    }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message.ToString());
+                MessageBox.Show("Error al obtener los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             return lista;
         }
     }

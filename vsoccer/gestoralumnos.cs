@@ -39,7 +39,7 @@ namespace vsoccer
             this.UpdateStyles();
 
             //Los botones de Cuenta y cerrar sesión están en sus respectivos lugares arriba der y abajo der
-            btnCuenta.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            
             btnCerrarsesion.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
 
             // Configurar el gráfico
@@ -78,34 +78,51 @@ namespace vsoccer
         {
             try
             {
-                List<Alumno> lista = new List<Alumno>();
+                // Obtener la lista de alumnos
                 CtrlAlumnos ctrlAlumnos = new CtrlAlumnos();
-                var datosAlumnos = ctrlAlumnos.consulta(dato);
+                List<Alumno> lista = ctrlAlumnos.consulta(dato);
 
                 // Asignar los datos al DataGridView
-                dgDatosAlumnos.DataSource = datosAlumnos;
+                dgDatosAlumnos.DataSource = lista;
 
                 // Configuración de las columnas
                 if (dgDatosAlumnos.Columns.Count > 0)
                 {
+                    // Num Control
                     dgDatosAlumnos.Columns[0].HeaderText = "Num Control";
-                    dgDatosAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Ajustar ancho
-                    dgDatosAlumnos.Columns[1].HeaderText = "Nombre Completo";
-                    dgDatosAlumnos.Columns[2].HeaderText = "Categoría";
-                    dgDatosAlumnos.Columns[3].HeaderText = "Fecha de Nacimiento";
-                    dgDatosAlumnos.Columns[4].HeaderText = "Tutor";
-                    dgDatosAlumnos.Columns[5].HeaderText = "Teléfono";
+                    dgDatosAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-                    // Formatear la columna de fechaNacimiento
-                    dgDatosAlumnos.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy"; // Asegura que esta columna se formatee como fecha
+                    // Nombre
+                    dgDatosAlumnos.Columns[1].HeaderText = "Nombre";
+                    dgDatosAlumnos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-                    // Asegúrate de que "fechaNacimiento" es el nombre correcto de la columna en la base de datos
-                    // Si usas un nombre diferente, ajusta el índice o el nombre de la columna
+                    // Apellido1
+                    dgDatosAlumnos.Columns[2].HeaderText = "Apellido Paterno";
+                    dgDatosAlumnos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                    // Apellido2
+                    dgDatosAlumnos.Columns[3].HeaderText = "Apellido Materno";
+                    dgDatosAlumnos.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                    // Categoría
+                    dgDatosAlumnos.Columns[4].HeaderText = "Categoría";
+                    dgDatosAlumnos.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                    // Fecha de Nacimiento
+                    dgDatosAlumnos.Columns[5].HeaderText = "Fecha de Nacimiento";
+                    dgDatosAlumnos.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dgDatosAlumnos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+                    // Tutor
+                    dgDatosAlumnos.Columns[6].HeaderText = "Tutor";
+                    dgDatosAlumnos.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                   
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar la tabla de alumnos: " + ex.Message);
+                MessageBox.Show("Error al cargar la tabla de alumnos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,7 +181,7 @@ namespace vsoccer
         // Evento cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         // Evento maximizar ventana
@@ -240,7 +257,20 @@ namespace vsoccer
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Verificar que el índice de fila y columna sean válidos
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                try
+                {
+                    // Obtener el valor de la columna 0 de la fila seleccionada
+                    numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.Rows[e.RowIndex].Cells[0].Value);
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al seleccionar el numcontrol: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         //btn eliminar
         private void btnEliminar_Click_1(object sender, EventArgs e)
@@ -286,7 +316,7 @@ namespace vsoccer
         {
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnAgregar, "Agregar Alumno Nuevo");
-            toolTip.SetToolTip(btnEditar, "Editar Alumno o Padre");
+            toolTip.SetToolTip(btnEditar, "Editar información del alumno");
             toolTip.SetToolTip(btnEliminar, "Eliminar Alumno");
             toolTip.SetToolTip(btnCerrarsesion, "Cerrar Sesión");
             toolTip.SetToolTip(btnCerrar, "Cerrar");

@@ -18,18 +18,8 @@ namespace vsoccer
 
         public Editar(int numcontrol)
         {
-            this.numcontrol = numcontrol; // Save the value
             InitializeComponent();
-            try
-            {
-                AlumnoData alumno = AlumnoData.ObtenerDatosAlumno(numcontrol);
-                txtNombre.Text = alumno.NombreCompleto;
-                dtpFechaNaciRegister.Value = alumno.FechaNacimiento;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los datos del alumno: " + ex.Message);
-            }
+            this.numcontrol = numcontrol;
         }
 
         private void Editar_Load(object sender, EventArgs e)
@@ -41,74 +31,49 @@ namespace vsoccer
         // Método para cargar datos del alumno
         private void CargarDatosAlumno()
         {
-            // Implementar la lógica de carga de datos
-            try
+            string query = @"SELECT 
+                        u.nombre AS Nombre, 
+                        u.apellido1 AS Apellido1, 
+                        u.apellido2 AS Apellido2
+                     FROM alumnos a
+                     JOIN usuarios u ON a.id = u.id
+                     WHERE a.numcontrol = @numcontrol";
+
+            // Usar la clase Conexion para abrir y manejar la conexión
+            using (Conexion conexion = new Conexion())
             {
-                // Aquí cargarías más datos como categoría, tutor, teléfono, etc.
-                AlumnoData alumno = AlumnoData.ObtenerDatosAlumno(numcontrol);
-                // Si tienes más campos, asignarlos a los controles aquí
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los datos del alumno: " + ex.Message);
+                MySqlConnection connection = conexion.AbrirConexion();
+                if (connection == null) return; // Si no se puede abrir la conexión, salir del método
+
+                try
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@numcontrol", numcontrol);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                txtNombre.Text = reader.GetString("Nombre");
+                                txtApellido1.Text = reader.GetString("Apellido1");
+                                txtApellido2.Text = reader.GetString("Apellido2");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontraron datos para el alumno.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                }
             }
         }
 
-        // Método para cargar ComboBox desde la base de datos
-        private void CargarComboBox(string query, ComboBox comboBox, string displayMember, string valueMember)
-        {
-            // Implementar lógica para cargar ComboBox
-        }
-
-        // Validación de campos antes de actualizar
-        /*private bool ValidarCampos()
-        {
-            if (!ValidarCampos()) return;
-
-            // Actualizar los datos del alumno en la base de datos
-            try
-            {
-                string nombreCompleto = txtNombre.Text;
-                DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
-
-                // Actualizar los datos en la base de datos
-                AlumnoData.ActualizarDatosAlumno(numcontrol, nombreCompleto, fechaNacimiento);
-
-                MessageBox.Show("Información actualizada correctamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar los datos: " + ex.Message);
-            }
-        }
-        */
-
-        /*private bool ValidarCampos()
-        {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                MessageBox.Show("El nombre es obligatorio.");
-                return false;
-            }
-
-            // Agregar validaciones adicionales si es necesario
-            return true;
-        }*/
-
-        private bool ValidarCampos()
-        {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                MessageBox.Show("El nombre es obligatorio.");
-                return false;
-            }
-            if (dtpFechaNaciRegister.Value > DateTime.Now)
-            {
-                MessageBox.Show("La fecha de nacimiento no puede ser futura.");
-                return false;
-            }
-            return true;
-        }
+      
 
         // Guardar información del alumno
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
@@ -119,30 +84,7 @@ namespace vsoccer
             MessageBox.Show("Información actualizada correctamente.");
         }
 
-        // Guardar imagen del alumno
-        private string GuardarImagen()
-        {
-            // Implementar lógica para guardar imagen
-            return null;
-        }
-
-        // Detectar cámaras disponibles
-        private void DetectarCamaras()
-        {
-            // Implementar lógica para detectar cámaras
-        }
-
-        // Capturar frame de la cámara
-        private void CapturarFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            // Implementar lógica para capturar frame
-        }
-
-        // Capturar imagen cuando la cámara está activa
-        private void CapturarImagen()
-        {
-            // Implementar lógica para capturar imagen final
-        }
+        
 
         private void btnCancelRegister_Click(object sender, EventArgs e)
         {
@@ -165,6 +107,16 @@ namespace vsoccer
         }
 
         private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido2_Load(object sender, EventArgs e)
         {
 
         }

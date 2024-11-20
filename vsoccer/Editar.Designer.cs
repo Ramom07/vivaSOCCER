@@ -98,7 +98,7 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(963, 76);
             this.panel4.TabIndex = 72;
@@ -123,7 +123,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(98, 63);
             this.pictureBox2.TabIndex = 39;
@@ -140,12 +140,13 @@
             this.txtApellido2.Location = new System.Drawing.Point(673, 118);
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtApellido2.Padding = new System.Windows.Forms.Padding(7);
             this.txtApellido2.PasswordChar = false;
             this.txtApellido2.Size = new System.Drawing.Size(256, 37);
             this.txtApellido2.TabIndex = 71;
             this.txtApellido2.Texts = "";
             this.txtApellido2.UnderlineStyle = false;
+            this.txtApellido2.Load += new System.EventHandler(this.txtApellido2_Load);
             // 
             // txtApellido1
             // 
@@ -158,12 +159,13 @@
             this.txtApellido1.Location = new System.Drawing.Point(356, 118);
             this.txtApellido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtApellido1.Name = "txtApellido1";
-            this.txtApellido1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtApellido1.Padding = new System.Windows.Forms.Padding(7);
             this.txtApellido1.PasswordChar = false;
             this.txtApellido1.Size = new System.Drawing.Size(262, 37);
             this.txtApellido1.TabIndex = 70;
             this.txtApellido1.Texts = "";
             this.txtApellido1.UnderlineStyle = false;
+            this.txtApellido1.Load += new System.EventHandler(this.txtApellido1_Load);
             // 
             // txtNombre
             // 
@@ -176,7 +178,7 @@
             this.txtNombre.Location = new System.Drawing.Point(32, 118);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtNombre.Padding = new System.Windows.Forms.Padding(7);
             this.txtNombre.PasswordChar = false;
             this.txtNombre.Size = new System.Drawing.Size(234, 37);
             this.txtNombre.TabIndex = 69;
@@ -201,7 +203,7 @@
             this.cbHorario.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHorario.FormattingEnabled = true;
             this.cbHorario.Location = new System.Drawing.Point(415, 378);
-            this.cbHorario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbHorario.Margin = new System.Windows.Forms.Padding(4);
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(204, 33);
             this.cbHorario.TabIndex = 67;
@@ -412,7 +414,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 603);
             this.Controls.Add(this.gb_Info_Alumno);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Editar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Editar";

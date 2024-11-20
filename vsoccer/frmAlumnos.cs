@@ -249,189 +249,7 @@ namespace vsoccer
 
         }
 
-        /*private void btnSaveAlumRegister_Click(object sender, EventArgs e)
-        {
-            // Tomar datos del formulario
-            string nombre = txtNombre.Text;
-            string apellido1 = txtApellido1.Text;
-            string apellido2 = txtApellido2.Text;
-            DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
-            string categoriaSeleccionada = cbHorario.SelectedItem?.ToString();
-
-            // Validar los campos
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == null || string.IsNullOrEmpty(categoriaSeleccionada))
-            {
-                MessageBox.Show("Por favor, complete todos los campos, incluyendo la categoría.");
-                return;
-            }
-
-            // Obtener el ID de la categoría basado en la selección
-            int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);
-            if (idCategoria == -1)
-            {
-                MessageBox.Show("Error al obtener la categoría seleccionada.");
-                return;
-            }
-
-            // Validar los campos
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || fechaNacimiento == null)
-            {
-                MessageBox.Show("Por favor, complete todos los campos.");
-                return;
-            }
-
-
-            //Tomar direccion de la foto
-            string filePath = GuardarImagen();
-
-            //Registrar datos en BD
-            if (!string.IsNullOrEmpty(filePath))
-            {
-                //Conexion a base de datos
-                Conexion conexion = new Conexion();
-
-                using (var connection = conexion.AbrirConexion())
-                {
-                    if (connection != null)
-                    {
-                        string query = "insert into usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto)" +
-                            "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
-
-                        using (var command = new MySqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@rol", 5);
-                            command.Parameters.AddWithValue("@nombre", nombre);
-                            command.Parameters.AddWithValue("@apellido1", apellido1);
-                            command.Parameters.AddWithValue("@apellido2", apellido2);
-                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
-                            command.Parameters.AddWithValue("@foto", filePath);
-                            command.Parameters.AddWithValue("@categoria", idCategoria);
-                            command.ExecuteNonQuery();
-
-                            try
-                            {
-                                command.ExecuteNonQuery();
-                                MessageBox.Show("Alumno registrado exitosamente.");
-                            }
-
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Error al registrar el alumno: " + ex.Message);
-                            }
-
-
-
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo abrir conexion a Base de Datos");
-                    }
-
-                }
-
-                //Cerrar la conexion
-                conexion.CerrarConexion();
-                
-            }
-            else
-            {
-                MessageBox.Show("Error al guardar.");
-            }
-
-
-
-
-        }
-        */
-
-        /*
-        private void btnSaveAlumRegister_Click(object sender, EventArgs e)
-        {
-            // Tomar datos del formulario
-            string nombre = txtNom.Text;
-            string apellido1 = txtAp1.Text;
-            string apellido2 = txtAp2.Text;
-            DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
-            string fechaNacimientoSQL = fechaNacimiento.ToString("yyyy-MM-dd");
-
-            Console.WriteLine("Nombre: " + nombre);
-            Console.WriteLine("Apellido1: " + apellido1);
-            Console.WriteLine("Fecha de Nacimiento: " + fechaNacimientoSQL);
-
-            //Verificar que los campos de texto no estén vacíos
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1))
-            {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.");
-                return;
-            }
-            
-
-            // Verificar que se haya seleccionado un tutor
-            if (cbSelecTutoRegister.SelectedIndex == -1)
-            {
-                MessageBox.Show("Por favor, seleccione un tutor.");
-                return;
-            }
-
-            // Tomar direccion de la foto
-            string filePath = GuardarImagen();
-
-            // Registrar datos en BD
-            if (!string.IsNullOrEmpty(filePath))
-            {
-                // Conexion a base de datos
-                Conexion conexion = new Conexion();
-                using (var connection = conexion.AbrirConexion())
-                {
-                    if (connection != null)
-                    {
-                        string queryUsuario = "INSERT INTO usuarios (rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
-                                              "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
-
-                        using (var command = new MySqlCommand(queryUsuario, connection))
-                        {
-                            command.Parameters.AddWithValue("@rol", 5);
-                            command.Parameters.AddWithValue("@nombre", nombre.ToUpper());
-                            command.Parameters.AddWithValue("@apellido1", apellido1.ToUpper());
-                            command.Parameters.AddWithValue("@apellido2", apellido2.ToUpper());
-                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimientoSQL);
-                            command.Parameters.AddWithValue("@foto", filePath);
-
-                            command.ExecuteNonQuery();
-
-                            // Obtener el id del usuario recién insertado
-                            long idUsuario = command.LastInsertedId;  // Usamos long ya que MySQL puede devolver valores grandes
-
-                            // Ahora insertamos en la tabla alumno_tutor
-                            string queryAlumnoTutor = "INSERT INTO alumno_tutor (numcontrol, idtutor) " +
-                                                      "VALUES (@numcontrol, @idtutor)";
-
-                            using (var commandTutor = new MySqlCommand(queryAlumnoTutor, connection))
-                            {
-                                commandTutor.Parameters.AddWithValue("@numcontrol", idUsuario);
-                                commandTutor.Parameters.AddWithValue("@idtutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
-                                commandTutor.ExecuteNonQuery();
-                            }
-
-                            MessageBox.Show("Alumno registrado exitosamente.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
-                    }
-                }
-
-                // Cerrar la conexión
-                conexion.CerrarConexion();
-            }
-            else
-            {
-                MessageBox.Show("Error al guardar la imagen.");
-            }
-        }
-        */
+        
 
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
@@ -446,108 +264,109 @@ namespace vsoccer
             Console.WriteLine("Apellido1: " + apellido1);
             Console.WriteLine("Fecha de Nacimiento: " + fechaNacimientoSQL);
 
-            //Verificar que los campos de texto no estén vacíos
+            // Verificar que los campos de texto no estén vacíos
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.");
-                return;
+                return; // Detener la ejecución si algún campo obligatorio está vacío
             }
 
             // Verificar que se haya seleccionado un tutor
             if (cbSelecTutoRegister.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione un tutor.");
-                return;
+                return; // Detener la ejecución si no se seleccionó un tutor
             }
 
             // Verificar que se haya seleccionado un horario
             if (cbHorario.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione un horario.");
-                return;
+                return; // Detener la ejecución si no se seleccionó un horario
             }
 
             // Tomar direccion de la foto
             string filePath = GuardarImagen();
 
-            // Registrar datos en BD
-            if (!string.IsNullOrEmpty(filePath))
-            {
-                // Conexion a base de datos
-                Conexion conexion = new Conexion();
-                using (var connection = conexion.AbrirConexion())
-                {
-                    if (connection != null)
-                    {
-                        string queryUsuario = "INSERT INTO usuarios (id_rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
-                                              "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
-
-                        using (var command = new MySqlCommand(queryUsuario, connection))
-                        {
-                            command.Parameters.AddWithValue("@rol", 5);
-                            command.Parameters.AddWithValue("@nombre", nombre.ToUpper());
-                            command.Parameters.AddWithValue("@apellido1", apellido1.ToUpper());
-                            command.Parameters.AddWithValue("@apellido2", apellido2.ToUpper());
-                            command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimientoSQL);
-                            command.Parameters.AddWithValue("@foto", filePath);
-
-                            command.ExecuteNonQuery();
-
-                            // Obtener el último numcontrol de la tabla alumnos
-                            string queryLastAlumno = "SELECT numcontrol FROM alumnos ORDER BY numcontrol DESC LIMIT 1";
-
-                            long numcontrol = 0;
-                            using (var commandLastAlumno = new MySqlCommand(queryLastAlumno, connection))
-                            {
-                                var result = commandLastAlumno.ExecuteScalar();
-                                if (result != null)
-                                {
-                                    numcontrol = Convert.ToInt64(result);
-                                }
-                            }
-
-                            // Obtener la categoría seleccionada del ComboBox
-                            string categoriaSeleccionada = cbHorario.SelectedItem.ToString();
-                            int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);                 
-                            // Ahora insertamos en la tabla alumno_tutor usando el último numcontrol
-                            string queryAlumnoTutor = "INSERT INTO alumno_tutor (numcontrol, idtutor) " +
-                                                      "VALUES (@numcontrol, @idtutor)";
-
-                            using (var commandTutor = new MySqlCommand(queryAlumnoTutor, connection))
-                            {
-                                commandTutor.Parameters.AddWithValue("@numcontrol", numcontrol);
-                                commandTutor.Parameters.AddWithValue("@idtutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
-                                commandTutor.ExecuteNonQuery();
-                            }
-
-                            // Actualizar la categoría en la tabla alumnos
-                            string queryUpdateCategoria = "UPDATE alumnos SET categoria = @idcategoria WHERE numcontrol = @numcontrol";
-
-                            using (var commandUpdateCategoria = new MySqlCommand(queryUpdateCategoria, connection))
-                            {
-                                commandUpdateCategoria.Parameters.AddWithValue("@idcategoria", idCategoria);
-                                commandUpdateCategoria.Parameters.AddWithValue("@numcontrol", numcontrol);
-                                commandUpdateCategoria.ExecuteNonQuery();
-                            }
-
-                            MessageBox.Show("Alumno registrado exitosamente.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
-                    }
-                }
-
-                // Cerrar la conexión
-                conexion.CerrarConexion();
-            }
-            else
+            // Verificar que la imagen se haya guardado correctamente
+            if (string.IsNullOrEmpty(filePath))
             {
                 MessageBox.Show("Error al guardar la imagen.");
+                return; // Detener la ejecución si no se pudo guardar la imagen
             }
 
+            // Registrar datos en la base de datos
+            Conexion conexion = new Conexion();
+            using (var connection = conexion.AbrirConexion())
+            {
+                if (connection != null)
+                {
+                    // Insertar datos del usuario
+                    string queryUsuario = "INSERT INTO usuarios (id_rol, nombre, apellido1, apellido2, fechaNacimiento, foto) " +
+                                           "VALUES (@rol, @nombre, @apellido1, @apellido2, @fechaNacimiento, @foto)";
+
+                    using (var command = new MySqlCommand(queryUsuario, connection))
+                    {
+                        command.Parameters.AddWithValue("@rol", 5);
+                        command.Parameters.AddWithValue("@nombre", nombre.ToUpper());
+                        command.Parameters.AddWithValue("@apellido1", apellido1.ToUpper());
+                        command.Parameters.AddWithValue("@apellido2", apellido2.ToUpper());
+                        command.Parameters.AddWithValue("@fechaNacimiento", fechaNacimientoSQL);
+                        command.Parameters.AddWithValue("@foto", filePath);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Obtener el último numcontrol de la tabla alumnos
+                    string queryLastAlumno = "SELECT numcontrol FROM alumnos ORDER BY numcontrol DESC LIMIT 1";
+                    long numcontrol = 0;
+
+                    using (var commandLastAlumno = new MySqlCommand(queryLastAlumno, connection))
+                    {
+                        var result = commandLastAlumno.ExecuteScalar();
+                        if (result != null)
+                        {
+                            numcontrol = Convert.ToInt64(result);
+                        }
+                    }
+
+                    // Obtener la categoría seleccionada del ComboBox
+                    string categoriaSeleccionada = cbHorario.SelectedItem.ToString();
+                    int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);
+
+                    // Insertar en la tabla alumno_tutor
+                    string queryAlumnoTutor = "INSERT INTO alumno_tutor (numcontrol, id_tutor) VALUES (@numcontrol, @idtutor)";
+                    using (var commandTutor = new MySqlCommand(queryAlumnoTutor, connection))
+                    {
+                        commandTutor.Parameters.AddWithValue("@numcontrol", numcontrol);
+                        commandTutor.Parameters.AddWithValue("@id_tutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
+                        commandTutor.ExecuteNonQuery();
+                    }
+
+                    // Actualizar la categoría en la tabla alumnos
+                    string queryUpdateCategoria = "UPDATE alumnos SET id_categoria = @idcategoria WHERE numcontrol = @numcontrol";
+                    using (var commandUpdateCategoria = new MySqlCommand(queryUpdateCategoria, connection))
+                    {
+                        commandUpdateCategoria.Parameters.AddWithValue("@idcategoria", idCategoria);
+                        commandUpdateCategoria.Parameters.AddWithValue("@numcontrol", numcontrol);
+                        commandUpdateCategoria.ExecuteNonQuery();
+                    }
+
+                    // Confirmación al usuario
+                    MessageBox.Show("Alumno registrado exitosamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
+                }
+            }
+
+            // Cerrar la conexión
+            conexion.CerrarConexion();
+
+            // Cerrar el formulario
             this.Close();
+
         }
 
 
