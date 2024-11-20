@@ -249,7 +249,7 @@ namespace vsoccer
 
         }
 
-        
+
 
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
@@ -268,31 +268,31 @@ namespace vsoccer
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.");
-                return; // Detener la ejecución si algún campo obligatorio está vacío
+                return;
             }
 
             // Verificar que se haya seleccionado un tutor
             if (cbSelecTutoRegister.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione un tutor.");
-                return; // Detener la ejecución si no se seleccionó un tutor
+                return;
             }
 
             // Verificar que se haya seleccionado un horario
             if (cbHorario.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione un horario.");
-                return; // Detener la ejecución si no se seleccionó un horario
+                return;
             }
 
-            // Tomar direccion de la foto
+            // Tomar dirección de la foto
             string filePath = GuardarImagen();
 
             // Verificar que la imagen se haya guardado correctamente
             if (string.IsNullOrEmpty(filePath))
             {
                 MessageBox.Show("Error al guardar la imagen.");
-                return; // Detener la ejecución si no se pudo guardar la imagen
+                return;
             }
 
             // Registrar datos en la base de datos
@@ -330,18 +330,28 @@ namespace vsoccer
                         }
                     }
 
-                    // Obtener la categoría seleccionada del ComboBox
-                    string categoriaSeleccionada = cbHorario.SelectedItem.ToString();
-                    int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);
+                    // Obtener el tutor seleccionado en el ComboBox
+                    string tutorSeleccionado = cbSelecTutoRegister.SelectedItem.ToString();
+                    int idTutor = ObtenerIdTutor(tutorSeleccionado, connection);
+
+                    if (idTutor == -1)
+                    {
+                        MessageBox.Show("No se encontró el tutor seleccionado.");
+                        return;
+                    }
 
                     // Insertar en la tabla alumno_tutor
                     string queryAlumnoTutor = "INSERT INTO alumno_tutor (numcontrol, id_tutor) VALUES (@numcontrol, @idtutor)";
                     using (var commandTutor = new MySqlCommand(queryAlumnoTutor, connection))
                     {
                         commandTutor.Parameters.AddWithValue("@numcontrol", numcontrol);
-                        commandTutor.Parameters.AddWithValue("@id_tutor", ((ComboBoxItem)cbSelecTutoRegister.SelectedItem).Tag);
+                        commandTutor.Parameters.AddWithValue("@idtutor", idTutor);
                         commandTutor.ExecuteNonQuery();
                     }
+
+                    // Obtener la categoría seleccionada del ComboBox
+                    string categoriaSeleccionada = cbHorario.SelectedItem.ToString();
+                    int idCategoria = ObtenerIdCategoria(categoriaSeleccionada);
 
                     // Actualizar la categoría en la tabla alumnos
                     string queryUpdateCategoria = "UPDATE alumnos SET id_categoria = @idcategoria WHERE numcontrol = @numcontrol";
@@ -366,8 +376,54 @@ namespace vsoccer
 
             // Cerrar el formulario
             this.Close();
-
         }
+
+        private int ObtenerIdTutor(string nombreTutor, MySqlConnection connection)
+        {
+            // Dividir el nombre completo en partes
+            string[] partes = nombreTutor.Split(' ');
+            string nombre = partes[0];
+            string apellido1 = partes[1];
+
+            // Buscar el idusuario en la tabla usuarios
+            string queryUsuario = "SELECT id FROM usuarios WHERE nombre = @nombre AND apellido1 = @apellido1";
+            int idUsuario = -1;
+
+            using (var commandUsuario = new MySqlCommand(queryUsuario, connection))
+            {
+                commandUsuario.Parameters.AddWithValue("@nombre", nombre);
+                commandUsuario.Parameters.AddWithValue("@apellido1", apellido1);
+
+                var result = commandUsuario.ExecuteScalar();
+                if (result != null)
+                {
+                    idUsuario = Convert.ToInt32(result);
+                }
+            }
+
+            if (idUsuario == -1)
+            {
+                return -1;
+            }
+
+            // Buscar el id_tutor en la tabla tutores
+            string queryTutor = "SELECT id_tutor FROM tutores WHERE idusuario = @idusuario";
+            int idTutor = -1;
+
+            using (var commandTutor = new MySqlCommand(queryTutor, connection))
+            {
+                commandTutor.Parameters.AddWithValue("@idusuario", idUsuario);
+
+                var result = commandTutor.ExecuteScalar();
+                if (result != null)
+                {
+                    idTutor = Convert.ToInt32(result);
+                }
+            }
+
+            return idTutor;
+        }
+
 
 
 
