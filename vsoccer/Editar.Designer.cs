@@ -149,6 +149,7 @@
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(204, 33);
             this.cbHorario.TabIndex = 67;
+            this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
             // 
             // btnFoto
             // 
@@ -165,6 +166,7 @@
             this.btnFoto.TabIndex = 66;
             this.btnFoto.Text = "   FOTO";
             this.btnFoto.UseVisualStyleBackColor = true;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // PictureBoxAddImageAlum
             // 
@@ -209,6 +211,7 @@
             this.btnCancelRegister.TabIndex = 63;
             this.btnCancelRegister.Text = "      CANCELAR";
             this.btnCancelRegister.UseVisualStyleBackColor = true;
+            this.btnCancelRegister.Click += new System.EventHandler(this.btnCancelRegister_Click);
             // 
             // btnSaveAlumRegister
             // 
@@ -225,6 +228,7 @@
             this.btnSaveAlumRegister.TabIndex = 62;
             this.btnSaveAlumRegister.Text = "    GUARDAR";
             this.btnSaveAlumRegister.UseVisualStyleBackColor = true;
+            this.btnSaveAlumRegister.Click += new System.EventHandler(this.btnSaveAlumRegister_Click);
             // 
             // lblname
             // 
@@ -269,6 +273,7 @@
             this.dtpFechaNaciRegister.Name = "dtpFechaNaciRegister";
             this.dtpFechaNaciRegister.Size = new System.Drawing.Size(215, 35);
             this.dtpFechaNaciRegister.TabIndex = 61;
+            this.dtpFechaNaciRegister.ValueChanged += new System.EventHandler(this.dtpFechaNaciRegister_ValueChanged);
             // 
             // lblAddfhater
             // 

@@ -225,6 +225,7 @@ namespace vsoccer
                 string nombre = fila.Cells[1].Value.ToString(); // Asumiendo que la columna 1 es nombre
                 string apellidoPaterno = fila.Cells[2].Value.ToString(); // Asumiendo que la columna 2 es apellido paterno
                 string apellidoMaterno = fila.Cells[3].Value.ToString(); // Asumiendo que la columna 3 es apellido materno
+                date
 
 
                 // Crear y abrir el formulario Editar con los datos del alumno
