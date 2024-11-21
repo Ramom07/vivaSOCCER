@@ -90,6 +90,7 @@ namespace vsoccer
                 {
                     // Num Control
                     dgDatosAlumnos.Columns[0].HeaderText = "Num Control";
+                    dgDatosAlumnos.Columns[0].Name = "Num Control";
                     dgDatosAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
                     // Nombre
@@ -219,28 +220,27 @@ namespace vsoccer
         {
             if (dgDatosAlumnos.SelectedRows.Count > 0)
             {
-                try
-                {
-                    // Obtener el numcontrol del alumno seleccionado
-                    int numcontrol = Convert.ToInt32(dgDatosAlumnos.SelectedRows[0].Cells[0].Value);
+                // Obtener datos de la fila seleccionada
+                var fila = dgDatosAlumnos.SelectedRows[0];
 
-                    // Crear y abrir el formulario Editar
-                    Editar formEditar = new Editar(numcontrol);
-                    formEditar.ShowDialog(); // Usar ShowDialog para bloquear el formulario actual
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al intentar abrir el formulario de edición: " + ex.Message);
-                }
+                int numControl = Convert.ToInt32(fila.Cells["Num Control"].Value);
+                string nombre = fila.Cells[1].Value.ToString();
+                string apellidoPaterno = fila.Cells[2].Value.ToString();
+                string apellidoMaterno = fila.Cells[3].Value.ToString();
+                
+
+                // Crear y abrir el formulario Editar
+                var formEditar = new Editar(numControl, nombre, apellidoPaterno, apellidoMaterno);
+                formEditar.ShowDialog();
             }
             else
             {
-                // Mensaje si no hay una fila seleccionada
-                MessageBox.Show("Por favor, seleccione un alumno para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, selecciona un alumno para editar.");
             }
         }
 
-        
+
+
 
 
         // Evento actualizar tabla

@@ -14,99 +14,85 @@ namespace vsoccer
 {
     public partial class Editar : Form
     {
-        private int numcontrol;
+        private int numControl;
+        private string nombre;
+        private string apellidoPaterno;
+        private string apellidoMaterno;
+        private DateTime fechaNacimiento;
 
-        public Editar(int numcontrol)
+        public Editar(int numControl, string nombre, string apellidoPaterno, string apellidoMaterno)
         {
             InitializeComponent();
-            this.numcontrol = numcontrol;
+
+            this.numControl = numControl;
+            this.nombre = nombre;
+            this.apellidoPaterno = apellidoPaterno;
+            this.apellidoMaterno = apellidoMaterno;
+            this.fechaNacimiento = fechaNacimiento;
         }
 
         private void Editar_Load(object sender, EventArgs e)
         {
-            // Cargar los datos iniciales necesarios
-            CargarDatosAlumno();
+            // Cargar datos en los controles
+            txtNombre.Text = nombre;
+            txtApellido1.Text = apellidoPaterno;
+            txtApellido2.Text = apellidoMaterno;
+            dtpFechaNaciRegister.Value = fechaNacimiento;
+
+            // Cargar la foto del alumno
+            CargarFoto(numControl);
         }
 
-        // Método para cargar datos del alumno
-        private void CargarDatosAlumno()
+        // Método para cargar la foto del alumno desde la base de datos
+        private void CargarFoto(int numControl)
         {
-            string query = @"SELECT 
-                        u.nombre AS Nombre, 
-                        u.apellido1 AS Apellido1, 
-                        u.apellido2 AS Apellido2
-                     FROM alumnos a
-                     JOIN usuarios u ON a.id = u.id
-                     WHERE a.numcontrol = @numcontrol";
-
-            // Usar la clase Conexion para abrir y manejar la conexión
-            using (Conexion conexion = new Conexion())
+            try
             {
-                MySqlConnection connection = conexion.AbrirConexion();
-                if (connection == null) return; // Si no se puede abrir la conexión, salir del método
+                string query = @"
+            SELECT u.foto
+            FROM usuarios u
+            INNER JOIN alumnos a ON u.id = a.id
+            WHERE a.numcontrol = @numcontrol";
 
-                try
+                using (Conexion conexion = new Conexion())
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    using (MySqlConnection conn = conexion.AbrirConexion())
                     {
-                        cmd.Parameters.AddWithValue("@numcontrol", numcontrol);
-
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
-                            if (reader.Read())
+                            cmd.Parameters.AddWithValue("@numcontrol", numControl);
+
+                            object result = cmd.ExecuteScalar();
+                            if (result != null)
                             {
-                                txtNombre.Text = reader.GetString("Nombre");
-                                txtApellido1.Text = reader.GetString("Apellido1");
-                                txtApellido2.Text = reader.GetString("Apellido2");
+                                string rutaFoto = result.ToString();
+                                if (!string.IsNullOrEmpty(rutaFoto))
+                                {
+                                    try
+                                    {
+                                        PictureBoxAddImageAlum.Image = Image.FromFile(rutaFoto);
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("No se pudo cargar la imagen del alumno.");
+                                    }
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("No se encontraron datos para el alumno.");
+                                MessageBox.Show("No se encontró la ruta de la foto para este alumno.");
                             }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la foto del alumno: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-      
-
-        // Guardar información del alumno
-        private void btnSaveAlumRegister_Click(object sender, EventArgs e)
-        {
-           // if (!ValidarCampos()) return;
-
-            // Implementar lógica de guardado
-            MessageBox.Show("Información actualizada correctamente.");
-        }
-
-        
-
-        private void btnCancelRegister_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Editar_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtNombre_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -121,4 +107,5 @@ namespace vsoccer
 
         }
     }
+
 }
