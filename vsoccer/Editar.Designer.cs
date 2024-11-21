@@ -85,9 +85,9 @@
             this.gb_Info_Alumno.Controls.Add(this.checkBoxMenRegister);
             this.gb_Info_Alumno.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_Info_Alumno.Location = new System.Drawing.Point(0, 0);
-            this.gb_Info_Alumno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Info_Alumno.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Info_Alumno.Name = "gb_Info_Alumno";
-            this.gb_Info_Alumno.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Info_Alumno.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Info_Alumno.Size = new System.Drawing.Size(1279, 742);
             this.gb_Info_Alumno.TabIndex = 42;
             this.gb_Info_Alumno.TabStop = false;
@@ -97,19 +97,21 @@
             // 
             this.txtAp2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.txtAp2.Location = new System.Drawing.Point(897, 143);
-            this.txtAp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAp2.Name = "txtAp2";
             this.txtAp2.Size = new System.Drawing.Size(347, 38);
             this.txtAp2.TabIndex = 75;
+            this.txtAp2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp2_KeyPress);
             // 
             // txtAp1
             // 
             this.txtAp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.txtAp1.Location = new System.Drawing.Point(477, 143);
-            this.txtAp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAp1.Name = "txtAp1";
             this.txtAp1.Size = new System.Drawing.Size(347, 38);
             this.txtAp1.TabIndex = 74;
+            this.txtAp1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp1_KeyPress);
             // 
             // panel4
             // 
@@ -165,7 +167,7 @@
             this.cbHorario.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHorario.FormattingEnabled = true;
             this.cbHorario.Location = new System.Drawing.Point(553, 465);
-            this.cbHorario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbHorario.Margin = new System.Windows.Forms.Padding(5);
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(271, 39);
             this.cbHorario.TabIndex = 67;
@@ -207,7 +209,7 @@
             this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
             this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
-            this.btnAddTutorRegister.Location = new System.Drawing.Point(353, 462);
+            this.btnAddTutorRegister.Location = new System.Drawing.Point(400, 462);
             this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAddTutorRegister.Name = "btnAddTutorRegister";
             this.btnAddTutorRegister.Size = new System.Drawing.Size(48, 46);
@@ -283,7 +285,7 @@
             this.cbSelecTutoRegister.Location = new System.Drawing.Point(41, 462);
             this.cbSelecTutoRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
-            this.cbSelecTutoRegister.Size = new System.Drawing.Size(220, 39);
+            this.cbSelecTutoRegister.Size = new System.Drawing.Size(269, 39);
             this.cbSelecTutoRegister.TabIndex = 59;
             this.cbSelecTutoRegister.SelectedIndexChanged += new System.EventHandler(this.cbSelecTutoRegister_SelectedIndexChanged);
             // 
@@ -305,7 +307,7 @@
             this.lblAddfhater.BackColor = System.Drawing.Color.Transparent;
             this.lblAddfhater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddfhater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.lblAddfhater.Location = new System.Drawing.Point(269, 471);
+            this.lblAddfhater.Location = new System.Drawing.Point(318, 471);
             this.lblAddfhater.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddfhater.Name = "lblAddfhater";
             this.lblAddfhater.Size = new System.Drawing.Size(79, 22);
@@ -382,11 +384,12 @@
             // 
             this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNom.Location = new System.Drawing.Point(43, 143);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(4);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(311, 37);
             this.txtNom.TabIndex = 73;
             this.txtNom.TextChanged += new System.EventHandler(this.txtNom_TextChanged);
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // Editar
             // 

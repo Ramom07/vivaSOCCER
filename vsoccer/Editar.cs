@@ -47,8 +47,21 @@ namespace vsoccer
             //Cargar tutores
             CargarTutores();
 
+            //Cargar horario
+            CargarHorario();
+
             
         }
+
+        
+
+
+        private void CargarHorario()
+        {
+            
+        }
+
+
 
         private void CargarDatos(int numControl)
         {
@@ -101,40 +114,78 @@ namespace vsoccer
             // Limpiar el ComboBox antes de llenarlo
             cbSelecTutoRegister.Items.Clear();
 
-            // Conexión a la base de datos
-            Conexion conexion = new Conexion();
-            using (var connection = conexion.AbrirConexion())
+            // Variables para identificar el tutor asignado
+            int idTutorAsignado = -1;
+
+            try
             {
-                if (connection != null)
+                // Query para obtener el ID del tutor asignado al alumno
+                string queryTutorAsignado = @"
+            SELECT t.id_tutor
+            FROM tutores t
+            INNER JOIN alumno_tutor at ON t.id_tutor = at.id_tutor
+            WHERE at.numcontrol = @numcontrol;";
+
+                using (Conexion conexion = new Conexion())
                 {
-                    string query = "SELECT u.nombre, u.apellido1, u.apellido2, t.id_tutor " +
-                                   "FROM usuarios u " +
-                                   "INNER JOIN tutores t ON u.id = t.idusuario " +
-                                   "WHERE u.id_rol = 3"; // Rol 3 es el de tutor
-
-                    using (var command = new MySqlCommand(query, connection))
+                    using (MySqlConnection conn = conexion.AbrirConexion())
                     {
-                        using (var reader = command.ExecuteReader())
+                        // Obtener el tutor asignado
+                        using (MySqlCommand cmd = new MySqlCommand(queryTutorAsignado, conn))
                         {
-                            while (reader.Read())
+                            cmd.Parameters.AddWithValue("@numcontrol", numControl);
+                            object result = cmd.ExecuteScalar();
+                            if (result != null)
                             {
-                                // Concatenar nombre completo
-                                string nombreCompleto = reader["nombre"].ToString() + " " + reader["apellido1"].ToString() + " " + reader["apellido2"].ToString();
-                                int idTutor = Convert.ToInt32(reader["id_tutor"]);
+                                idTutorAsignado = Convert.ToInt32(result);
+                            }
+                        }
 
-                                // Agregar el tutor al ComboBox (almacenando el idTutor como Tag)
-                                cbSelecTutoRegister.Items.Add(new ComboBoxItem { Text = nombreCompleto, Tag = idTutor });
+                        // Query para cargar la lista de tutores
+                        string queryTutores = @"
+                    SELECT u.nombre, u.apellido1, u.apellido2, t.id_tutor 
+                    FROM usuarios u
+                    INNER JOIN tutores t ON u.id = t.idusuario
+                    WHERE u.id_rol = 3;"; // Rol 3 es el de tutor
+
+                        using (MySqlCommand cmd = new MySqlCommand(queryTutores, conn))
+                        {
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    // Concatenar el nombre completo del tutor
+                                    string nombreCompleto = reader["nombre"].ToString() + " " +
+                                                            reader["apellido1"].ToString() + " " +
+                                                            reader["apellido2"].ToString();
+                                    int idTutor = Convert.ToInt32(reader["id_tutor"]);
+
+                                    // Agregar tutor al ComboBox
+                                    ComboBoxItem item = new ComboBoxItem
+                                    {
+                                        Text = nombreCompleto,
+                                        Tag = idTutor
+                                    };
+                                    cbSelecTutoRegister.Items.Add(item);
+
+                                    // Si este tutor es el asignado, seleccionarlo
+                                    if (idTutor == idTutorAsignado)
+                                    {
+                                        cbSelecTutoRegister.SelectedItem = item;
+                                    }
+                                }
                             }
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
-                }
             }
-            conexion.CerrarConexion();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar tutores: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
 
         // Método para cargar la foto del alumno desde la base de datos
@@ -288,14 +339,118 @@ namespace vsoccer
 
         }
 
+        private int CalcularEdad(DateTime fechNac)
+        {
+            int edad = DateTime.Now.Year - fechNac.Year;
+            if (DateTime.Now.DayOfYear < fechNac.DayOfYear)
+                edad--;
+            return edad;
+        }
+
         private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
         {
+            int age = CalcularEdad(dtpFechaNaciRegister.Value);
 
+            // Validar si la edad está fuera del rango permitido
+            if (age < 3 || age > 13)
+            {
+                // Mostrar mensaje de advertencia
+                MessageBox.Show("La edad debe estar entre 3 y 13 años.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Reestablecer el DateTimePicker a una fecha válida (por ejemplo, hace 3 años desde hoy)
+                dtpFechaNaciRegister.Value = DateTime.Now.AddYears(-3);
+
+                // Detener la ejecución del resto del código
+                return;
+            }
+
+            // Limpiar los horarios previos
+            cbHorario.Items.Clear();
+
+            // Asignar horarios según la edad
+            if (age >= 3 && age <= 4)
+            {
+                cbHorario.Items.Add("MINI 1 - Lunes y Miércoles 4PM - 5PM");
+                cbHorario.Items.Add("MINI 2 - Martes y Jueves 3PM - 4PM");
+            }
+            else if (age >= 5 && age <= 6)
+            {
+                cbHorario.Items.Add("MENOR 1 - Lunes y Miércoles 3PM - 4PM");
+                cbHorario.Items.Add("MENOR 2 - Martes y Jueves 4PM - 5PM");
+            }
+            else if (age >= 7 && age <= 8)
+            {
+                cbHorario.Items.Add("MAYOR A - Lunes y Miércoles 5PM - 6PM");
+                cbHorario.Items.Add("MAYOR B - Martes y Jueves 6PM - 7PM");
+            }
+            else if (age >= 9 && age <= 10)
+            {
+                cbHorario.Items.Add("JUVENIL A - Lunes y Miércoles 6PM - 7:30PM");
+                cbHorario.Items.Add("JUVENIL B - Martes y Jueves 4PM - 5:30PM");
+            }
+            else if (age >= 11 && age <= 12)
+            {
+                cbHorario.Items.Add("PRO - Martes y Jueves 5:30PM - 7PM");
+            }
         }
 
         private void cbSelecTutoRegister_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false; // Permitir la entrada de letras
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false; // Permitir teclas de control como Backspace
+            }
+            else
+            {
+                e.Handled = true; // Bloquear cualquier otro carácter
+                MessageBox.Show("Solo se permiten letras en este campo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtAp1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false; // Permitir la entrada de letras
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false; // Permitir teclas de control como Backspace
+            }
+            else
+            {
+                e.Handled = true; // Bloquear cualquier otro carácter
+                MessageBox.Show("Solo se permiten letras en este campo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtAp2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false; // Permitir la entrada de letras
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false; // Permitir teclas de control como Backspace
+            }
+            else
+            {
+                e.Handled = true; // Bloquear cualquier otro carácter
+                MessageBox.Show("Solo se permiten letras en este campo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 

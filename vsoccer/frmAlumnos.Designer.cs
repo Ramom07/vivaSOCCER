@@ -33,6 +33,7 @@
             this.gb_Info_Alumno = new System.Windows.Forms.GroupBox();
             this.txtAp2 = new System.Windows.Forms.TextBox();
             this.txtAp1 = new System.Windows.Forms.TextBox();
+            this.btnAgregartutor = new System.Windows.Forms.Button();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.gpRegistrartutor = new System.Windows.Forms.GroupBox();
             this.rjTextBox4 = new vsoccer.RJTextBox();
@@ -53,7 +54,6 @@
             this.cbHorario = new System.Windows.Forms.ComboBox();
             this.btnFoto = new System.Windows.Forms.Button();
             this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
-            this.btnAgregartutor = new System.Windows.Forms.Button();
             this.btnCancelRegister = new System.Windows.Forms.Button();
             this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.lblname = new System.Windows.Forms.Label();
@@ -132,9 +132,9 @@
             this.gb_Info_Alumno.Controls.Add(this.checkBoxFemaleRegister);
             this.gb_Info_Alumno.Controls.Add(this.checkBoxMenRegister);
             this.gb_Info_Alumno.Location = new System.Drawing.Point(0, 20);
-            this.gb_Info_Alumno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Info_Alumno.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Info_Alumno.Name = "gb_Info_Alumno";
-            this.gb_Info_Alumno.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Info_Alumno.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Info_Alumno.Size = new System.Drawing.Size(1661, 1065);
             this.gb_Info_Alumno.TabIndex = 41;
             this.gb_Info_Alumno.TabStop = false;
@@ -145,28 +145,46 @@
             // 
             this.txtAp2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.txtAp2.Location = new System.Drawing.Point(936, 128);
-            this.txtAp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAp2.Name = "txtAp2";
             this.txtAp2.Size = new System.Drawing.Size(281, 45);
             this.txtAp2.TabIndex = 75;
+            this.txtAp2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp2_KeyPress);
             // 
             // txtAp1
             // 
             this.txtAp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.txtAp1.Location = new System.Drawing.Point(518, 129);
-            this.txtAp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAp1.Name = "txtAp1";
             this.txtAp1.Size = new System.Drawing.Size(281, 45);
             this.txtAp1.TabIndex = 74;
+            this.txtAp1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp1_KeyPress);
+            // 
+            // btnAgregartutor
+            // 
+            this.btnAgregartutor.AutoSize = true;
+            this.btnAgregartutor.FlatAppearance.BorderSize = 0;
+            this.btnAgregartutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregartutor.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAgregartutor.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregartutor.Image")));
+            this.btnAgregartutor.Location = new System.Drawing.Point(1125, 129);
+            this.btnAgregartutor.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            this.btnAgregartutor.Name = "btnAgregartutor";
+            this.btnAgregartutor.Size = new System.Drawing.Size(36, 36);
+            this.btnAgregartutor.TabIndex = 64;
+            this.btnAgregartutor.UseVisualStyleBackColor = true;
+            this.btnAgregartutor.Click += new System.EventHandler(this.btnAgregartutor_Click);
             // 
             // txtNom
             // 
             this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.txtNom.Location = new System.Drawing.Point(88, 129);
-            this.txtNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNom.Margin = new System.Windows.Forms.Padding(4);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(277, 45);
             this.txtNom.TabIndex = 73;
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // gpRegistrartutor
             // 
@@ -433,7 +451,7 @@
             this.cbHorario.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHorario.FormattingEnabled = true;
             this.cbHorario.Location = new System.Drawing.Point(595, 434);
-            this.cbHorario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbHorario.Margin = new System.Windows.Forms.Padding(5);
             this.cbHorario.Name = "cbHorario";
             this.cbHorario.Size = new System.Drawing.Size(271, 39);
             this.cbHorario.TabIndex = 67;
@@ -466,21 +484,6 @@
             this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxAddImageAlum.TabIndex = 65;
             this.PictureBoxAddImageAlum.TabStop = false;
-            // 
-            // btnAgregartutor
-            // 
-            this.btnAgregartutor.AutoSize = true;
-            this.btnAgregartutor.FlatAppearance.BorderSize = 0;
-            this.btnAgregartutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregartutor.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAgregartutor.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregartutor.Image")));
-            this.btnAgregartutor.Location = new System.Drawing.Point(1125, 129);
-            this.btnAgregartutor.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            this.btnAgregartutor.Name = "btnAgregartutor";
-            this.btnAgregartutor.Size = new System.Drawing.Size(36, 36);
-            this.btnAgregartutor.TabIndex = 64;
-            this.btnAgregartutor.UseVisualStyleBackColor = true;
-            this.btnAgregartutor.Click += new System.EventHandler(this.btnAgregartutor_Click);
             // 
             // btnCancelRegister
             // 

@@ -211,8 +211,24 @@ namespace vsoccer
         private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
         {
             int age = CalcularEdad(dtpFechaNaciRegister.Value);
+
+            // Validar si la edad está fuera del rango permitido
+            if (age < 3 || age > 13)
+            {
+                // Mostrar mensaje de advertencia
+                MessageBox.Show("La edad debe estar entre 3 y 13 años.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Reestablecer el DateTimePicker a una fecha válida (por ejemplo, hace 3 años desde hoy)
+                dtpFechaNaciRegister.Value = DateTime.Now.AddYears(-3);
+
+                // Detener la ejecución del resto del código
+                return;
+            }
+
+            // Limpiar los horarios previos
             cbHorario.Items.Clear();
 
+            // Asignar horarios según la edad
             if (age >= 3 && age <= 4)
             {
                 cbHorario.Items.Add("MINI 1 - Lunes y Miércoles 4PM - 5PM");
@@ -483,6 +499,60 @@ namespace vsoccer
             {
                 // Si seleccionó "No", no se hace nada o puedes mostrar un mensaje opcional
                 MessageBox.Show("Operación cancelada. Continúa con el registro.");
+            }
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false; // Permitir la entrada de letras
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false; // Permitir teclas de control como Backspace
+            }
+            else
+            {
+                e.Handled = true; // Bloquear cualquier otro carácter
+                MessageBox.Show("Solo se permiten letras en este campo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtAp1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false; // Permitir la entrada de letras
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false; // Permitir teclas de control como Backspace
+            }
+            else
+            {
+                e.Handled = true; // Bloquear cualquier otro carácter
+                MessageBox.Show("Solo se permiten letras en este campo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtAp2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es una letra
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false; // Permitir la entrada de letras
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false; // Permitir teclas de control como Backspace
+            }
+            else
+            {
+                e.Handled = true; // Bloquear cualquier otro carácter
+                MessageBox.Show("Solo se permiten letras en este campo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
