@@ -9,6 +9,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static vsoccer.frmAlumnos;
 
 namespace vsoccer
 {
@@ -42,6 +43,11 @@ namespace vsoccer
 
             // Cargar la foto del alumno
             CargarFoto(numControl);
+
+            //Cargar tutores
+            CargarTutores();
+
+            
         }
 
         private void CargarDatos(int numControl)
@@ -71,6 +77,7 @@ namespace vsoccer
                                     txtNom.Text = reader["nombre"].ToString();
                                     txtAp1.Text = reader["apellido1"].ToString();
                                     txtAp2.Text = reader["apellido2"].ToString();
+                                    dtpFechaNaciRegister.Value = fechaNac;
                                 }
                                 else
                                 {
@@ -87,6 +94,46 @@ namespace vsoccer
                 MessageBox.Show("Error al cargar los datos: " + ex.Message,
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CargarTutores()
+        {
+            // Limpiar el ComboBox antes de llenarlo
+            cbSelecTutoRegister.Items.Clear();
+
+            // Conexión a la base de datos
+            Conexion conexion = new Conexion();
+            using (var connection = conexion.AbrirConexion())
+            {
+                if (connection != null)
+                {
+                    string query = "SELECT u.nombre, u.apellido1, u.apellido2, t.id_tutor " +
+                                   "FROM usuarios u " +
+                                   "INNER JOIN tutores t ON u.id = t.idusuario " +
+                                   "WHERE u.id_rol = 3"; // Rol 3 es el de tutor
+
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Concatenar nombre completo
+                                string nombreCompleto = reader["nombre"].ToString() + " " + reader["apellido1"].ToString() + " " + reader["apellido2"].ToString();
+                                int idTutor = Convert.ToInt32(reader["id_tutor"]);
+
+                                // Agregar el tutor al ComboBox (almacenando el idTutor como Tag)
+                                cbSelecTutoRegister.Items.Add(new ComboBoxItem { Text = nombreCompleto, Tag = idTutor });
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo abrir la conexión a la base de datos.");
+                }
+            }
+            conexion.CerrarConexion();
         }
 
 
@@ -242,6 +289,11 @@ namespace vsoccer
         }
 
         private void dtpFechaNaciRegister_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSelecTutoRegister_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

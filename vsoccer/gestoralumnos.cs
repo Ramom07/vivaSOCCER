@@ -109,7 +109,7 @@ namespace vsoccer
                     // Fecha de Nacimiento
                     dgDatosAlumnos.Columns[5].HeaderText = "Fecha de Nacimiento";
                     dgDatosAlumnos.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    dgDatosAlumnos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                    //dgDatosAlumnos.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
 
                     // Tutor
                     dgDatosAlumnos.Columns[6].HeaderText = "Tutor";
@@ -225,12 +225,24 @@ namespace vsoccer
                 string nombre = fila.Cells[1].Value.ToString(); // Asumiendo que la columna 1 es nombre
                 string apellidoPaterno = fila.Cells[2].Value.ToString(); // Asumiendo que la columna 2 es apellido paterno
                 string apellidoMaterno = fila.Cells[3].Value.ToString(); // Asumiendo que la columna 3 es apellido materno
-                string fechaStr = fila.Cells[6].Value.ToString(); // Tomamos la fecha como cadena, asumiendo que está en formato "dd/MM/yyyy"
+                                                                         // Obtener la fecha directamente desde la celda (valor sin formatear)
+                object fechaObj = fila.Cells[5].Value;
                 DateTime fechaNac;
 
-                // Intentamos convertir la fecha en formato día/mes/año
-                DateTime.TryParseExact(fechaStr, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaNac);
-                
+                // Verificar si la celda contiene un valor válido de fecha
+                if (fechaObj is DateTime)
+                {
+                    fechaNac = (DateTime)fechaObj;
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de nacimiento no es válida. Por favor, verifica los datos.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Salir si la fecha es inválida
+                }
+
+
+
 
 
                 // Crear y abrir el formulario Editar con los datos del alumno
