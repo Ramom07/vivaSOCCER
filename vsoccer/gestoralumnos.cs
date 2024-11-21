@@ -220,13 +220,14 @@ namespace vsoccer
                 // Obtener datos de la fila seleccionada
                 var fila = dgDatosAlumnos.SelectedRows[0];
 
+                // Asegúrate de que la columna del número de control sea accesible por el índice o nombre correcto
                 int numControl = Convert.ToInt32(fila.Cells["Num Control"].Value);
-                string nombre = fila.Cells[1].Value.ToString();
-                string apellidoPaterno = fila.Cells[2].Value.ToString();
-                string apellidoMaterno = fila.Cells[3].Value.ToString();
-                
+                string nombre = fila.Cells[1].Value.ToString(); // Asumiendo que la columna 1 es nombre
+                string apellidoPaterno = fila.Cells[2].Value.ToString(); // Asumiendo que la columna 2 es apellido paterno
+                string apellidoMaterno = fila.Cells[3].Value.ToString(); // Asumiendo que la columna 3 es apellido materno
 
-                // Crear y abrir el formulario Editar
+
+                // Crear y abrir el formulario Editar con los datos del alumno
                 var formEditar = new Editar(numControl, nombre, apellidoPaterno, apellidoMaterno);
                 formEditar.ShowDialog();
             }
@@ -235,6 +236,7 @@ namespace vsoccer
                 MessageBox.Show("Por favor, selecciona un alumno para editar.");
             }
         }
+
 
 
 
@@ -296,6 +298,7 @@ namespace vsoccer
 
         }
 
+        public static int NumControlSeleccionado { get; private set; }
         private void dgDatosAlumnos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgDatosAlumnos.SelectedRows.Count > 0)
@@ -304,11 +307,7 @@ namespace vsoccer
                 var fila = dgDatosAlumnos.SelectedRows[0];
 
                 // Obtener el número de control
-                int numcontrol = Convert.ToInt32(fila.Cells[0].Value);
-
-                // Guardar el número de control seleccionado
-                numcontrolSeleccionado = numcontrol;
-
+                NumControlSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
             }
         }
 

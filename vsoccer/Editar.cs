@@ -28,16 +28,16 @@ namespace vsoccer
             this.nombre = nombre;
             this.apellidoPaterno = apellidoPaterno;
             this.apellidoMaterno = apellidoMaterno;
-            this.fechaNacimiento = fechaNacimiento;
+            
         }
 
         private void Editar_Load(object sender, EventArgs e)
         {
             // Cargar datos en los controles
-            txtNombre.Text = nombre;
-            txtApellido1.Text = apellidoPaterno;
-            txtApellido2.Text = apellidoMaterno;
-            dtpFechaNaciRegister.Value = fechaNacimiento;
+            txtNombre.Text = this.nombre;
+            txtApellido1.Text = this.apellidoPaterno;
+            txtApellido2.Text = this.apellidoMaterno;
+            
 
             // Cargar la foto del alumno
             CargarFoto(numControl);
