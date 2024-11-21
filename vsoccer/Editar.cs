@@ -43,6 +43,12 @@ namespace vsoccer
             CargarFoto(numControl);
         }
 
+        private void CargarDatos(string nombre, string ap1, string ap2)
+        {
+            string query = "SELECT a.numcontrol, u.nombre, u.apellido1, u.apellido2 FROM alumnos a JOIN usuarios u ON a.id = u.id;";
+
+        }
+
         // Método para cargar la foto del alumno desde la base de datos
         private void CargarFoto(int numControl)
         {
