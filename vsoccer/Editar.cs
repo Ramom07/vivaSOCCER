@@ -34,20 +34,58 @@ namespace vsoccer
         private void Editar_Load(object sender, EventArgs e)
         {
             // Cargar datos en los controles
-            txtNombre.Text = this.nombre;
-            txtApellido1.Text = this.apellidoPaterno;
-            txtApellido2.Text = this.apellidoMaterno;
+            CargarDatos(numControl);
             
 
             // Cargar la foto del alumno
             CargarFoto(numControl);
         }
 
-        private void CargarDatos(string nombre, string ap1, string ap2)
+        private void CargarDatos(int numControl)
         {
-            string query = "SELECT a.numcontrol, u.nombre, u.apellido1, u.apellido2 FROM alumnos a JOIN usuarios u ON a.id = u.id;";
+            try
+            {
+                string querydatos = @"
+            SELECT usuarios.nombre, usuarios.apellido1, usuarios.apellido2 
+            FROM alumnos 
+            INNER JOIN usuarios ON alumnos.id = usuarios.id 
+            WHERE alumnos.numcontrol = @numcontrol;";
 
+                using (Conexion conexion = new Conexion())
+                {
+                    using (MySqlConnection conn = conexion.AbrirConexion())
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand(querydatos, conn))
+                        {
+                            // Agregar parámetro para numControl
+                            cmd.Parameters.AddWithValue("@numcontrol", numControl);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    // Asignar directamente a los TextBox
+                                    txtNom.Text = reader["nombre"].ToString();
+                                    txtAp1.Text = reader["apellido1"].ToString();
+                                    txtAp2.Text = reader["apellido2"].ToString();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se encontraron datos para este número de control.",
+                                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos: " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         // Método para cargar la foto del alumno desde la base de datos
         private void CargarFoto(int numControl)
@@ -109,6 +147,11 @@ namespace vsoccer
         }
 
         private void txtApellido2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
         {
 
         }
