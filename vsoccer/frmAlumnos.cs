@@ -269,7 +269,7 @@ namespace vsoccer
 
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
-            // Tomar datos del formulario
+            // Tomar datos del formularioo
             string nombre = txtNom.Text;
             string apellido1 = txtAp1.Text;
             string apellido2 = txtAp2.Text;
