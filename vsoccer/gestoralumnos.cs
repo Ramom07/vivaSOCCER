@@ -69,10 +69,7 @@ namespace vsoccer
 
 
 
-        private void dgDatosAlumnos_SelectionChanged(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void cargarTabla(string dato)
         {
@@ -257,20 +254,7 @@ namespace vsoccer
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar que el índice de fila y columna sean válidos
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                try
-                {
-                    // Obtener el valor de la columna 0 de la fila seleccionada
-                    numcontrolSeleccionado = Convert.ToInt32(dgDatosAlumnos.Rows[e.RowIndex].Cells[0].Value);
-                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al seleccionar el numcontrol: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            
         }
         //btn eliminar
         private void btnEliminar_Click_1(object sender, EventArgs e)
@@ -310,6 +294,22 @@ namespace vsoccer
         private void dgDatosAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgDatosAlumnos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgDatosAlumnos.SelectedRows.Count > 0)
+            {
+                // Obtener la fila seleccionada
+                var fila = dgDatosAlumnos.SelectedRows[0];
+
+                // Obtener el número de control
+                int numcontrol = Convert.ToInt32(fila.Cells[0].Value);
+
+                // Guardar el número de control seleccionado
+                numcontrolSeleccionado = numcontrol;
+
+            }
         }
 
         private void gestoralumnos_Load(object sender, EventArgs e)
