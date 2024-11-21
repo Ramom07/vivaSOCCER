@@ -20,9 +20,9 @@ namespace vsoccer
         private string nombre;
         private string apellidoPaterno;
         private string apellidoMaterno;
-        private DateTime fechaNacimiento;
+        private DateTime fechaNac;
 
-        public Editar(int numControl, string nombre, string apellidoPaterno, string apellidoMaterno)
+        public Editar(int numControl, string nombre, string apellidoPaterno, string apellidoMaterno, DateTime fechaNac)
         {
             InitializeComponent();
 
@@ -30,6 +30,7 @@ namespace vsoccer
             this.nombre = nombre;
             this.apellidoPaterno = apellidoPaterno;
             this.apellidoMaterno = apellidoMaterno;
+            this.fechaNac = fechaNac;
             
         }
 

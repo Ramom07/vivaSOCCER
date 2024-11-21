@@ -225,11 +225,16 @@ namespace vsoccer
                 string nombre = fila.Cells[1].Value.ToString(); // Asumiendo que la columna 1 es nombre
                 string apellidoPaterno = fila.Cells[2].Value.ToString(); // Asumiendo que la columna 2 es apellido paterno
                 string apellidoMaterno = fila.Cells[3].Value.ToString(); // Asumiendo que la columna 3 es apellido materno
-                date
+                string fechaStr = fila.Cells[6].Value.ToString(); // Tomamos la fecha como cadena, asumiendo que está en formato "dd/MM/yyyy"
+                DateTime fechaNac;
+
+                // Intentamos convertir la fecha en formato día/mes/año
+                DateTime.TryParseExact(fechaStr, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaNac);
+                
 
 
                 // Crear y abrir el formulario Editar con los datos del alumno
-                var formEditar = new Editar(numControl, nombre, apellidoPaterno, apellidoMaterno);
+                var formEditar = new Editar(numControl, nombre, apellidoPaterno, apellidoMaterno, fechaNac);
                 formEditar.ShowDialog();
             }
             else
