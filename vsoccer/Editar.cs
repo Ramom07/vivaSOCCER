@@ -24,6 +24,13 @@ namespace vsoccer
         private DateTime fechaNac;
         private string rutaFoto = ""; // Almacena la ruta de la foto actual
 
+        
+
+        private void InicializarCamaras()
+        {
+            dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+        }
+
 
 
         public Editar(int numControl, string nombre, string apellidoPaterno, string apellidoMaterno, DateTime fechaNac)
@@ -307,9 +314,9 @@ namespace vsoccer
             try
             {
                 // Obtener los datos de los campos del formulario
-                string nombre = txtNom.Text.Trim();
-                string apellido1 = txtAp1.Text.Trim();
-                string apellido2 = txtAp2.Text.Trim();
+                string nombre = txtNom.Text.Trim().ToUpper();
+                string apellido1 = txtAp1.Text.Trim().ToUpper();
+                string apellido2 = txtAp2.Text.Trim().ToUpper();
                 DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
 
                 // Obtener la ruta de la imagen; si no se seleccionó una nueva, usar la ruta original
@@ -348,7 +355,7 @@ namespace vsoccer
                 usuarios.apellido1 = @apellido1,
                 usuarios.apellido2 = @apellido2,
                 usuarios.foto = @rutaImagen,
-                alumnos.fecha_nac = @fechaNacimiento,
+                usuarios.fechaNacimiento = @fechaNacimiento,
                 alumnos.id_categoria = @idCategoria,
                 alumno_tutor.id_tutor = @idTutor
             WHERE alumnos.numcontrol = @numControl";
@@ -400,7 +407,13 @@ namespace vsoccer
 
         private void btnFoto_Click(object sender, EventArgs e)
         {
-            // Mostrar una lista de cámaras y seleccionar una
+            // Inicializar cámaras si no se ha hecho antes
+            if (dispositivos == null)
+            {
+                dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            }
+
+            // Verificar que haya dispositivos disponibles
             if (dispositivos.Count == 0)
             {
                 MessageBox.Show("No se detectaron cámaras.");
@@ -408,12 +421,21 @@ namespace vsoccer
             }
 
             // Seleccionar la primera cámara
+            if (dispositivos[0].MonikerString == null)
+            {
+                MessageBox.Show("No se pudo acceder a la cámara seleccionada.");
+                return;
+            }
+
             fuenteDeVideo = new VideoCaptureDevice(dispositivos[0].MonikerString);
             fuenteDeVideo.NewFrame += new NewFrameEventHandler(CapturarFrame);
             fuenteDeVideo.Start();
 
             // Capturar la imagen después de 5 segundos
-            Task.Delay(5000).ContinueWith(_ => CapturarImagen());
+            Task.Delay(5000).ContinueWith(_ =>
+            {
+                CapturarImagen();
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void CapturarFrame(object sender, NewFrameEventArgs eventArgs)
