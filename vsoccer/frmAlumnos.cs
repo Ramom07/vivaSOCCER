@@ -486,8 +486,8 @@ namespace vsoccer
 
         private void btnCancelRegister_Click(object sender, EventArgs e)
         {
-            // Mostrar un cuadro de diálogo de confirmación
-            DialogResult resultado = MessageBox.Show("¿Seguro que deseas cancelar el registro?", "Confirmación de Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Mostrar un cuadro de diálogo de confirmación con el nuevo mensaje
+            DialogResult resultado = MessageBox.Show("Si regresa no se guardará ningún cambio. ¿Está seguro de eso?", "Confirmación de Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Verificar si el usuario seleccionó "Sí"
             if (resultado == DialogResult.Yes)

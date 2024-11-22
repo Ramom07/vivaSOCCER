@@ -36,17 +36,11 @@
             this.btnAgregartutor = new System.Windows.Forms.Button();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.gpRegistrartutor = new System.Windows.Forms.GroupBox();
-            this.rjTextBox4 = new vsoccer.RJTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtNumtelefono2 = new vsoccer.RJTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtNumtelefono = new vsoccer.RJTextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtSegundo = new vsoccer.RJTextBox();
-            this.txtPrimer = new vsoccer.RJTextBox();
-            this.txtNombretutor = new vsoccer.RJTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -75,18 +69,24 @@
             this.gbInformacionpadre = new System.Windows.Forms.GroupBox();
             this.btnCancelarpadre = new System.Windows.Forms.Button();
             this.btnGuardarpadre = new System.Windows.Forms.Button();
-            this.rjTextBox6 = new vsoccer.RJTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTelefono2 = new vsoccer.RJTextBox();
-            this.txtTelefono = new vsoccer.RJTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.rjTextBox1 = new vsoccer.RJTextBox();
-            this.rjTextBox2 = new vsoccer.RJTextBox();
-            this.rjTextBox3 = new vsoccer.RJTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.rjTextBox4 = new vsoccer.RJTextBox();
+            this.txtNumtelefono2 = new vsoccer.RJTextBox();
+            this.txtNumtelefono = new vsoccer.RJTextBox();
+            this.txtSegundo = new vsoccer.RJTextBox();
+            this.txtPrimer = new vsoccer.RJTextBox();
+            this.txtNombretutor = new vsoccer.RJTextBox();
+            this.rjTextBox6 = new vsoccer.RJTextBox();
+            this.txtTelefono2 = new vsoccer.RJTextBox();
+            this.txtTelefono = new vsoccer.RJTextBox();
+            this.rjTextBox1 = new vsoccer.RJTextBox();
+            this.rjTextBox2 = new vsoccer.RJTextBox();
+            this.rjTextBox3 = new vsoccer.RJTextBox();
             this.gb_Info_Alumno.SuspendLayout();
             this.gpRegistrartutor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAddImageAlum)).BeginInit();
@@ -147,7 +147,7 @@
             this.txtAp2.Location = new System.Drawing.Point(936, 128);
             this.txtAp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAp2.Name = "txtAp2";
-            this.txtAp2.Size = new System.Drawing.Size(281, 45);
+            this.txtAp2.Size = new System.Drawing.Size(312, 45);
             this.txtAp2.TabIndex = 75;
             this.txtAp2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp2_KeyPress);
             // 
@@ -157,7 +157,7 @@
             this.txtAp1.Location = new System.Drawing.Point(518, 129);
             this.txtAp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAp1.Name = "txtAp1";
-            this.txtAp1.Size = new System.Drawing.Size(281, 45);
+            this.txtAp1.Size = new System.Drawing.Size(313, 45);
             this.txtAp1.TabIndex = 74;
             this.txtAp1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAp1_KeyPress);
             // 
@@ -212,24 +212,6 @@
             this.gpRegistrartutor.Text = "TUTOR";
             this.gpRegistrartutor.Enter += new System.EventHandler(this.gpRegistrartutor_Enter);
             // 
-            // rjTextBox4
-            // 
-            this.rjTextBox4.AutoSize = true;
-            this.rjTextBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox4.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox4.BorderSize = 2;
-            this.rjTextBox4.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox4.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox4.Location = new System.Drawing.Point(455, 262);
-            this.rjTextBox4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.rjTextBox4.Name = "rjTextBox4";
-            this.rjTextBox4.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.rjTextBox4.PasswordChar = false;
-            this.rjTextBox4.Size = new System.Drawing.Size(357, 50);
-            this.rjTextBox4.TabIndex = 83;
-            this.rjTextBox4.Texts = "";
-            this.rjTextBox4.UnderlineStyle = false;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -261,24 +243,6 @@
             this.button1.Text = "      CANCELAR";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // txtNumtelefono2
-            // 
-            this.txtNumtelefono2.AutoSize = true;
-            this.txtNumtelefono2.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNumtelefono2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNumtelefono2.BorderSize = 2;
-            this.txtNumtelefono2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumtelefono2.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNumtelefono2.Location = new System.Drawing.Point(783, 172);
-            this.txtNumtelefono2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtNumtelefono2.Name = "txtNumtelefono2";
-            this.txtNumtelefono2.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.txtNumtelefono2.PasswordChar = false;
-            this.txtNumtelefono2.Size = new System.Drawing.Size(357, 50);
-            this.txtNumtelefono2.TabIndex = 81;
-            this.txtNumtelefono2.Texts = "";
-            this.txtNumtelefono2.UnderlineStyle = false;
-            // 
             // button2
             // 
             this.button2.AutoSize = true;
@@ -308,24 +272,6 @@
             this.label14.TabIndex = 80;
             this.label14.Text = "Numero de telefono 2";
             // 
-            // txtNumtelefono
-            // 
-            this.txtNumtelefono.AutoSize = true;
-            this.txtNumtelefono.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNumtelefono.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNumtelefono.BorderSize = 2;
-            this.txtNumtelefono.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumtelefono.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNumtelefono.Location = new System.Drawing.Point(117, 172);
-            this.txtNumtelefono.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtNumtelefono.Name = "txtNumtelefono";
-            this.txtNumtelefono.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.txtNumtelefono.PasswordChar = false;
-            this.txtNumtelefono.Size = new System.Drawing.Size(357, 50);
-            this.txtNumtelefono.TabIndex = 79;
-            this.txtNumtelefono.Texts = "";
-            this.txtNumtelefono.UnderlineStyle = false;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -338,60 +284,6 @@
             this.label13.Size = new System.Drawing.Size(185, 22);
             this.label13.TabIndex = 78;
             this.label13.Text = "Numero de telefono";
-            // 
-            // txtSegundo
-            // 
-            this.txtSegundo.AutoSize = true;
-            this.txtSegundo.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSegundo.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtSegundo.BorderSize = 2;
-            this.txtSegundo.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSegundo.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSegundo.Location = new System.Drawing.Point(893, 57);
-            this.txtSegundo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtSegundo.Name = "txtSegundo";
-            this.txtSegundo.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.txtSegundo.PasswordChar = false;
-            this.txtSegundo.Size = new System.Drawing.Size(352, 50);
-            this.txtSegundo.TabIndex = 77;
-            this.txtSegundo.Texts = "";
-            this.txtSegundo.UnderlineStyle = false;
-            // 
-            // txtPrimer
-            // 
-            this.txtPrimer.AutoSize = true;
-            this.txtPrimer.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPrimer.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtPrimer.BorderSize = 2;
-            this.txtPrimer.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrimer.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPrimer.Location = new System.Drawing.Point(471, 57);
-            this.txtPrimer.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtPrimer.Name = "txtPrimer";
-            this.txtPrimer.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.txtPrimer.PasswordChar = false;
-            this.txtPrimer.Size = new System.Drawing.Size(357, 50);
-            this.txtPrimer.TabIndex = 76;
-            this.txtPrimer.Texts = "";
-            this.txtPrimer.UnderlineStyle = false;
-            // 
-            // txtNombretutor
-            // 
-            this.txtNombretutor.AutoSize = true;
-            this.txtNombretutor.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNombretutor.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNombretutor.BorderSize = 2;
-            this.txtNombretutor.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombretutor.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNombretutor.Location = new System.Drawing.Point(37, 57);
-            this.txtNombretutor.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtNombretutor.Name = "txtNombretutor";
-            this.txtNombretutor.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.txtNombretutor.PasswordChar = false;
-            this.txtNombretutor.Size = new System.Drawing.Size(340, 50);
-            this.txtNombretutor.TabIndex = 75;
-            this.txtNombretutor.Texts = "";
-            this.txtNombretutor.UnderlineStyle = false;
             // 
             // label10
             // 
@@ -450,10 +342,10 @@
             // 
             this.cbHorario.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHorario.FormattingEnabled = true;
-            this.cbHorario.Location = new System.Drawing.Point(595, 434);
+            this.cbHorario.Location = new System.Drawing.Point(540, 434);
             this.cbHorario.Margin = new System.Windows.Forms.Padding(5);
             this.cbHorario.Name = "cbHorario";
-            this.cbHorario.Size = new System.Drawing.Size(271, 39);
+            this.cbHorario.Size = new System.Drawing.Size(376, 39);
             this.cbHorario.TabIndex = 67;
             this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
             // 
@@ -464,7 +356,7 @@
             this.btnFoto.ForeColor = System.Drawing.Color.White;
             this.btnFoto.Image = ((System.Drawing.Image)(resources.GetObject("btnFoto.Image")));
             this.btnFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFoto.Location = new System.Drawing.Point(1013, 497);
+            this.btnFoto.Location = new System.Drawing.Point(998, 490);
             this.btnFoto.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnFoto.Name = "btnFoto";
             this.btnFoto.Size = new System.Drawing.Size(180, 55);
@@ -500,7 +392,7 @@
             this.btnCancelRegister.Name = "btnCancelRegister";
             this.btnCancelRegister.Size = new System.Drawing.Size(285, 60);
             this.btnCancelRegister.TabIndex = 63;
-            this.btnCancelRegister.Text = "      CANCELAR";
+            this.btnCancelRegister.Text = "      REGRESAR";
             this.btnCancelRegister.UseVisualStyleBackColor = true;
             this.btnCancelRegister.Click += new System.EventHandler(this.btnCancelRegister_Click);
             // 
@@ -527,7 +419,7 @@
             this.lblname.BackColor = System.Drawing.Color.Transparent;
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblname.ForeColor = System.Drawing.Color.White;
-            this.lblname.Location = new System.Drawing.Point(169, 92);
+            this.lblname.Location = new System.Drawing.Point(142, 92);
             this.lblname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(103, 22);
@@ -603,7 +495,7 @@
             this.lblapellidoma.BackColor = System.Drawing.Color.Transparent;
             this.lblapellidoma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblapellidoma.ForeColor = System.Drawing.Color.White;
-            this.lblapellidoma.Location = new System.Drawing.Point(995, 92);
+            this.lblapellidoma.Location = new System.Drawing.Point(976, 92);
             this.lblapellidoma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblapellidoma.Name = "lblapellidoma";
             this.lblapellidoma.Size = new System.Drawing.Size(167, 22);
@@ -616,7 +508,7 @@
             this.lblapellidomat.BackColor = System.Drawing.Color.Transparent;
             this.lblapellidomat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblapellidomat.ForeColor = System.Drawing.Color.White;
-            this.lblapellidomat.Location = new System.Drawing.Point(579, 92);
+            this.lblapellidomat.Location = new System.Drawing.Point(573, 92);
             this.lblapellidomat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblapellidomat.Name = "lblapellidomat";
             this.lblapellidomat.Size = new System.Drawing.Size(146, 22);
@@ -777,24 +669,6 @@
             this.btnGuardarpadre.Text = "    GUARDAR";
             this.btnGuardarpadre.UseVisualStyleBackColor = true;
             // 
-            // rjTextBox6
-            // 
-            this.rjTextBox6.AutoSize = true;
-            this.rjTextBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox6.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox6.BorderSize = 2;
-            this.rjTextBox6.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox6.ForeColor = System.Drawing.Color.DimGray;
-            this.rjTextBox6.Location = new System.Drawing.Point(528, 277);
-            this.rjTextBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rjTextBox6.Name = "rjTextBox6";
-            this.rjTextBox6.Padding = new System.Windows.Forms.Padding(9);
-            this.rjTextBox6.PasswordChar = false;
-            this.rjTextBox6.Size = new System.Drawing.Size(312, 46);
-            this.rjTextBox6.TabIndex = 80;
-            this.rjTextBox6.Texts = "";
-            this.rjTextBox6.UnderlineStyle = false;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -820,6 +694,185 @@
             this.label7.Size = new System.Drawing.Size(112, 22);
             this.label7.TabIndex = 78;
             this.label7.Text = "Telefono 2:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(147, 191);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 22);
+            this.label6.TabIndex = 75;
+            this.label6.Text = "Telefono:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(139, 34);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 22);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Nombre(s)";
+            // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(960, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(167, 22);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Segundo Apellido";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(559, 34);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 22);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Primer Apellido";
+            // 
+            // rjTextBox4
+            // 
+            this.rjTextBox4.AutoSize = true;
+            this.rjTextBox4.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox4.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjTextBox4.BorderSize = 2;
+            this.rjTextBox4.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox4.ForeColor = System.Drawing.Color.DimGray;
+            this.rjTextBox4.Location = new System.Drawing.Point(455, 262);
+            this.rjTextBox4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.rjTextBox4.Name = "rjTextBox4";
+            this.rjTextBox4.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.rjTextBox4.PasswordChar = false;
+            this.rjTextBox4.Size = new System.Drawing.Size(357, 50);
+            this.rjTextBox4.TabIndex = 83;
+            this.rjTextBox4.Texts = "";
+            this.rjTextBox4.UnderlineStyle = false;
+            // 
+            // txtNumtelefono2
+            // 
+            this.txtNumtelefono2.AutoSize = true;
+            this.txtNumtelefono2.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNumtelefono2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNumtelefono2.BorderSize = 2;
+            this.txtNumtelefono2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumtelefono2.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNumtelefono2.Location = new System.Drawing.Point(783, 172);
+            this.txtNumtelefono2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtNumtelefono2.Name = "txtNumtelefono2";
+            this.txtNumtelefono2.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.txtNumtelefono2.PasswordChar = false;
+            this.txtNumtelefono2.Size = new System.Drawing.Size(357, 50);
+            this.txtNumtelefono2.TabIndex = 81;
+            this.txtNumtelefono2.Texts = "";
+            this.txtNumtelefono2.UnderlineStyle = false;
+            // 
+            // txtNumtelefono
+            // 
+            this.txtNumtelefono.AutoSize = true;
+            this.txtNumtelefono.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNumtelefono.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNumtelefono.BorderSize = 2;
+            this.txtNumtelefono.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumtelefono.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNumtelefono.Location = new System.Drawing.Point(117, 172);
+            this.txtNumtelefono.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtNumtelefono.Name = "txtNumtelefono";
+            this.txtNumtelefono.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.txtNumtelefono.PasswordChar = false;
+            this.txtNumtelefono.Size = new System.Drawing.Size(357, 50);
+            this.txtNumtelefono.TabIndex = 79;
+            this.txtNumtelefono.Texts = "";
+            this.txtNumtelefono.UnderlineStyle = false;
+            // 
+            // txtSegundo
+            // 
+            this.txtSegundo.AutoSize = true;
+            this.txtSegundo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSegundo.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtSegundo.BorderSize = 2;
+            this.txtSegundo.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSegundo.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSegundo.Location = new System.Drawing.Point(893, 57);
+            this.txtSegundo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtSegundo.Name = "txtSegundo";
+            this.txtSegundo.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.txtSegundo.PasswordChar = false;
+            this.txtSegundo.Size = new System.Drawing.Size(352, 50);
+            this.txtSegundo.TabIndex = 77;
+            this.txtSegundo.Texts = "";
+            this.txtSegundo.UnderlineStyle = false;
+            // 
+            // txtPrimer
+            // 
+            this.txtPrimer.AutoSize = true;
+            this.txtPrimer.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrimer.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtPrimer.BorderSize = 2;
+            this.txtPrimer.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrimer.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPrimer.Location = new System.Drawing.Point(471, 57);
+            this.txtPrimer.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtPrimer.Name = "txtPrimer";
+            this.txtPrimer.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.txtPrimer.PasswordChar = false;
+            this.txtPrimer.Size = new System.Drawing.Size(357, 50);
+            this.txtPrimer.TabIndex = 76;
+            this.txtPrimer.Texts = "";
+            this.txtPrimer.UnderlineStyle = false;
+            // 
+            // txtNombretutor
+            // 
+            this.txtNombretutor.AutoSize = true;
+            this.txtNombretutor.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNombretutor.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNombretutor.BorderSize = 2;
+            this.txtNombretutor.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombretutor.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNombretutor.Location = new System.Drawing.Point(37, 57);
+            this.txtNombretutor.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtNombretutor.Name = "txtNombretutor";
+            this.txtNombretutor.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.txtNombretutor.PasswordChar = false;
+            this.txtNombretutor.Size = new System.Drawing.Size(340, 50);
+            this.txtNombretutor.TabIndex = 75;
+            this.txtNombretutor.Texts = "";
+            this.txtNombretutor.UnderlineStyle = false;
+            // 
+            // rjTextBox6
+            // 
+            this.rjTextBox6.AutoSize = true;
+            this.rjTextBox6.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox6.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjTextBox6.BorderSize = 2;
+            this.rjTextBox6.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox6.ForeColor = System.Drawing.Color.DimGray;
+            this.rjTextBox6.Location = new System.Drawing.Point(528, 277);
+            this.rjTextBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rjTextBox6.Name = "rjTextBox6";
+            this.rjTextBox6.Padding = new System.Windows.Forms.Padding(9);
+            this.rjTextBox6.PasswordChar = false;
+            this.rjTextBox6.Size = new System.Drawing.Size(312, 46);
+            this.rjTextBox6.TabIndex = 80;
+            this.rjTextBox6.Texts = "";
+            this.rjTextBox6.UnderlineStyle = false;
             // 
             // txtTelefono2
             // 
@@ -856,19 +909,6 @@
             this.txtTelefono.TabIndex = 76;
             this.txtTelefono.Texts = "";
             this.txtTelefono.UnderlineStyle = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(147, 191);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 22);
-            this.label6.TabIndex = 75;
-            this.label6.Text = "Telefono:";
             // 
             // rjTextBox1
             // 
@@ -923,46 +963,6 @@
             this.rjTextBox3.TabIndex = 72;
             this.rjTextBox3.Texts = "";
             this.rjTextBox3.UnderlineStyle = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(139, 34);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 22);
-            this.label3.TabIndex = 55;
-            this.label3.Text = "Nombre(s)";
-            // 
-            // label4
-            // 
-            this.label4.AutoEllipsis = true;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(960, 34);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 22);
-            this.label4.TabIndex = 56;
-            this.label4.Text = "Segundo Apellido";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(559, 34);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 22);
-            this.label5.TabIndex = 57;
-            this.label5.Text = "Primer Apellido";
             // 
             // frmAlumnos
             // 

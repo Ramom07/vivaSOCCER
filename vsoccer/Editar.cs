@@ -259,7 +259,20 @@ namespace vsoccer
 
         private void btnCancelRegister_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Mostrar un cuadro de diálogo de confirmación con el nuevo mensaje
+            DialogResult resultado = MessageBox.Show("Si regresa no se guardará ningún cambio. ¿Está seguro de eso?", "Confirmación de Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verificar si el usuario seleccionó "Sí"
+            if (resultado == DialogResult.Yes)
+            {
+                // Cerrar el formulario, cancelando el registro
+                this.Close();
+            }
+            else
+            {
+                // Si seleccionó "No", no se hace nada o puedes mostrar un mensaje opcional
+                MessageBox.Show("Operación cancelada. Continúa con el registro.");
+            }
         }
 
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)

@@ -155,7 +155,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.label1.Location = new System.Drawing.Point(637, 434);
+            this.label1.Location = new System.Drawing.Point(608, 434);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 22);
@@ -166,10 +166,10 @@
             // 
             this.cbHorario.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHorario.FormattingEnabled = true;
-            this.cbHorario.Location = new System.Drawing.Point(553, 465);
+            this.cbHorario.Location = new System.Drawing.Point(462, 465);
             this.cbHorario.Margin = new System.Windows.Forms.Padding(5);
             this.cbHorario.Name = "cbHorario";
-            this.cbHorario.Size = new System.Drawing.Size(271, 39);
+            this.cbHorario.Size = new System.Drawing.Size(386, 39);
             this.cbHorario.TabIndex = 67;
             this.cbHorario.SelectedIndexChanged += new System.EventHandler(this.cbHorario_SelectedIndexChanged);
             // 
@@ -209,7 +209,7 @@
             this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
             this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
-            this.btnAddTutorRegister.Location = new System.Drawing.Point(400, 462);
+            this.btnAddTutorRegister.Location = new System.Drawing.Point(407, 521);
             this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAddTutorRegister.Name = "btnAddTutorRegister";
             this.btnAddTutorRegister.Size = new System.Drawing.Size(48, 46);
@@ -231,7 +231,7 @@
             this.btnCancelRegister.Name = "btnCancelRegister";
             this.btnCancelRegister.Size = new System.Drawing.Size(289, 68);
             this.btnCancelRegister.TabIndex = 63;
-            this.btnCancelRegister.Text = "      CANCELAR";
+            this.btnCancelRegister.Text = "      REGRESAR";
             this.btnCancelRegister.UseVisualStyleBackColor = true;
             this.btnCancelRegister.Click += new System.EventHandler(this.btnCancelRegister_Click);
             // 
@@ -282,10 +282,10 @@
             // 
             this.cbSelecTutoRegister.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSelecTutoRegister.FormattingEnabled = true;
-            this.cbSelecTutoRegister.Location = new System.Drawing.Point(41, 462);
+            this.cbSelecTutoRegister.Location = new System.Drawing.Point(20, 521);
             this.cbSelecTutoRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cbSelecTutoRegister.Name = "cbSelecTutoRegister";
-            this.cbSelecTutoRegister.Size = new System.Drawing.Size(269, 39);
+            this.cbSelecTutoRegister.Size = new System.Drawing.Size(297, 39);
             this.cbSelecTutoRegister.TabIndex = 59;
             this.cbSelecTutoRegister.SelectedIndexChanged += new System.EventHandler(this.cbSelecTutoRegister_SelectedIndexChanged);
             // 
@@ -307,7 +307,7 @@
             this.lblAddfhater.BackColor = System.Drawing.Color.Transparent;
             this.lblAddfhater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddfhater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(234)))), ((int)(((byte)(30)))));
-            this.lblAddfhater.Location = new System.Drawing.Point(318, 471);
+            this.lblAddfhater.Location = new System.Drawing.Point(325, 530);
             this.lblAddfhater.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddfhater.Name = "lblAddfhater";
             this.lblAddfhater.Size = new System.Drawing.Size(79, 22);
