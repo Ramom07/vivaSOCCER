@@ -22,6 +22,9 @@ namespace vsoccer
         private string apellidoPaterno;
         private string apellidoMaterno;
         private DateTime fechaNac;
+        private string rutaFoto = ""; // Almacena la ruta de la foto actual
+
+
 
         public Editar(int numControl, string nombre, string apellidoPaterno, string apellidoMaterno, DateTime fechaNac)
         {
@@ -53,13 +56,36 @@ namespace vsoccer
             
         }
 
-        
+        // Método para obtener el ID de la categoría basado en la selección
+        private int ObtenerIdCategoria(string categoriaSeleccionada)
+        {
+            // Diccionario para mapear los nombres de horarios a los IDs de categoría
+            var categoriaMap = new Dictionary<string, int>
+    {
+        {"MINI 1 - Lunes y Miércoles 4PM - 5PM", 1},
+        {"MINI 2 - Martes y Jueves 3PM - 4PM", 6},
+        {"MENOR 1 - Lunes y Miércoles 3PM - 4PM", 2},
+        {"MENOR 2 - Martes y Jueves 4PM - 5PM", 7},
+        {"MAYOR A - Lunes y Miércoles 5PM - 6PM", 3},
+        {"MAYOR B - Martes y Jueves 6PM - 7PM", 8},
+        {"JUVENIL A - Lunes y Miércoles 6PM - 7:30PM", 4},
+        {"JUVENIL B - Martes y Jueves 4PM - 5:30PM", 9},
+        {"PRO - Martes y Jueves 5:30PM - 7PM", 5}
+    };
+
+            // Retornar el ID correspondiente o -1 si no se encuentra
+            return categoriaMap.ContainsKey(categoriaSeleccionada) ? categoriaMap[categoriaSeleccionada] : -1;
+        }
+
+
 
 
         private void CargarHorario()
         {
             
+                                
         }
+
 
 
 
@@ -210,12 +236,13 @@ namespace vsoccer
                             object result = cmd.ExecuteScalar();
                             if (result != null)
                             {
-                                string rutaFoto = result.ToString();
+                                rutaFoto = result.ToString();
                                 if (!string.IsNullOrEmpty(rutaFoto))
                                 {
                                     try
                                     {
                                         PictureBoxAddImageAlum.Image = Image.FromFile(rutaFoto);
+                                        
                                     }
                                     catch
                                     {
@@ -277,10 +304,94 @@ namespace vsoccer
 
         private void btnSaveAlumRegister_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Obtener los datos de los campos del formulario
+                string nombre = txtNom.Text.Trim();
+                string apellido1 = txtAp1.Text.Trim();
+                string apellido2 = txtAp2.Text.Trim();
+                DateTime fechaNacimiento = dtpFechaNaciRegister.Value;
 
-            GuardarImagen(); // Llamar al método para guardar la imagen
+                // Obtener la ruta de la imagen; si no se seleccionó una nueva, usar la ruta original
+                string nuevaRutaImagen = GuardarImagen();
+                string rutaImagen = string.IsNullOrEmpty(nuevaRutaImagen) ? rutaFoto : nuevaRutaImagen;
 
+                int idCategoria = ObtenerIdCategoria(cbHorario.SelectedItem?.ToString() ?? "");
+                int idTutorSeleccionado = (cbSelecTutoRegister.SelectedItem as ComboBoxItem)?.Tag is int idTutor ? idTutor : -1;
+
+                // Validaciones básicas
+                if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido1) || string.IsNullOrEmpty(apellido2))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (idTutorSeleccionado == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un tutor válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (idCategoria == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un horario válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Realizar el UPDATE en la base de datos
+                string queryUpdate = @"
+            UPDATE usuarios
+            INNER JOIN alumnos ON usuarios.id = alumnos.id
+            LEFT JOIN alumno_tutor ON alumnos.numcontrol = alumno_tutor.numcontrol
+            SET 
+                usuarios.nombre = @nombre,
+                usuarios.apellido1 = @apellido1,
+                usuarios.apellido2 = @apellido2,
+                usuarios.foto = @rutaImagen,
+                alumnos.fecha_nac = @fechaNacimiento,
+                alumnos.id_categoria = @idCategoria,
+                alumno_tutor.id_tutor = @idTutor
+            WHERE alumnos.numcontrol = @numControl";
+
+                using (Conexion conexion = new Conexion())
+                {
+                    using (MySqlConnection conn = conexion.AbrirConexion())
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand(queryUpdate, conn))
+                        {
+                            // Asignar los parámetros
+                            cmd.Parameters.AddWithValue("@nombre", nombre);
+                            cmd.Parameters.AddWithValue("@apellido1", apellido1);
+                            cmd.Parameters.AddWithValue("@apellido2", apellido2);
+                            cmd.Parameters.AddWithValue("@rutaImagen", rutaImagen);
+                            cmd.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                            cmd.Parameters.AddWithValue("@idCategoria", idCategoria);
+                            cmd.Parameters.AddWithValue("@idTutor", idTutorSeleccionado);
+                            cmd.Parameters.AddWithValue("@numControl", numControl);
+
+                            // Ejecutar el comando
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            // Notificar al usuario
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Los datos se actualizaron correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close(); // Cerrar el formulario
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo actualizar el registro. Verifique los datos e inténtelo nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los cambios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void cbHorario_SelectedIndexChanged(object sender, EventArgs e)
         {

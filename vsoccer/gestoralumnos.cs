@@ -44,6 +44,8 @@ namespace vsoccer
 
             // Configurar el gráfico
             ConfigurarGrafico();
+            
+            
         }
 
         private void ConfigurarGrafico()
@@ -71,16 +73,25 @@ namespace vsoccer
 
         
 
-        private void cargarTabla(string dato)
+        private void cargarTabla(string categoria)
         {
             try
             {
                 // Obtener la lista de alumnos
                 CtrlAlumnos ctrlAlumnos = new CtrlAlumnos();
-                List<Alumno> lista = ctrlAlumnos.consulta(dato);
+                List<Alumno> lista = ctrlAlumnos.consulta(categoria);
 
                 // Asignar los datos al DataGridView
                 dgDatosAlumnos.DataSource = lista;
+
+                if (string.IsNullOrEmpty(categoria) || categoria == "Todas")
+                {
+                    lista = ctrlAlumnos.consulta(null); // Mostrar todos los alumnos
+                }
+                else
+                {
+                    lista = ctrlAlumnos.consultaPorCategoria(categoria); // Obtener los alumnos filtrados por categoría
+                }
 
                 // Configuración de las columnas
                 if (dgDatosAlumnos.Columns.Count > 0)
@@ -267,34 +278,55 @@ namespace vsoccer
         }
 
         // Evento eliminar (por ahora vacío, puedes implementarlo más tarde)
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            // Implementar la lógica para eliminar un alumno si es necesario
-        }
+        
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
         }
         //btn eliminar
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Mostrar un cuadro de diálogo de confirmación
-            DialogResult resultado = MessageBox.Show("¿SEGURO QUE QUIERES ELIMINAR ALUMNO?", "Confirmación de Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            // Verificar si el usuario seleccionó "Sí"
-            if (resultado == DialogResult.Yes)
+            if (dgDatosAlumnos.SelectedRows.Count > 0)
             {
-                // Lógica para eliminar al alumno
-                MessageBox.Show("Alumno eliminado.");
-                // Aquí puedes agregar el código para eliminar el alumno de la base de datos o lista
+                var fila = dgDatosAlumnos.SelectedRows[0];
+                int numControl = Convert.ToInt32(fila.Cells["Num Control"].Value);
+
+                DialogResult resultado = MessageBox.Show("¿SEGURO QUE QUIERES ELIMINAR ALUMNO?", "Confirmación de Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    // Eliminar alumno de la base de datos
+                    try
+                    {
+                        string sql = "DELETE FROM alumnos WHERE numcontrol = @numcontrol";
+                        using (MySqlConnection conexionBD = new Conexion().AbrirConexion())
+                        {
+                            using (MySqlCommand comando = new MySqlCommand(sql, conexionBD))
+                            {
+                                comando.Parameters.AddWithValue("@numcontrol", numControl);
+                                comando.ExecuteNonQuery();
+                            }
+                        }
+                        MessageBox.Show("Alumno eliminado.");
+                        cargarTabla(null); // Actualizar la tabla
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al eliminar el alumno: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Operación cancelada.");
+                }
             }
             else
             {
-                // Si seleccionó "No", no se hace nada o puedes mostrar un mensaje opcional
-                MessageBox.Show("Operación cancelada.");
+                MessageBox.Show("Por favor, selecciona un alumno para eliminar.");
             }
         }
+
 
         private void btnCerrarsesion_Click(object sender, EventArgs e)
         {
@@ -338,5 +370,11 @@ namespace vsoccer
             toolTip.SetToolTip(btnCerrarsesion, "Cerrar Sesión");
             toolTip.SetToolTip(btnCerrar, "Cerrar");
         }
+
+        
+
+        
+        
+
     }
 }

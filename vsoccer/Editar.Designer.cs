@@ -39,7 +39,6 @@
             this.cbHorario = new System.Windows.Forms.ComboBox();
             this.btnFoto = new System.Windows.Forms.Button();
             this.PictureBoxAddImageAlum = new System.Windows.Forms.PictureBox();
-            this.btnAddTutorRegister = new System.Windows.Forms.Button();
             this.btnCancelRegister = new System.Windows.Forms.Button();
             this.btnSaveAlumRegister = new System.Windows.Forms.Button();
             this.lblname = new System.Windows.Forms.Label();
@@ -70,7 +69,6 @@
             this.gb_Info_Alumno.Controls.Add(this.cbHorario);
             this.gb_Info_Alumno.Controls.Add(this.btnFoto);
             this.gb_Info_Alumno.Controls.Add(this.PictureBoxAddImageAlum);
-            this.gb_Info_Alumno.Controls.Add(this.btnAddTutorRegister);
             this.gb_Info_Alumno.Controls.Add(this.btnCancelRegister);
             this.gb_Info_Alumno.Controls.Add(this.btnSaveAlumRegister);
             this.gb_Info_Alumno.Controls.Add(this.lblname);
@@ -201,20 +199,6 @@
             this.PictureBoxAddImageAlum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxAddImageAlum.TabIndex = 65;
             this.PictureBoxAddImageAlum.TabStop = false;
-            // 
-            // btnAddTutorRegister
-            // 
-            this.btnAddTutorRegister.AutoSize = true;
-            this.btnAddTutorRegister.FlatAppearance.BorderSize = 0;
-            this.btnAddTutorRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTutorRegister.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddTutorRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTutorRegister.Image")));
-            this.btnAddTutorRegister.Location = new System.Drawing.Point(407, 521);
-            this.btnAddTutorRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnAddTutorRegister.Name = "btnAddTutorRegister";
-            this.btnAddTutorRegister.Size = new System.Drawing.Size(48, 46);
-            this.btnAddTutorRegister.TabIndex = 64;
-            this.btnAddTutorRegister.UseVisualStyleBackColor = true;
             // 
             // btnCancelRegister
             // 
@@ -421,7 +405,6 @@
         public System.Windows.Forms.ComboBox cbHorario;
         public System.Windows.Forms.Button btnFoto;
         public System.Windows.Forms.PictureBox PictureBoxAddImageAlum;
-        public System.Windows.Forms.Button btnAddTutorRegister;
         public System.Windows.Forms.Button btnCancelRegister;
         public System.Windows.Forms.Button btnSaveAlumRegister;
         public System.Windows.Forms.Label lblname;
