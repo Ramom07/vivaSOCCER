@@ -304,6 +304,13 @@ namespace vsoccer
             txtCalificacion2.Visible = true;
             txtCalificacion3.Visible = true;
             txtCalificacion4.Visible = true;
+
+            // Mostrar Labels
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
             // Mostrar el gráfico
             chtCalificaciones.Visible = true;
             // Botón para guardar las calificaciones
@@ -403,6 +410,13 @@ namespace vsoccer
             txtCalificacion4.Visible = false;
             btnGuardarCalificaciones.Visible = false;
             chtCalificaciones.Visible = false;
+
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+
 
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnAgregar, "Agregar Alumno Nuevo");
