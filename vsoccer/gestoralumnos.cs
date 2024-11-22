@@ -282,8 +282,38 @@ namespace vsoccer
 
         private void dgDatosAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (dgDatosAlumnos.SelectedRows.Count > 0)
+            {
+                // Muestra un cuadro de diálogo confirmando si deseas evaluar al alumno
+                var result = MessageBox.Show("¿Deseas evaluar al alumno seleccionado?", "Evaluar Alumno", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Muestra los cuadros de texto para ingresar calificaciones
+                    ShowCalificacionesInputs();
+                }
+            }
+
         }
+
+
+        private void ShowCalificacionesInputs()
+        {
+            // Mostrar TextBoxes para las calificaciones
+            txtCalificacion1.Visible = true;
+            txtCalificacion2.Visible = true;
+            txtCalificacion3.Visible = true;
+            txtCalificacion4.Visible = true;
+            // Mostrar el gráfico
+            chtCalificaciones.Visible = true;
+            // Botón para guardar las calificaciones
+            btnGuardarCalificaciones.Visible = true;
+
+
+        }
+
+        
+
         //btn eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -348,6 +378,8 @@ namespace vsoccer
 
         }
 
+
+
         public static int NumControlSeleccionado { get; private set; }
         private void dgDatosAlumnos_SelectionChanged(object sender, EventArgs e)
         {
@@ -356,13 +388,22 @@ namespace vsoccer
                 // Obtener la fila seleccionada
                 var fila = dgDatosAlumnos.SelectedRows[0];
 
-                // Obtener el número de control
+                // Obtener el número de control directamente desde la fila seleccionada
+                // Si el número de control está en la primera columna (índice 0)
                 NumControlSeleccionado = Convert.ToInt32(fila.Cells[0].Value);
             }
         }
 
         private void gestoralumnos_Load(object sender, EventArgs e)
         {
+            // Ocultar los elementos al cargar el formulario
+            txtCalificacion1.Visible = false;
+            txtCalificacion2.Visible = false;
+            txtCalificacion3.Visible = false;
+            txtCalificacion4.Visible = false;
+            btnGuardarCalificaciones.Visible = false;
+            chtCalificaciones.Visible = false;
+
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnAgregar, "Agregar Alumno Nuevo");
             toolTip.SetToolTip(btnEditar, "Editar información del alumno");
@@ -371,10 +412,97 @@ namespace vsoccer
             toolTip.SetToolTip(btnCerrar, "Cerrar");
         }
 
-        
+        private void btnGuardarCalificaciones_Click(object sender, EventArgs e)
+        {
+            if (dgDatosAlumnos.SelectedRows.Count > 0)
+            {
+                var numControl = NumControlSeleccionado.ToString();
 
-        
-        
+                if (float.TryParse(txtCalificacion1.Text, out float calificacion1) &&
+                    float.TryParse(txtCalificacion2.Text, out float calificacion2) &&
+                    float.TryParse(txtCalificacion3.Text, out float calificacion3) &&
+                    float.TryParse(txtCalificacion4.Text, out float calificacion4))
+                {
+                    // Validar que las calificaciones estén entre 1 y 10
+                    if (calificacion1 >= 1 && calificacion1 <= 10 &&
+                        calificacion2 >= 1 && calificacion2 <= 10 &&
+                        calificacion3 >= 1 && calificacion3 <= 10 &&
+                        calificacion4 >= 1 && calificacion4 <= 10)
+                    {
+                        // Calcular el promedio con 4 calificaciones
+                        float promedio = (calificacion1 + calificacion2 + calificacion3 + calificacion4) / 4;
 
+                        // Guardar las calificaciones
+                        SaveCalificaciones(numControl, calificacion1, calificacion2, calificacion3, calificacion4, promedio);
+
+                        // Actualizar el gráfico
+                        UpdateChart(promedio);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las calificaciones deben estar entre 1 y 10.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa calificaciones válidas.");
+                }
+            }
+        }
+
+        private void SaveCalificaciones(string numControl, float Calificacion1, float calificacion2, float calificacion3, float calificacion4, float promedio)
+        {
+            // Aquí deberías guardar las calificaciones en una base de datos
+            // Este es solo un ejemplo
+            MessageBox.Show($"Calificaciones guardadas para el alumno {numControl}. Calificaciones: {Calificacion1}, {calificacion2}, {calificacion3}, {calificacion4}. Promedio: {promedio}");
+        }
+
+        private void UpdateChart(float promedio)
+        {
+            // Aquí actualizamos el gráfico con el promedio
+            chtCalificaciones.Series["PROMEDIO"].Points.Clear();  // Limpiar puntos anteriores
+            chtCalificaciones.Series["PROMEDIO"].Points.Add(promedio);  // Añadir el nuevo promedio
+        }
+
+        private void txtCalificacion1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCalificacion1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalificacion2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalificacion3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCalificacion4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
